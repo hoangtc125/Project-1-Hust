@@ -1,5 +1,5 @@
-stackjava\com\springmvcjdbc\controller\CustomerController.class
-stackjava\com\springmvcjdbc\service\CustomerService.class
-stackjava\com\springmvcjdbc\entities\CustomerMapper.class
-stackjava\com\springmvcjdbc\dao\CustomerDAO.class
-stackjava\com\springmvcjdbc\entities\Customer.class
+com\prj1\controller\CustomerController.class
+com\prj1\entities\Customer.class
+com\prj1\entities\CustomerMapper.class
+com\prj1\dao\CustomerDAO.class
+com\prj1\services\CustomerService.class
