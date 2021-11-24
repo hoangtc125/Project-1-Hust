@@ -12,7 +12,7 @@
 	<context:component-scan base-package="com.prj1" />
 	
 	<mvc:annotation-driven />
- 		 <mvc:resources mapping="/resources/**" location="/resources/bootstrap/"
+ 	<mvc:resources mapping="/resources/**" location="/resources/bootstrap/"
     cache-period="31556926" />
     
 	<bean

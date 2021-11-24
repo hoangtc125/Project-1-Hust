@@ -1,25 +1,17 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title>Helo Spring MVC + JDBC</title>
+	<title>Helo Spring MVC + JDBC</title>
+	
+	<title>index</title>
+	<link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	  rel="stylesheet">
+	<script src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 
-<title>index</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />"
-  rel="stylesheet">
-<script src="<c:url value="/resources/js/bunble.min.js" />"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<style>
-table, th, td {
-	border: 1px solid black;
-}
-td {
-	padding-right: 30px;
-}
-</style>
 </head>
 
-
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -30,13 +22,13 @@ td {
             class="icon-bar"></span> <span class="icon-bar"></span> <span
             class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="#">Home</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse"
         id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="https://github.com/hoangtc125/Project-1-Hust">GitHub<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Link</a></li>
           <li class="dropdown"><a href="#" class="dropdown-toggle"
             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -58,10 +50,10 @@ td {
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
+          <li class="navbar-brand">Admin</li>
           <li class="dropdown"><a href="#" class="dropdown-toggle"
             data-toggle="dropdown" role="button" aria-haspopup="true"
-            aria-expanded="false">Dropdown <span class="caret"></span></a>
+            aria-expanded="false">Services <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Action</a></li>
               <li><a href="#">Another action</a></li>
@@ -112,7 +104,7 @@ td {
 	</table>
 	<div></div>
 	<div class="jumbotron">
-  <h1>Hello, world!</h1>
+  <h1>Project 1 - Back end Java Spring MVC</h1>
 	  <p>...</p>
 	  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 	</div>
