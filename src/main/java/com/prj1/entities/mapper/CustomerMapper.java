@@ -1,9 +1,11 @@
-package com.prj1.entities;
+package com.prj1.entities.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
+
+import com.prj1.entities.Customer;
 
 public class CustomerMapper implements RowMapper<Customer> {
 

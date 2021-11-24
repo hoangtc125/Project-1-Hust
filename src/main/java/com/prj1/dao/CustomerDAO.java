@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.prj1.entities.Customer;
-import com.prj1.entities.CustomerMapper;
+import com.prj1.entities.mapper.CustomerMapper;
 
 @Repository
 @Transactional

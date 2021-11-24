@@ -10,6 +10,11 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<context:component-scan base-package="com.prj1" />
+	
+	<mvc:annotation-driven />
+ 		 <mvc:resources mapping="/resources/**" location="/resources/bootstrap/"
+    cache-period="31556926" />
+    
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
