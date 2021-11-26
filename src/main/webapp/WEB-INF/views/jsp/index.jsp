@@ -1,16 +1,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Project 1</title>
-</head>
-<body>
-  <c:url value="/user-list" var="urlList"/>
-  <c:url value="/login" var="urlLogin"/>
-  <h1>List user </h1>
-  <a href="${urlList}">View List User</a>
-  <h1>Login </h1>
-  <a href="${urlLogin}">Login here</a>
-</body>
-</html>
+<c:url value="/user-list" var="urlList"/>
+<c:url value="/login" var="urlLogin"/>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+		<h1 class="d-flex justify-content-center">List user </h1>
+		<a href="${urlList} " class="d-flex justify-content-center">View List User</a>
+    </div>
+    <div class="col">
+		<h1 class="d-flex justify-content-center">Login </h1>
+		<a href="${urlLogin}" class="d-flex justify-content-center">Login here</a>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<html>
-<head>
-<title>Update User</title>
-</head>
-<body>
+
   <a href="<c:url value="/user-list" />">List User</a>
   <br />
   <h1>Edit User:</h1>
@@ -19,5 +15,3 @@
       Enabled: <form:input path="enabled" /> <br/> <br/>
     <button type="submit">Submit</button>
   </form:form>
-</body>
-</html>
