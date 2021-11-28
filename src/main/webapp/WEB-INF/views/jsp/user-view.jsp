@@ -2,6 +2,6 @@
 
   <a href="<c:url value="/user-list" />" >List User</a><br />
   <h1>View User:</h1>  
-  User MSSV: ${customer.mssv} <br/>
-  User Name: ${customer.name} <br/>
-  User Class: ${customer.clazz} <br/>
+  User MSSV: ${user.mssv} <br/>
+  User Name: ${user.name} <br/>
+  User Class: ${user.clazz} <br/>

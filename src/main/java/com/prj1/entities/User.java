@@ -27,22 +27,30 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 public class User implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
+	
 	@Column(name = "name")
 	private String name;
+	
 	@Column(name = "mssv")
 	private String mssv;
+	
 	@Column(name = "clazz")
 	private String clazz;
+	
 	@Column(name = "username", unique = true, length = 45)
 	private String username;
+	
 	@Column(name = "password")
 	private String password;
+	
 	@Column(name = "enabled", nullable = false, columnDefinition = "TINYINT(1)")
 	private Boolean enabled;
+	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
 	private Set<UsersRoles> usersRoleses = new HashSet<UsersRoles>(0);
 
@@ -126,6 +134,7 @@ public class User implements java.io.Serializable {
 	public List<GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for (UsersRoles usersRoles: this.usersRoleses) {
+			System.out.println(usersRoles.getRole().getName());
 			authorities.add(new SimpleGrantedAuthority(usersRoles.getRole().getName()));
 		}
 		return authorities;

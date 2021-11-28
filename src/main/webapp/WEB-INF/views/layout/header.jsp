@@ -24,7 +24,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled">${pageContext.request.userPrincipal.name}</a>
         </li>
       </ul>
       <form class="d-flex">

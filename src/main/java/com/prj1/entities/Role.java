@@ -11,17 +11,22 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+// đánh dấu là một entity chịu sự quản lý của hirbenate
 @Entity
+// entity này đại diện cho table role trong db cttsis
 @Table(name = "role", catalog = "cttsis")
 public class Role implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Id
+	
+	@Id // khóa chính
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
+	
 	@Column(name = "name", length = 45)
 	private String name;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
 	private Set<UsersRoles> usersRoleses = new HashSet<UsersRoles>(0);
 

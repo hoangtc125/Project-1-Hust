@@ -15,13 +15,16 @@ import javax.persistence.Table;
 public class UsersRoles implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "role")
 	private Role role;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user")
 	private User users;

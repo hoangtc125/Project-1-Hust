@@ -1,9 +1,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:url value="/user-save" var="urlSave"/>
-<c:url value="/user-view/" var="urlView"/>
-<c:url value="/user-update/" var="urlUpdate"/>
-<c:url value="/userDelete/" var="urlDelete"/>
+<c:url value="/user-view" var="urlView"/>
+<c:url value="/user-update" var="urlUpdate"/>
+<c:url value="/userDelete" var="urlDelete"/>
 <div class="d-flex justify-content-center">
 <h1>List user:</h1>
 <a href="${urlSave}">Add user</a>

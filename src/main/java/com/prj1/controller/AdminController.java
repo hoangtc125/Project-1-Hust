@@ -12,8 +12,11 @@ import com.prj1.service.UserService;
 
 @Controller
 public class AdminController {
+	
+//    Tiem su phu thuoc
 	 @Autowired
 	  private UserService userService;
+	 
 	  @RequestMapping(value={"/user-list"})
 	  public String listuser(Model model) {
 	    model.addAttribute("listUser", userService.findAll());
