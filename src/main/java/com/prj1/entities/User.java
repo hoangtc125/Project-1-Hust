@@ -130,6 +130,18 @@ public class User implements java.io.Serializable {
 		this.usersRoleses = usersRoleses;
 	}
 	
+	public String getRole() {
+		for (UsersRoles usersRoles: this.usersRoleses) {
+			return usersRoles.getRole().getName();
+		}
+		return "";
+	}
+	
+	public String getNameVN() {
+		String [] strings = this.getName().split(" ");
+		return strings[strings.length - 1];
+	}
+	
 	@Transient
 	public List<GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();

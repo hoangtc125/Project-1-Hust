@@ -9,7 +9,7 @@
     </div>
     <div class="col-5" class="d-flex justify-content-center">
 		    <h1>Login to access our app</h1>
-		<h2>${message}</h2>
+		
     
 		<table class= "table">
 			<tr class="mb-3">
@@ -21,7 +21,8 @@
 				<td><input type='password' name='password' class="form-control"/></td>
 			</tr>
 			<tr class="mb-3">
-				<td colspan='2'><input name="submit" type="submit" value="login" class="btn btn-primary"/></td>
+				<td colspan='2'><input name="submit" type="submit" value="login" class="btn btn-primary "/></td>
+				<td><h2>${message}</h2></td>
 			</tr>
 		</table>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

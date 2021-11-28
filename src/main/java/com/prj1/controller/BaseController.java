@@ -28,7 +28,7 @@ public class BaseController {
 		return "admin";
 	}
 
-	@RequestMapping("/user")
+	@RequestMapping("/myAcc")
 	public String user() {
 		return "user";
 	}
