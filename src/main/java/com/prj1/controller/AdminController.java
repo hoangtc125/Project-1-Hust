@@ -3,9 +3,13 @@ package com.prj1.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj1.entities.User;
@@ -18,18 +22,46 @@ public class AdminController {
 	 @Autowired
 	  private UserService userService;
 	 
-	  @RequestMapping(value={"/user-list"})
-	  public String listuser(@RequestParam("sort") String typeSort, Model model) {
+	  @RequestMapping(value="/user-list", method = RequestMethod.GET)
+	  public String listuser(@RequestParam(required=false, name = "sort", defaultValue="name") String typeSort, @RequestParam(required=false,name="mssv") String mssv, @ModelAttribute("user") User user, Model model) {
+		if(mssv != null) {
+			System.out.println(mssv);
+			model.addAttribute("listUser", userService.searchByMssv(userService.findAll(), mssv));
+			return "user-list";
+		}
+		  
 		if(typeSort.compareTo("name") == 0) {
-		    model.addAttribute("listUser", userService.sortByName());
+		    model.addAttribute("listUser", userService.sortByName(userService.findAll()));
 		} else if(typeSort.compareTo("mssv") == 0) {
-			model.addAttribute("listUser", userService.sortByMssv());
+			model.addAttribute("listUser", userService.sortByMssv(userService.findAll()));
 		} else if(typeSort.compareTo("role") == 0) {
-			model.addAttribute("listUser", userService.sortByRole());
+			model.addAttribute("listUser", userService.sortByRole(userService.findAll()));
 		} else{	
 			model.addAttribute("listUser", userService.findAll());
 		}
+		
 	    return "user-list";
+	  }
+	  
+	  @RequestMapping(value="/user-list-deleted", method = RequestMethod.GET)
+	  public String listuserdeleted(@RequestParam(required=false, name = "sort", defaultValue="") String typeSort, @RequestParam(required=false,name="mssv") String mssv, @ModelAttribute("user") User user, Model model) {
+		if(mssv != null) {
+			System.out.println(mssv);
+			model.addAttribute("listUser", userService.searchByMssv(userService.findAllDeleted(), mssv));
+			return "user-list-deleted";
+		}
+		  
+		if(typeSort.compareTo("name") == 0) {
+		    model.addAttribute("listUser", userService.sortByName(userService.findAllDeleted()));
+		} else if(typeSort.compareTo("mssv") == 0) {
+			model.addAttribute("listUser", userService.sortByMssv(userService.findAllDeleted()));
+		} else if(typeSort.compareTo("role") == 0) {
+			model.addAttribute("listUser", userService.sortByRole(userService.findAllDeleted()));
+		} else{	
+			model.addAttribute("listUser", userService.findAllDeleted());
+		}
+		
+	    return "user-list-deleted";
 	  }
 	  
 	  @RequestMapping("/user-save")
@@ -69,10 +101,24 @@ public class AdminController {
 	    return "user-list";
 	  }
 	  
+	  @RequestMapping("/user-restore/{id}")
+	  public String dorestoreUser(@PathVariable int id, Model model) {
+	    userService.restoreById(id);
+	    model.addAttribute("listUser", userService.findAllDeleted());
+	    return "user-list-deleted";
+	  }
+	  
+	  @RequestMapping("/userSoftDelete/{id}")
+	  public String doSoftDeleteuser(@PathVariable int id, Model model) {
+	    userService.softDelete(id);
+	    model.addAttribute("listUser", userService.findAll());
+	    return "user-list";
+	  }
+	  
 	  @RequestMapping("/userDelete/{id}")
 	  public String doDeleteuser(@PathVariable int id, Model model) {
 	    userService.delete(id);
-	    model.addAttribute("listUser", userService.findAll());
-	    return "user-list";
+	    model.addAttribute("listUser", userService.findAllDeleted());
+	    return "user-list-deleted";
 	  }
 }

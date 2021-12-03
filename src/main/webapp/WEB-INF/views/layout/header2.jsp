@@ -16,7 +16,7 @@
         </li>
       </ul>
     </div>
-    <form class="d-flex" style="margin-top: 10px" action="<c:url value="/user-list" />" method="get">
+    <form class="d-flex" style="margin-top: 10px" action="<c:url value="/user-list-deleted" />" method="get">
         <input name="mssv" class="form-control me-2" type="search" placeholder="Search user by mssv" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>

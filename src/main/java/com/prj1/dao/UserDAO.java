@@ -21,7 +21,7 @@ public class UserDAO {
 	public User loadUserByUsername(final String username) {
 		List<User> users = new ArrayList<User>();
 		Session session = this.sessionFactory.getCurrentSession();
-		users = session.createQuery("from User where username=?", User.class).setParameter(0, username).list();
+		users = session.createQuery("from User where username=? and isDeleted = 0", User.class).setParameter(0, username).list();
 		if (users.size() > 0) {
 			return users.get(0);
 		} else {
@@ -48,6 +48,10 @@ public class UserDAO {
 	  }
 	  public List<User> findAll() {
 	    Session session = this.sessionFactory.getCurrentSession();
-	    return session.createQuery("from User", User.class).getResultList();
+	    return session.createQuery("from User where isDeleted = 0", User.class).getResultList();
+	  }
+	  public List<User> findAllDeleted() {
+	    Session session = this.sessionFactory.getCurrentSession();
+	    return session.createQuery("from User where isDeleted = 1", User.class).getResultList();
 	  }
 }

@@ -21,8 +21,19 @@ public class UserService {
 	  public List<User> findAll() {
 	    return userDAO.findAll();
 	  }
+	  
+	  public List<User> findAllDeleted() {
+		    return userDAO.findAllDeleted();
+		  }
+	  
 	  public User findById(int id) {
 	    return userDAO.findById(id);
+	  }
+	  
+	  public void restoreById(int id) {
+		  User user = userDAO.findById(id);
+		  user.setIsDeleted(0);
+		    userDAO.update(user);
 	  }
 	  
 	  public User findByUsername(String username) {
@@ -43,13 +54,20 @@ public class UserService {
 	    userDAO.update(user);
 	  }
 	  
+	  public void softDelete(int id){
+	    // validate business
+	  User user = userDAO.findById(id);
+	  user.setIsDeleted(1);
+	    userDAO.update(user);
+	  }
+	  
 	  public void delete(int id){
 	    // validate business
 	    userDAO.delete(userDAO.findById(id));
 	  }
-	public List<User> sortByName() {
+	  
+	public List<User> sortByName(List<User> list) {
 		// TODO Auto-generated method stub
-		List<User> list = userDAO.findAll();
 		List<User> res = new ArrayList<User>();
 		int sz = list.size();
 		while(list.size() != 0) {
@@ -63,9 +81,8 @@ public class UserService {
 		return res;
 	}
 
-	public List<User> sortByMssv() {
+	public List<User> sortByMssv(List<User> list) {
 		// TODO Auto-generated method stub
-		List<User> list = userDAO.findAll();
 		List<User> res = new ArrayList<User>();
 		int sz = list.size();
 		while(list.size() != 0) {
@@ -79,9 +96,8 @@ public class UserService {
 		return res;
 	}
 	
-	public List<User> sortByRole() {
+	public List<User> sortByRole(List<User> list) {
 		// TODO Auto-generated method stub
-		List<User> list = userDAO.findAll();
 		List<User> res = new ArrayList<User>();
 		int sz = list.size();
 		while(list.size() != 0) {
@@ -94,11 +110,10 @@ public class UserService {
 		}
 		return res;
 	}
-	public List<User> searchByMssv(String mssv) {
+	public List<User> searchByMssv(List<User> list, String mssv) {
 		// TODO Auto-generated method stub
-		List<User> list = userDAO.findAll();
 		List<User> res = new ArrayList<User>();
-		for (User user : res) {
+		for (User user : list) {
 			if(user.getMssv().compareTo(mssv) == 0) {
 				res.add(user);
 			}

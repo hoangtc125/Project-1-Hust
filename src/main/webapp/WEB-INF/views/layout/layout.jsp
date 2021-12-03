@@ -10,7 +10,7 @@
 <body>
   <tiles:insertAttribute name="header" />
   <br/>
-  <div style="display:inline">
+  <div class="d-flex flex-column bd-highlight mb-3">
     <tiles:insertAttribute name="body" />
   </div>
   <br/>

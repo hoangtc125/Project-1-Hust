@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url value="/user-list?sort=" var="urlList"/>
+<c:url value="/user-list" var="urlList"/>
 <c:url value="/login" var="urlLogin"/>
 
 <div class="container">

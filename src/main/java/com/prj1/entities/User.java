@@ -2,6 +2,7 @@ package com.prj1.entities;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,25 +32,31 @@ public class User implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private Integer id;
+	private Integer id = -1;
 	
 	@Column(name = "name")
-	private String name;
+	private String name = "";
 	
 	@Column(name = "mssv")
-	private String mssv;
+	private String mssv = "";
 	
 	@Column(name = "clazz")
-	private String clazz;
+	private String clazz = "";
+	
+	@Column(name = "isDeleted")
+	private Integer isDeleted = 0;
+
+	@Column(name = "dateDeleted")
+	private Date dateDeleted = null;
 	
 	@Column(name = "username", unique = true, length = 45)
-	private String username;
+	private String username = "";
 	
 	@Column(name = "password")
-	private String password;
+	private String password = "";
 	
 	@Column(name = "enabled", nullable = false, columnDefinition = "TINYINT(1)")
-	private Boolean enabled;
+	private Boolean enabled = false;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
 	private Set<UsersRoles> usersRoleses = new HashSet<UsersRoles>(0);
@@ -104,6 +111,22 @@ public class User implements java.io.Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Integer getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(Integer isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	public Date getDateDeleted() {
+		return dateDeleted;
+	}
+
+	public void setDateDeleted(Date dateDeleted) {
+		this.dateDeleted = dateDeleted;
 	}
 
 	public String getMssv() {

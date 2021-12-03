@@ -26,6 +26,11 @@
     <put-attribute name="title" value="List Users" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/user-list.jsp" />
   </definition>
+  <definition name="user-list-deleted" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List Users" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/user-list-deleted.jsp" />
+  </definition>
   <definition name="user-save" extends="index">
     <put-attribute name="title" value="Add User" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/user-save.jsp" />
