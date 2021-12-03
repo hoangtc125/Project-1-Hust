@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.prj1.entities.Role;
 import com.prj1.entities.User;
+import com.prj1.entities.UsersRoles;
+
+import javassist.expr.NewArray;
 
 @Repository(value = "userDAO")
 @Transactional(rollbackFor = Exception.class)
@@ -29,9 +33,41 @@ public class UserDAO {
 		}
 
 	}
+	public UsersRoles loadUsersRolesByUser(final User user) {
+		Session session = this.sessionFactory.getCurrentSession();
+		UsersRoles usersRoles = session.createQuery("from UsersRoles where user = ?", UsersRoles.class).setParameter(0, user.getId()).getSingleResult();
+		return usersRoles;
+	}
+	
+	public Role loadRoleByRoleUser() {
+		Session session = this.sessionFactory.getCurrentSession();
+		Role role = session.createQuery("from Role where id = 2", Role.class).getSingleResult();
+		return role;
+	}
+	public Role loadRoleByRoleAdmin() {
+		Session session = this.sessionFactory.getCurrentSession();
+		Role role = session.createQuery("from Role where id = 1", Role.class).getSingleResult();
+		return role;
+	}
 	
 	public void save(final User user) {
 	    Session session = this.sessionFactory.getCurrentSession();
+	    session.save(user);
+	  }
+	public void saveUser(final User user) {
+	    Session session = this.sessionFactory.getCurrentSession();
+	    UsersRoles usersRoles = new UsersRoles();
+	    usersRoles.setUsers(user);
+	    usersRoles.setRole(loadRoleByRoleUser());
+	    session.save(usersRoles);
+	    session.save(user);
+	  }
+	public void saveAdmin(final User user) {
+	    Session session = this.sessionFactory.getCurrentSession();
+	    UsersRoles usersRoles = new UsersRoles();
+	    usersRoles.setUsers(user);
+	    usersRoles.setRole(loadRoleByRoleAdmin());
+	    session.save(usersRoles);
 	    session.save(user);
 	  }
 	  public void update(final User user) {
@@ -44,6 +80,7 @@ public class UserDAO {
 	  }
 	  public void delete(final User user) {
 	    Session session = this.sessionFactory.getCurrentSession();
+	    session.remove(loadUsersRolesByUser(user));
 	    session.remove(user);
 	  }
 	  public List<User> findAll() {

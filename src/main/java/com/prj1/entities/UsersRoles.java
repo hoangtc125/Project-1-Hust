@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "UsersRoles")
 @Table(name = "users_role", catalog = "cttsis")
 public class UsersRoles implements java.io.Serializable {
 

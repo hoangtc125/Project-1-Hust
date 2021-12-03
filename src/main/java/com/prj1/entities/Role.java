@@ -12,7 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 // đánh dấu là một entity chịu sự quản lý của hirbenate
-@Entity
+
+@Entity(name = "Role")
 // entity này đại diện cho table role trong db cttsis
 @Table(name = "role", catalog = "cttsis")
 public class Role implements java.io.Serializable {

@@ -51,7 +51,7 @@
 <td>${user.getRole()}</td>
 <td> <a href="${urlView}/${user.id}">View</a></td>
 <td> <a href="${urlUpdate}/${user.id}/${pageContext.request.userPrincipal.name}">Edit</a></td>
-<td> <a href="${urlSoftDelete}/${user.id}">Delete</a></td>
+<td> <a href="${urlSoftDelete}/${user.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>
 </tr>
 </c:forEach>
 </c:if>

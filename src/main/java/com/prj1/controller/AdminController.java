@@ -90,7 +90,13 @@ public class AdminController {
 	 
 	  @RequestMapping("/saveUser")
 	  public String doSaveuser(@ModelAttribute("user") User user, Model model) {
-	    userService.save(user);
+	    userService.saveUser(user);
+	    model.addAttribute("listUser", userService.findAll());
+	    return "user-list";
+	  }
+	  @RequestMapping("/saveAdmin")
+	  public String doSaveadmin(@ModelAttribute("user") User user, Model model) {
+	    userService.saveAdmin(user);
 	    model.addAttribute("listUser", userService.findAll());
 	    return "user-list";
 	  }
@@ -108,9 +114,9 @@ public class AdminController {
 	    return "user-list-deleted";
 	  }
 	  
-	  @RequestMapping("/userSoftDelete/{id}")
-	  public String doSoftDeleteuser(@PathVariable int id, Model model) {
-	    userService.softDelete(id);
+	  @RequestMapping("/userSoftDelete/{id}/{username}")
+	  public String doSoftDeleteuser(@PathVariable int id, @PathVariable String username, Model model) {
+	    userService.softDelete(id, username);
 	    model.addAttribute("listUser", userService.findAll());
 	    return "user-list";
 	  }

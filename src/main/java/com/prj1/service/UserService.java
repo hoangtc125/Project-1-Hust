@@ -49,21 +49,33 @@ public class UserService {
 	    // validate business
 	    userDAO.save(user);
 	  }
+	  
+	  public void saveUser(User user){
+		    // validate business
+		    userDAO.saveUser(user);
+		  }
+	  public void saveAdmin(User user){
+		    // validate business
+		    userDAO.saveAdmin(user);
+		  }
+	  
 	  public void update(User user){
 	    // validate business
 	    userDAO.update(user);
 	  }
 	  
-	  public void softDelete(int id){
+	  public void softDelete(int id, String username){
 	    // validate business
-	  User user = userDAO.findById(id);
-	  user.setIsDeleted(1);
-	    userDAO.update(user);
+		  User user = userDAO.findById(id);
+		  if(username.compareTo(user.getUsername()) != 0) {
+			  user.setIsDeleted(1);
+			  userDAO.update(user);
+		  }
 	  }
 	  
 	  public void delete(int id){
 	    // validate business
-	    userDAO.delete(userDAO.findById(id));
+		  userDAO.delete(userDAO.findById(id));
 	  }
 	  
 	public List<User> sortByName(List<User> list) {
