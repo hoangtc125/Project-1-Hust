@@ -10,7 +10,7 @@ public class BaseController {
 	
 	@RequestMapping("/")
 	public String index() {
-		return "index";
+		return "redirect:news-list";
 	}
 	
 	@RequestMapping("/accessDenied")

@@ -28,6 +28,9 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/prj1.com/myAcc">Your account</a></li>
             <li><a class="dropdown-item" href="/prj1.com/user-update/-1/${pageContext.request.userPrincipal.name}">Setting</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/user-list">Management User</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/news-list-management">Management News</a></li>
+            
             <li><hr class="dropdown-divider"></li>
             <li>
             	<form class="dropdown-item" action="<c:url value="/j_spring_security_logout" />" method="post">

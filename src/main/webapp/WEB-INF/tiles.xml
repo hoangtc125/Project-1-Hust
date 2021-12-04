@@ -28,7 +28,7 @@
   </definition>
   <definition name="user-list-deleted" extends="index">
     <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
-    <put-attribute name="title" value="List Users" />
+    <put-attribute name="title" value="List Users Deleted" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/user-list-deleted.jsp" />
   </definition>
   <definition name="user-save" extends="index">
@@ -44,7 +44,38 @@
     <put-attribute name="body" value="/WEB-INF/views/jsp/user-view.jsp" />
   </definition>
   <definition name="accessDenied" extends="index">
-    <put-attribute name="title" value="403 Error 💔" />
+    <put-attribute name="title" value="403 Error" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/accessDenied.jsp" />
+  </definition>
+  <definition name="news-list" extends="index">
+    <put-attribute name="title" value="News Project 1" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news-list.jsp" />
+  </definition>
+  <definition name="news-view" extends="index">
+    <put-attribute name="title" value="News Detail" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news-view.jsp" />
+  </definition>
+  <definition name="news-list-deleted" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List Users Deleted" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news-list-deleted.jsp" />
+  </definition>
+  <definition name="news-save" extends="index">
+    <put-attribute name="title" value="Add User" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news-save.jsp" />
+  </definition>
+  <definition name="news-update" extends="index">
+    <put-attribute name="title" value="Update User" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news-update.jsp" />
+  </definition>
+  <definition name="news-list-deleted" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List News Deleted" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news-list-deleted.jsp" />
+  </definition>
+  <definition name="news-list-management" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List News Management" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news-list-management.jsp" />
   </definition>
 </tiles-definitions>
