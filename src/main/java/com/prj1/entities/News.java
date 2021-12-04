@@ -10,7 +10,7 @@ import javax.persistence.Table;
 // đánh dấu là một entity chịu sự quản lý của hirbenate
 
 @Entity(name = "News")
-// entity này đại diện cho table role trong db cttsis
+// entity này đại diện cho table news trong db cttsis
 @Table(name = "news", catalog = "cttsis")
 public class News implements java.io.Serializable {
 

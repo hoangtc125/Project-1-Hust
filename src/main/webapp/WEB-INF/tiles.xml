@@ -78,4 +78,16 @@
     <put-attribute name="title" value="List News Management" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/news-list-management.jsp" />
   </definition>
+  <definition name="mail-list" extends="index">
+    <put-attribute name="title" value="Your Mails" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/mail-list.jsp" />
+  </definition>
+  <definition name="mail-view" extends="index">
+    <put-attribute name="title" value="Mail Detail" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/mail-view.jsp" />
+  </definition>
+  <definition name="mail-save" extends="index">
+    <put-attribute name="title" value="Add New Mail" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/mail-save.jsp" />
+  </definition>
 </tiles-definitions>

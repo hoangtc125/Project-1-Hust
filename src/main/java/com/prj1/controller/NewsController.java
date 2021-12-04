@@ -87,34 +87,34 @@ public class NewsController {
 	  public String doSavenews(@ModelAttribute("news") News news, Model model) {
 	    newsService.save(news);
 	    model.addAttribute("listNews", newsService.findAll());
-	    return "news-list-management";
+	    return "redirect:/news-list-management";
 	  }
 	 
 	  @RequestMapping("/updateNews")
 	  public String doUpdatenews(@ModelAttribute("news") News news, Model model) {
 	    newsService.update(news);
 	    model.addAttribute("listNews", newsService.findAll());
-	    return "news-list-management";
+	    return "redirect:/news-list-management";
 	  }
 	  
 	  @RequestMapping("/news-restore/{id}")
 	  public String dorestoreNews(@PathVariable int id, Model model) {
 	    newsService.restoreById(id);
 	    model.addAttribute("listNews", newsService.findAllDeleted());
-	    return "news-list-deleted";
+	    return "redirect:/news-list-deleted";
 	  }
 	  
 	  @RequestMapping("/newsSoftDelete/{id}/{newsname}")
 	  public String doSoftDeletenews(@PathVariable int id, @PathVariable String newsname, Model model) {
 	    newsService.softDelete(id, newsname);
 	    model.addAttribute("listNews", newsService.findAll());
-	    return "news-list-management";
+	    return "redirect:/news-list-management";
 	  }
 	  
 	  @RequestMapping("/newsDelete/{id}")
 	  public String doDeletenews(@PathVariable int id, Model model) {
 	    newsService.delete(id);
 	    model.addAttribute("listNews", newsService.findAllDeleted());
-	    return "news-list-deleted";
+	    return "redirect:/news-list-deleted";
 	  }
 }

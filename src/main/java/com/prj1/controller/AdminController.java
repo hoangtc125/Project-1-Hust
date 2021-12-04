@@ -92,39 +92,39 @@ public class AdminController {
 	  public String doSaveuser(@ModelAttribute("user") User user, Model model) {
 	    userService.saveUser(user);
 	    model.addAttribute("listUser", userService.findAll());
-	    return "user-list";
+	    return "redirect:/user-list";
 	  }
 	  @RequestMapping("/saveAdmin")
 	  public String doSaveadmin(@ModelAttribute("user") User user, Model model) {
 	    userService.saveAdmin(user);
 	    model.addAttribute("listUser", userService.findAll());
-	    return "user-list";
+	    return "redirect:/user-list";
 	  }
 	  @RequestMapping("/updateUser")
 	  public String doUpdateuser(@ModelAttribute("user") User user, Model model) {
 	    userService.update(user);
 	    model.addAttribute("listUser", userService.findAll());
-	    return "user-list";
+	    return "redirect:/user-list";
 	  }
 	  
 	  @RequestMapping("/user-restore/{id}")
 	  public String dorestoreUser(@PathVariable int id, Model model) {
 	    userService.restoreById(id);
 	    model.addAttribute("listUser", userService.findAllDeleted());
-	    return "user-list-deleted";
+	    return "redirect:/user-list-deleted";
 	  }
 	  
 	  @RequestMapping("/userSoftDelete/{id}/{username}")
 	  public String doSoftDeleteuser(@PathVariable int id, @PathVariable String username, Model model) {
 	    userService.softDelete(id, username);
 	    model.addAttribute("listUser", userService.findAll());
-	    return "user-list";
+	    return "redirect:/user-list";
 	  }
 	  
 	  @RequestMapping("/userDelete/{id}")
 	  public String doDeleteuser(@PathVariable int id, Model model) {
 	    userService.delete(id);
 	    model.addAttribute("listUser", userService.findAllDeleted());
-	    return "user-list-deleted";
+	    return "redirect:/user-list-deleted";
 	  }
 }
