@@ -12,6 +12,11 @@ public class BaseController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("/accessDenied")
+	public String error403() {
+		return "accessDenied";
+	}
 
 	@RequestMapping(value = {"/login"})
 	public String login(@RequestParam(value = "error", required = false) final String error, final Model model) {
