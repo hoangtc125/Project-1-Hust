@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/prj1/entities/Comment.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Mail.java=UTF-8
 encoding//src/main/java/com/prj1/entities/News.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Role.java=UTF-8

@@ -101,6 +101,15 @@ public class MailService {
 			mail.setSender(userService.findById(mail.getIdUser()).getUsername());
 		}
 	}
+	
+	public boolean checkRoleAdmin(String username) {
+		User user = userService.findByUsername(username);
+		if(user.getRole().compareTo("ROLE_ADMIN") == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public List<Mail> findAll(int id) {
 		List<Mail> mails = mailDAO.findAll(id);

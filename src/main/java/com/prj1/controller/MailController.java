@@ -76,6 +76,17 @@ public class MailController {
 		  mail.setIdUser(user.getId());
 		  mail.setSender(username);
 		  mail.setIsRead("No");		  
+		  if(mail.getReceiver().compareTo("all") == 0 && mailService.checkRoleAdmin(username)) {
+			  List<User> users = userService.findAll();
+			  for (User user2 : users) {
+				  if(user2.getUsername().compareTo(username) == 0) {
+					  continue;
+				  }
+				mail.setReceiver(user2.getUsername());
+				mailService.save(mail);
+			}
+			  return "redirect:/mail-list/" + username;
+		  }
 	    mailService.save(mail);
 	    model.addAttribute("listMail", mailService.findAll(user.getId()));
 	    return "redirect:/mail-list/" + username;

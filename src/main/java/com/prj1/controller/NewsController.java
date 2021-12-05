@@ -1,18 +1,23 @@
 package com.prj1.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.prj1.entities.Comment;
 import com.prj1.entities.News;
 import com.prj1.entities.News;
 import com.prj1.entities.News;
 import com.prj1.entities.News;
+import com.prj1.service.CommentService;
 import com.prj1.service.NewsService;
 import com.prj1.service.NewsService;
 
@@ -22,6 +27,9 @@ public class NewsController {
 //    Tiem su phu thuoc
 	 @Autowired
 	  private NewsService newsService;
+
+	 @Autowired
+	  private CommentService commentService;
 	 
 	 @RequestMapping(value="/news-list", method = RequestMethod.GET)
 	  public String listNews(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
@@ -29,7 +37,7 @@ public class NewsController {
 			model.addAttribute("listNews", newsService.searchByTitle(newsService.findAll(), title));
 			return "news-list";
 		}
-		  
+
 		if(typeSort.compareTo("title") == 0) {
 		    model.addAttribute("listNews", newsService.sortByName(newsService.findAll()));
 		} else{	
@@ -65,6 +73,8 @@ public class NewsController {
 	  public String viewnews(@PathVariable int id, Model model) {
 	    News news = newsService.findById(id);
 	    model.addAttribute("news", news);
+	    model.addAttribute("listComment", commentService.loadComments(id));
+	    model.addAttribute("comment", new Comment());
 	    return "news-view";
 	  }
 
@@ -88,6 +98,17 @@ public class NewsController {
 	    newsService.save(news);
 	    model.addAttribute("listNews", newsService.findAll());
 	    return "redirect:/news-list-management";
+	  }
+	  
+	  @RequestMapping("/saveComment/{idNews}/{username}")
+	  public String doSavecomment(@ModelAttribute("comment") Comment comment, @PathVariable("idNews") int idNews, @PathVariable("username") String username, Model model) {
+	    comment.setIdNews(idNews);
+	    comment.setSender(username);
+	    commentService.save(comment);
+	    News news = newsService.findById(idNews);
+	    model.addAttribute("news", news);
+	    model.addAttribute("listComment", commentService.loadComments(idNews));
+	    return "redirect:/news-view/" + idNews;
 	  }
 	 
 	  @RequestMapping("/updateNews")
