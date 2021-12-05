@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.prj1.entities.Mail;
 import com.prj1.entities.User;
 import com.prj1.service.MailService;
+import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.UserService;
 
 @Controller
@@ -30,7 +31,8 @@ public class MailController {
 			  @RequestParam(required=false, name = "mode", defaultValue="") String mode,
 			  @RequestParam(required=false,name="title") String title, 
 			  @RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, Model model) {
-		  User user = userService.findByUsername(username);
+//		  User user = userService.findByUsername(username);
+		  User user = userService.findByUsername(MyUserDetailsService.username);
 		if(title != null) {
 			model.addAttribute("listMail", mailService.searchByTitle(mailService.findAll(user.getId()), title));
 			return "mail-list";
@@ -49,7 +51,8 @@ public class MailController {
 	 @RequestMapping("/mail-view/{id}/{username}")
 	  public String viewmail(@PathVariable int id, @PathVariable String username, Model model) {
 	    Mail mail = mailService.findById(id);
-	    mail = mailService.checkRead(mail, username);
+//	    mail = mailService.checkRead(mail, username);
+	    mail = mailService.checkRead(mail, MyUserDetailsService.username);
 	    mailService.update(mail);
 	    model.addAttribute("mail", mail);
 	    return "mail-view";
@@ -72,24 +75,25 @@ public class MailController {
 
 	  @RequestMapping("/saveMail/{username}")
 	  public String doSavemail(@PathVariable String username, @ModelAttribute("mail") Mail mail, Model model) {
-		  User user = userService.findByUsername(username);
+//		  User user = userService.findByUsername(username);
+		  User user = userService.findByUsername(MyUserDetailsService.username);
 		  mail.setIdUser(user.getId());
-		  mail.setSender(username);
+		  mail.setSender(MyUserDetailsService.username);
 		  mail.setIsRead("No");		  
-		  if(mail.getReceiver().compareTo("all") == 0 && mailService.checkRoleAdmin(username)) {
+		  if(mail.getReceiver().compareTo("all") == 0 && mailService.checkRoleAdmin(MyUserDetailsService.username)) {
 			  List<User> users = userService.findAll();
 			  for (User user2 : users) {
-				  if(user2.getUsername().compareTo(username) == 0) {
+				  if(user2.getUsername().compareTo(MyUserDetailsService.username) == 0) {
 					  continue;
 				  }
 				mail.setReceiver(user2.getUsername());
 				mailService.save(mail);
 			}
-			  return "redirect:/mail-list/" + username;
+			  return "redirect:/mail-list/" + MyUserDetailsService.username;
 		  }
 	    mailService.save(mail);
 	    model.addAttribute("listMail", mailService.findAll(user.getId()));
-	    return "redirect:/mail-list/" + username;
+	    return "redirect:/mail-list/" + MyUserDetailsService.username;
 	  }
 	 
 	  @RequestMapping("/updateMail")
@@ -101,9 +105,10 @@ public class MailController {
 	  
 	  @RequestMapping("/mailDelete/{id}/{username}")
 	  public String doDeletemail(@PathVariable int id, @PathVariable String username, Model model) {
-		  User user = userService.findByUsername(username);
-	    mailService.delete(id, username);
+//		  User user = userService.findByUsername(username);
+		  User user = userService.findByUsername(MyUserDetailsService.username);
+	    mailService.delete(id, MyUserDetailsService.username);
 	    model.addAttribute("listMail", mailService.findAll(user.getId()));
-	    return "redirect:/mail-list/" + username;
+	    return "redirect:/mail-list/" + MyUserDetailsService.username;
 	  }
 }

@@ -14,6 +14,8 @@ public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	public static String username = "";
 
 	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
 
@@ -21,7 +23,7 @@ public class MyUserDetailsService implements UserDetailsService {
 		if (user == null) {
 			return null;
 		}
-
+		this.username = username;
 		boolean enabled = true;
 		boolean accountNonExpired = true;
 		boolean credentialsNonExpired = true;

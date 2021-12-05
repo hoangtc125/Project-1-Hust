@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj1.entities.User;
+import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.UserService;
 
 @Controller
@@ -82,7 +83,8 @@ public class AdminController {
 			User user = userService.findById(id);
 			model.addAttribute("user", user);
 		} else if(id == -1) {
-			User user = userService.findByUsername(username);
+//			User user = userService.findByUsername(username);
+			User user = userService.findByUsername(MyUserDetailsService.username);
 			model.addAttribute("user", user);
 		}
 		return "user-update";
@@ -116,7 +118,8 @@ public class AdminController {
 	  
 	  @RequestMapping("/userSoftDelete/{id}/{username}")
 	  public String doSoftDeleteuser(@PathVariable int id, @PathVariable String username, Model model) {
-	    userService.softDelete(id, username);
+//	    userService.softDelete(id, username);
+		  userService.softDelete(id, MyUserDetailsService.username);
 	    model.addAttribute("listUser", userService.findAll());
 	    return "redirect:/user-list";
 	  }

@@ -5,11 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.prj1.service.MyUserDetailsService;
+
 @Controller
 public class BaseController {
 	
 	@RequestMapping("/")
 	public String index() {
+		System.out.println(MyUserDetailsService.username);
 		return "redirect:news-list";
 	}
 	

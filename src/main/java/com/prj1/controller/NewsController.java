@@ -18,6 +18,7 @@ import com.prj1.entities.News;
 import com.prj1.entities.News;
 import com.prj1.entities.News;
 import com.prj1.service.CommentService;
+import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NewsService;
 import com.prj1.service.NewsService;
 
@@ -103,7 +104,8 @@ public class NewsController {
 	  @RequestMapping("/saveComment/{idNews}/{username}")
 	  public String doSavecomment(@ModelAttribute("comment") Comment comment, @PathVariable("idNews") int idNews, @PathVariable("username") String username, Model model) {
 	    comment.setIdNews(idNews);
-	    comment.setSender(username);
+//	    comment.setSender(username);
+	    comment.setSender(MyUserDetailsService.username);
 	    commentService.save(comment);
 	    News news = newsService.findById(idNews);
 	    model.addAttribute("news", news);
@@ -127,7 +129,8 @@ public class NewsController {
 	  
 	  @RequestMapping("/newsSoftDelete/{id}/{newsname}")
 	  public String doSoftDeletenews(@PathVariable int id, @PathVariable String newsname, Model model) {
-	    newsService.softDelete(id, newsname);
+//	    newsService.softDelete(id, newsname);
+	    newsService.softDelete(id, MyUserDetailsService.username);
 	    model.addAttribute("listNews", newsService.findAll());
 	    return "redirect:/news-list-management";
 	  }
