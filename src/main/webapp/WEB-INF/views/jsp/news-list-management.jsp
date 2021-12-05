@@ -28,6 +28,7 @@
   <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
 </svg></a>
     </th>
+    <th>Author</th>
     
     <th>View</th>
     <th>Edit</th>
@@ -38,6 +39,7 @@
 <tr style="border: 1px black solid">
 <td>${count = count + 1}</td>
 <td>${news.title}</td>
+<td>${news.author}</td>
 <td> <a href="${urlView}/${news.id}">View</a></td>
 <td> <a href="${urlUpdate}/${news.id}/${pageContext.request.userPrincipal.name}">Edit</a></td>
 <td> <a href="${urlSoftDelete}/${news.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>

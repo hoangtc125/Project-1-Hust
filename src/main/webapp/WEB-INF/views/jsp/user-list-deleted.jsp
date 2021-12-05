@@ -45,7 +45,7 @@
 <td>${user.name}</td>
 <td>${user.mssv}</td>
 <td>${user.getRole()}</td>
-<td> <a href="${urlView}/${user.id}">View</a></td>
+<td> <a href="${urlView}/${user.id}/${user.username}">View</a></td>
 <td> <a href="${urlRestore}/${user.id}">Restore</a></td>
 <td> <a href="${urlDelete}/${user.id}">Delete</a></td>
 </tr>

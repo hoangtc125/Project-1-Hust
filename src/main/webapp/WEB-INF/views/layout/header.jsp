@@ -14,6 +14,9 @@
         <li class="nav-item">
           <a class="nav-link disabled">Project 1</a>
         </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-success" ><a href="/prj1.com/news-save">Add Your News</a></button>
+        </li>
       </ul>
     </div>
     <form class="d-flex" style="margin-top: 10px" action="<c:url value="/user-list" />" method="get">

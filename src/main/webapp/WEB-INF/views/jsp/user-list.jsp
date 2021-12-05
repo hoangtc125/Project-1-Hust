@@ -46,10 +46,20 @@
 <c:forEach var="user" items="${listUser}">
 <tr style="border: 1px black solid">
 <td>${count = count + 1}</td>
-<td>${user.name}</td>
+<td>
+<div class="nav-item dropdown d-flex" style="margin: 0 10px">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             ${user.name}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/prj1.com/user-view/-1/${user.username}">View Profile</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/mail-save/${user.username}">Send Mail</a></li>
+          </ul>
+	</div>
+</td>
 <td>${user.mssv}</td>
 <td>${user.getRole()}</td>
-<td> <a href="${urlView}/${user.id}">View</a></td>
+<td> <a href="${urlView}/${user.id}/${user.username}">View</a></td>
 <td> <a href="${urlUpdate}/${user.id}/${pageContext.request.userPrincipal.name}">Edit</a></td>
 <td> <a href="${urlSoftDelete}/${user.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>
 </tr>

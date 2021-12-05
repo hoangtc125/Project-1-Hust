@@ -18,6 +18,7 @@ import com.prj1.entities.News;
 import com.prj1.entities.News;
 import com.prj1.entities.News;
 import com.prj1.service.CommentService;
+import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NewsService;
 import com.prj1.service.NewsService;
@@ -31,6 +32,9 @@ public class NewsController {
 
 	 @Autowired
 	  private CommentService commentService;
+
+	 @Autowired
+	  private MailService mailService;
 	 
 	 @RequestMapping(value="/news-list", method = RequestMethod.GET)
 	  public String listNews(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
@@ -66,8 +70,12 @@ public class NewsController {
 	 
 	 @RequestMapping("/news-list-management")
 	  public String newslistmanagement(Model model) {
-		 model.addAttribute("listNews", newsService.findAll());
-	    return "news-list-management";
+		 if(mailService.checkRoleAdmin(MyUserDetailsService.username)) {
+			 model.addAttribute("listNews", newsService.findAll());
+			 return "news-list-management";
+	    } else {
+	    	return "redirect:/user-view/-1/" + MyUserDetailsService.username;
+	    }
 	  }
 	 
 	 @RequestMapping("/news-view/{id}")
@@ -96,9 +104,14 @@ public class NewsController {
 
 	  @RequestMapping("/saveNews")
 	  public String doSavenews(@ModelAttribute("news") News news, Model model) {
+		  news.setAuthor(MyUserDetailsService.username);
 	    newsService.save(news);
-	    model.addAttribute("listNews", newsService.findAll());
-	    return "redirect:/news-list-management";
+	    if(mailService.checkRoleAdmin(MyUserDetailsService.username)) {	    	
+	    	model.addAttribute("listNews", newsService.findAll());
+	    	return "redirect:/news-list-management";
+	    } else {
+	    	return "redirect:/user-view/-1/" + MyUserDetailsService.username;
+	    }
 	  }
 	  
 	  @RequestMapping("/saveComment/{idNews}/{username}")

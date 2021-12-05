@@ -49,7 +49,7 @@ public class MailController {
 	  }
 	 
 	 @RequestMapping("/mail-view/{id}/{username}")
-	  public String viewmail(@PathVariable int id, @PathVariable String username, Model model) {
+	  public String viewmail(@PathVariable("id") int id, @PathVariable("username") String username, Model model) {
 	    Mail mail = mailService.findById(id);
 //	    mail = mailService.checkRead(mail, username);
 	    mail = mailService.checkRead(mail, MyUserDetailsService.username);
@@ -58,9 +58,11 @@ public class MailController {
 	    return "mail-view";
 	  }
 
-	  @RequestMapping("/mail-save")
-	  public String insertmail(Model model) {
-	    model.addAttribute("mail", new Mail());
+	  @RequestMapping("/mail-save/{username}")
+	  public String insertmail(@PathVariable("username") String username, Model model) {
+		  Mail mail = new Mail();
+		  mail.setReceiver(username);
+	    model.addAttribute("mail", mail);
 	    return "mail-save";
 	  }
 	  

@@ -19,13 +19,14 @@
 		<intercept-url pattern="/updateUser/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/user-update/-1/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/user-update/**" access="hasRole('ROLE_ADMIN')"/>
-		<intercept-url pattern="/userDelete/**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/userDelete/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/newsDelete/**" access="hasRole('ROLE_ADMIN')"/>
-		<intercept-url pattern="/saveNews/**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/saveNews/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/news-save/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/updateNews/**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/newsSoftDelete/**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/news-list-deleted/**" access="hasRole('ROLE_ADMIN')"/>
-		<intercept-url pattern="/news-list-management/**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/news-list-management/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/mail-list/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/mail-save/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/mail-view/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>

@@ -72,6 +72,10 @@ public class NewsService {
 		}
 		return res;
 	}
+	
+	public List<News>loadNewsByAuthor(String author) {
+		return newsDAO.loadNewsByAuthor(author);
+	}
 
 	public List<News> searchByTitle(List<News> list, String title) {
 		// TODO Auto-generated method stub

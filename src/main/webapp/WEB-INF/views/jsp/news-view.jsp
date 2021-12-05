@@ -3,6 +3,17 @@
 <div style="display:align-items-center">
   <a href="<c:url value="/news-list?sort=" />" >List News</a><br />
   <h1>${news.title} </h1>  
+  <h1>Author: 
+  <div class="nav-item dropdown d-flex" style="margin: 0 10px">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             ${news.author}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/prj1.com/user-view/-1/${news.author}">View Profile</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/mail-save/${news.author}">Send Mail</a></li>
+          </ul>
+	</div>
+   </h1>  
   <img src="https://scontent.fhph1-2.fna.fbcdn.net/v/t39.30808-6/216969081_200992805298977_627777177495630541_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=TsgZOiIMuTgAX8zQFM0&_nc_ht=scontent.fhph1-2.fna&oh=a127806357522d5ba15885719256b9e0&oe=61AF6BF2" class="card-img-top" alt="...">
       <br/>
   ${news.content} <br/>
@@ -20,7 +31,16 @@
 <c:forEach var="comment" items="${listComment}">
 <div class="card">
   <div class="card-header">
-  ${comment.sender}
+  <div class="nav-item dropdown d-flex" style="margin: 0 10px">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             ${comment.sender}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/prj1.com/user-view/-1/${comment.sender}">View Profile</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/mail-save/${comment.sender}">Send Mail</a></li>
+          </ul>
+	</div>
+ 
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">

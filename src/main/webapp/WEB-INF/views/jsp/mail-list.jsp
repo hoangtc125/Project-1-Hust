@@ -32,7 +32,17 @@
 <td>${count = count + 1}</td>
 <td>${mail.title}</td>
 <td>${mail.isRead}</td>
-<td>${mail.sender}</td>
+<td>
+<div class="nav-item dropdown d-flex" style="margin: 0 10px">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             ${mail.sender}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/prj1.com/user-view/-1/${mail.sender}">View Profile</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/mail-save/${mail.sender}">Send Mail</a></li>
+          </ul>
+	</div>
+</td>
 <td>${mail.receiver}</td>
 <td> <a href="${urlView}/${mail.id}/${pageContext.request.userPrincipal.name}">View</a></td>
 <td> <a href="${urlDelete}/${mail.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>

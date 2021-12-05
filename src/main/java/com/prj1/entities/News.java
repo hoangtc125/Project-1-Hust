@@ -23,6 +23,9 @@ public class News implements java.io.Serializable {
 	
 	@Column(name = "title", length = 255)
 	private String title = "";
+
+	@Column(name = "author", length = 45)
+	private String author = "";
 	
 	@Column(name = "content", length = 999)
 	private String content = "";
@@ -33,10 +36,12 @@ public class News implements java.io.Serializable {
 	public News() {
 	}
 
-	public News(String title, String content) {
+	public News(String title, String author, String content, Integer isDeleted) {
 		super();
 		this.title = title;
+		this.author = author;
 		this.content = content;
+		this.isDeleted = isDeleted;
 	}
 
 	public String getTitle() {
@@ -69,6 +74,14 @@ public class News implements java.io.Serializable {
 
 	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 }

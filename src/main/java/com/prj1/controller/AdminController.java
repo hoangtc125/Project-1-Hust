@@ -1,5 +1,7 @@
 package com.prj1.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.prj1.entities.News;
 import com.prj1.entities.User;
+import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
+import com.prj1.service.NewsService;
 import com.prj1.service.UserService;
 
 @Controller
@@ -22,6 +27,10 @@ public class AdminController {
 //    Tiem su phu thuoc
 	 @Autowired
 	  private UserService userService;
+	 @Autowired
+	  private NewsService newsService;
+	 @Autowired
+	  private MailService mailService;
 	 
 	  @RequestMapping(value="/user-list", method = RequestMethod.GET)
 	  public String listuser(@RequestParam(required=false, name = "sort", defaultValue="name") String typeSort, @RequestParam(required=false,name="mssv") String mssv, @ModelAttribute("user") User user, Model model) {
@@ -70,9 +79,18 @@ public class AdminController {
 	    model.addAttribute("user", new User());
 	    return "user-save";
 	  }
-	  @RequestMapping("/user-view/{id}")
-	  public String viewuser(@PathVariable int id, Model model) {
-	    User user = userService.findById(id);
+	  @RequestMapping("/user-view/{id}/{username}")
+	  public String viewuser(@PathVariable(required=false, name = "id") int id, @PathVariable(required=false, name = "username") String username, Model model) {
+		  if(id == -1) {
+			  List<News> news = newsService.loadNewsByAuthor(username);
+			  model.addAttribute("listNews", news);
+			  User user = userService.findByUsername(username);
+			  model.addAttribute("user", user);
+			    return "user-view";
+		  }
+		  User user = userService.findById(id);
+		  List<News> news = newsService.loadNewsByAuthor(user.getUsername());
+		  model.addAttribute("listNews", news);
 	    model.addAttribute("user", user);
 	    return "user-view";
 	  }

@@ -24,6 +24,12 @@ public class NewsDAO {
 		return news;
 	}
 	
+	public List<News> loadNewsByAuthor(final String author) {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<News> news = session.createQuery("from News where author = ?", News.class).setParameter(0, author).getResultList();
+		return news;
+	}
+	
 	public void save(final News news) {
 	    Session session = this.sessionFactory.getCurrentSession();
 	    session.save(news);
