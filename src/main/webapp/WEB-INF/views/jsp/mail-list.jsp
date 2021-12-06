@@ -9,7 +9,7 @@
 <div>
 <div>
 <h1>Add New Email:</h1>
-<a href="${urlSave}">Add here</a>
+<a href="${urlSave}/all">Add here</a>
 </div>
 <button class="btn btn-outline-success" ><a href="?mode=receive">Receive</a></button>
 <button class="btn btn-outline-success" ><a href="?mode=send">Send</a></button>

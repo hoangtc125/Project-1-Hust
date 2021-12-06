@@ -104,6 +104,7 @@ public class MailService {
 	
 	public boolean checkRoleAdmin(String username) {
 		User user = userService.findByUsername(username);
+		if(user == null) return false;
 		if(user.getRole().compareTo("ROLE_ADMIN") == 0) {
 			return true;
 		} else {

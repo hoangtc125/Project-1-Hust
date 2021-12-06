@@ -14,7 +14,7 @@
           </ul>
 	</div>
    </h1>  
-  <img src="https://scontent.fhph1-2.fna.fbcdn.net/v/t39.30808-6/216969081_200992805298977_627777177495630541_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=TsgZOiIMuTgAX8zQFM0&_nc_ht=scontent.fhph1-2.fna&oh=a127806357522d5ba15885719256b9e0&oe=61AF6BF2" class="card-img-top" alt="...">
+  <img src="https://media.thaythichtructhaiminh.com/files/thu_hong/2021/10/15/chu-tang-chua-ba-vang-ngay-dem-phong-ho-tam-minh-khong-thoi-chi-1500.jpg" class="card-img-top" alt="...">
       <br/>
   ${news.content} <br/>
 </div>
@@ -35,6 +35,14 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              ${comment.sender}
           </a>
+          <c:choose>
+			  <c:when test="${roleAdmin == true}">
+			    <a href="/prj1.com/commentDelete/${comment.id}/${news.id}">Delete Comment</a>
+			  </c:when>
+			  <c:when test="${pageContext.request.userPrincipal.name == comment.sender}">
+			    <a href="/prj1.com/commentDelete/${comment.id}/${news.id}">Delete Comment</a>
+			  </c:when>
+			</c:choose>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/prj1.com/user-view/-1/${comment.sender}">View Profile</a></li>
             <li><a class="dropdown-item" href="/prj1.com/mail-save/${comment.sender}">Send Mail</a></li>

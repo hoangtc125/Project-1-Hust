@@ -59,7 +59,7 @@ public class MailController {
 	  }
 
 	  @RequestMapping("/mail-save/{username}")
-	  public String insertmail(@PathVariable("username") String username, Model model) {
+	  public String insertmail(@PathVariable(required=false, name = "username") String username, Model model) {
 		  Mail mail = new Mail();
 		  mail.setReceiver(username);
 	    model.addAttribute("mail", mail);

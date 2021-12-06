@@ -84,6 +84,7 @@ public class NewsController {
 	    model.addAttribute("news", news);
 	    model.addAttribute("listComment", commentService.loadComments(id));
 	    model.addAttribute("comment", new Comment());
+	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
 	    return "news-view";
 	  }
 
@@ -125,6 +126,12 @@ public class NewsController {
 	    model.addAttribute("listComment", commentService.loadComments(idNews));
 	    return "redirect:/news-view/" + idNews;
 	  }
+	  
+	  @RequestMapping("/commentDelete/{id}/{idNews}")
+	  public String doDeletecomment(@PathVariable int id, @PathVariable int idNews, Model model) {
+	    commentService.delete(id);
+	    return "redirect:/news-view/" + idNews;
+	  }
 	 
 	  @RequestMapping("/updateNews")
 	  public String doUpdatenews(@ModelAttribute("news") News news, Model model) {
@@ -140,8 +147,8 @@ public class NewsController {
 	    return "redirect:/news-list-deleted";
 	  }
 	  
-	  @RequestMapping("/newsSoftDelete/{id}/{newsname}")
-	  public String doSoftDeletenews(@PathVariable int id, @PathVariable String newsname, Model model) {
+	  @RequestMapping("/newsSoftDelete/{id}/{username}")
+	  public String doSoftDeletenews(@PathVariable int id, @PathVariable String username, Model model) {
 //	    newsService.softDelete(id, newsname);
 	    newsService.softDelete(id, MyUserDetailsService.username);
 	    model.addAttribute("listNews", newsService.findAll());

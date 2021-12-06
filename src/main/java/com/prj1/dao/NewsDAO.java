@@ -26,7 +26,7 @@ public class NewsDAO {
 	
 	public List<News> loadNewsByAuthor(final String author) {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<News> news = session.createQuery("from News where author = ?", News.class).setParameter(0, author).getResultList();
+		List<News> news = session.createQuery("from News where author = ? and isDeleted = 0", News.class).setParameter(0, author).getResultList();
 		return news;
 	}
 	
