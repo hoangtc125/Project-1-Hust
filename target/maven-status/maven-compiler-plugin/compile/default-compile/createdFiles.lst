@@ -1,0 +1,13 @@
+com\prj1\entities\UsersRoles.class
+com\prj1\controller\AdminController.class
+com\prj1\entities\Role.class
+com\prj1\entities\User.class
+com\prj1\service\NewsService.class
+com\prj1\dao\UserDAO.class
+com\prj1\service\UserService.class
+com\prj1\dao\NewsDAO.class
+com\prj1\controller\UserController.class
+com\prj1\controller\BaseController.class
+com\prj1\entities\News.class
+com\prj1\controller\NewsController.class
+com\prj1\service\MyUserDetailsService.class
