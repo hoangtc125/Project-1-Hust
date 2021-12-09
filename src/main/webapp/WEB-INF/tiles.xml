@@ -90,4 +90,61 @@
     <put-attribute name="title" value="Add New Mail" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/mail-save.jsp" />
   </definition>
+  <definition name="product-list" extends="index">
+    <put-attribute name="title" value="News Project 1" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/product-list.jsp" />
+  </definition>
+  <definition name="product-view" extends="index">
+    <put-attribute name="title" value="News Detail" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/product-view.jsp" />
+  </definition>
+  <definition name="product-list-deleted" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List Users Deleted" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/product-list-deleted.jsp" />
+  </definition>
+  <definition name="product-save" extends="index">
+    <put-attribute name="title" value="Add User" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/product-save.jsp" />
+  </definition>
+  <definition name="product-update" extends="index">
+    <put-attribute name="title" value="Update User" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/product-update.jsp" />
+  </definition>
+  <definition name="product-list-deleted" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List News Deleted" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/product-list-deleted.jsp" />
+  </definition>
+  <definition name="product-list-management" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List News Management" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/product-list-management.jsp" />
+  </definition>
+  <definition name="cart-view" extends="index">
+    <put-attribute name="title" value="Your Cart" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/cart-view.jsp" />
+  </definition>
+  <definition name="cart-list-management" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List Cart Management" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/cart-list-management.jsp" />
+  </definition>
+  <definition name="cart-update" extends="index">
+    <put-attribute name="title" value="Update item" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/cart-update.jsp" />
+  </definition>
+  <definition name="bill-view" extends="index">
+    <put-attribute name="title" value="Your Cart" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/bill-view.jsp" />
+  </definition>
+  <definition name="bill-list-management" extends="index">
+    <put-attribute name="header" value="/WEB-INF/views/layout/header2.jsp" />
+    <put-attribute name="title" value="List Cart Management" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/bill-list-management.jsp" />
+  </definition>
+  <definition name="bill-list" extends="index">
+    <put-attribute name="title" value="News Project 1" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/bill-list.jsp" />
+  </definition>
 </tiles-definitions>

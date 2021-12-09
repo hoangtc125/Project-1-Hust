@@ -24,6 +24,9 @@ public class Comment implements java.io.Serializable {
 	@Column(name = "idNews")
 	private Integer idNews;
 
+	@Column(name = "idProduct")
+	private Integer idProduct;
+
 	@Column(name = "content", length = 999)
 	private String content;
 
@@ -33,9 +36,10 @@ public class Comment implements java.io.Serializable {
 	public Comment() {
 	}
 
-	public Comment(Integer idNews, String content, String sender) {
+	public Comment(Integer idNews, Integer idProduct, String content, String sender) {
 		super();
 		this.idNews = idNews;
+		this.idProduct = idProduct;
 		this.content = content;
 		this.sender = sender;
 	}
@@ -70,6 +74,14 @@ public class Comment implements java.io.Serializable {
 
 	public void setSender(String sender) {
 		this.sender = sender;
+	}
+
+	public Integer getIdProduct() {
+		return idProduct;
+	}
+
+	public void setIdProduct(Integer idProduct) {
+		this.idProduct = idProduct;
 	}
 
 	

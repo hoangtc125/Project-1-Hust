@@ -7,6 +7,7 @@
   <h1>View User:</h1>  
   User MSSV: ${user.mssv} <br/>
   User Name: ${user.name} <br/>
+  User Coin: ${user.coin} <br/>
   User Class: ${user.clazz} <br/>
 </div>
 <c:if test="${pageContext.request.userPrincipal.name == user.username}">

@@ -127,7 +127,7 @@ public class NewsController {
 	    return "redirect:/news-view/" + idNews;
 	  }
 	  
-	  @RequestMapping("/commentDelete/{id}/{idNews}")
+	  @RequestMapping("/commentDeleteNews/{id}/{idNews}")
 	  public String doDeletecomment(@PathVariable int id, @PathVariable int idNews, Model model) {
 	    commentService.delete(id);
 	    return "redirect:/news-view/" + idNews;

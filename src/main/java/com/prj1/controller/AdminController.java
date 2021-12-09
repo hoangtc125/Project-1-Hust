@@ -99,6 +99,7 @@ public class AdminController {
 	  public String updateuser(@PathVariable("id") int id, @PathVariable("username") String username, Model model) {
 		if(id != -1) {			
 			User user = userService.findById(id);
+		    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
 			model.addAttribute("user", user);
 		} else if(id == -1) {
 //			User user = userService.findByUsername(username);

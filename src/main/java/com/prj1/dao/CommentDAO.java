@@ -24,6 +24,12 @@ public class CommentDAO {
 		return comments;
 	}
 	
+	public List<Comment> loadCommentByIdProduct(final int idProduct) {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Comment> comments = session.createQuery("from Comment where idProduct = ?", Comment.class).setParameter(0, idProduct).getResultList();
+		return comments;
+	}
+	
 	public void save(final Comment comment) {
 	    Session session = this.sessionFactory.getCurrentSession();
 	    session.save(comment);

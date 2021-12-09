@@ -13,5 +13,8 @@
       Username: <form:input path="username" /> <br/> <br/>
       Password: <form:input path="password" /> <br/> <br/>
       Enabled: <form:input path="enabled" /> <br/> <br/>
+      <c:if test="${roleAdmin == true}">
+	    Coin: <form:input path="coin" /> <br/> <br/>
+	  </c:if>
     <button type="submit">Submit</button>
   </form:form>

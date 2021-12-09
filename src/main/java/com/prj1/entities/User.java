@@ -46,6 +46,9 @@ public class User implements java.io.Serializable {
 	@Column(name = "isDeleted")
 	private Integer isDeleted = 0;
 
+	@Column(name = "coin", length = 45)
+	private String coin = "0";
+	
 	@Column(name = "dateDeleted")
 	private Date dateDeleted = null;
 	
@@ -164,7 +167,15 @@ public class User implements java.io.Serializable {
 		String [] strings = this.getName().split(" ");
 		return strings[strings.length - 1];
 	}
-	
+
+	public String getCoin() {
+		return coin;
+	}
+
+	public void setCoin(String coin) {
+		this.coin = coin;
+	}
+
 	@Transient
 	public List<GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();

@@ -41,4 +41,8 @@ public class CommentService {
 	  public List<Comment> loadComments(int idNews) {
 		  return commentDAO.loadCommentByIdNews(idNews);
 	  }
+	  
+	  public List<Comment> loadCommentsProduct(int idNews) {
+		  return commentDAO.loadCommentByIdProduct(idNews);
+	  }
 }

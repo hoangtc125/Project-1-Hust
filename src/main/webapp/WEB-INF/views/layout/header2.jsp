@@ -28,9 +28,21 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/prj1.com/myAcc">Your account</a></li>
             <li><a class="dropdown-item" href="/prj1.com/user-update/-1/${pageContext.request.userPrincipal.name}">Setting</a></li>
-            <li><a class="dropdown-item" href="/prj1.com/user-list">Management User</a></li>
-            <li><a class="dropdown-item" href="/prj1.com/news-list-management">Management News</a></li>
-            <li><a class="dropdown-item" href="/prj1.com/mail-list/${pageContext.request.userPrincipal.name}">Your Mail</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/user-list">User Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/news-list-management">News Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/product-list-management">Product Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/cart-list-management">Cart Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/cart-view/-1/">Your Cart</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/bill-list-management">Bill Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/bill-list">Your Bill</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/mail-list/${pageContext.request.userPrincipal.name}">
+	            <button type="button" class="btn btn-primary position-relative">
+				  Your Mail
+				  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger " id="myspan">
+				    99+
+				  </span>
+				</button>
+            </a></li>
             
             <li><hr class="dropdown-divider"></li>
             <li>

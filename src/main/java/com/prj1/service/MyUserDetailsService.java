@@ -24,6 +24,7 @@ public class MyUserDetailsService implements UserDetailsService {
 			return null;
 		}
 		this.username = username;
+		
 		boolean enabled = true;
 		boolean accountNonExpired = true;
 		boolean credentialsNonExpired = true;

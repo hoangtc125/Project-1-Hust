@@ -1,25 +1,25 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div style="display:align-items-center">
-  <a href="<c:url value="/news-list?sort=" />" >List News</a><br />
-  <h1>${news.title} </h1>  
-  <h1>Author: 
-  <div class="nav-item dropdown d-flex" style="margin: 0 10px">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             ${news.author}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/prj1.com/user-view/-1/${news.author}">View Profile</a></li>
-            <li><a class="dropdown-item" href="/prj1.com/mail-save/${news.author}">Send Mail</a></li>
-          </ul>
-	</div>
-   </h1>  
+  <a href="<c:url value="/product-list?sort=" />" >List Product</a><br />
+  <h1>${product.name} </h1>  
+  
+  <h1>Sold: ${product.sold} </h1>  
+  
+  <h1>Available: ${product.unSold} </h1>  
+  
+			<c:url value="/updateCart" var="updateCart" />
+			 <form action="${updateCart}" method="get" >
+			     ID: <input name="id" readonly="true" value="${product.id}"/> <br/> <br/>
+			     Quantity: <input name="quan" type="text" /> <br/> <br/>
+			   <button type="submit">Submit</button>
+			  </form>
+			
   <img src="https://media.thaythichtructhaiminh.com/files/thu_hong/2021/10/15/chu-tang-chua-ba-vang-ngay-dem-phong-ho-tam-minh-khong-thoi-chi-1500.jpg" class="card-img-top" alt="...">
-      <br/>
-  ${news.content} <br/>
+    
 </div>
-<c:url value="/saveComment" var="saveComment"/>
-  <form:form action="${saveComment}/${news.id}/${pageContext.request.userPrincipal.name}" method="POST"
+<c:url value="/saveCommentProduct" var="saveComment"/>
+  <form:form action="${saveComment}/${product.id}/${pageContext.request.userPrincipal.name}" method="POST"
     modelAttribute="comment" id="formcomment">
 	    <div class="form-floating">
 		  <form:textarea path="content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"/>
@@ -37,10 +37,10 @@
           </a>
           <c:choose>
 			  <c:when test="${roleAdmin == true}">
-			    <a href="/prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete Comment</a>
+			    <a href="/prj1.com/commentDeleteComment/${comment.id}/${product.id}">Delete Comment</a>
 			  </c:when>
 			  <c:when test="${pageContext.request.userPrincipal.name == comment.sender}">
-			    <a href="/prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete Comment</a>
+			    <a href="/prj1.com/commentDeleteComment/${comment.id}/${product.id}">Delete Comment</a>
 			  </c:when>
 			</c:choose>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          <a class="nav-link" href="/prj1.com/product-list">Shop</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="https://github.com/hoangtc125/Project-1-Hust">Link GitHub</a>
         </li>
         <li class="nav-item">
@@ -31,8 +34,13 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/prj1.com/myAcc">Your account</a></li>
             <li><a class="dropdown-item" href="/prj1.com/user-update/-1/${pageContext.request.userPrincipal.name}">Setting</a></li>
-            <li><a class="dropdown-item" href="/prj1.com/user-list">Management User</a></li>
-            <li><a class="dropdown-item" href="/prj1.com/news-list-management">Management News</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/user-list">User Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/news-list-management">News Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/product-list-management">Product Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/cart-list-management">Cart Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/cart-view/-1/">Your Cart</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/bill-list-management">Bill Management</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/bill-list">Your Bill</a></li>
             <li><a class="dropdown-item" href="/prj1.com/mail-list/${pageContext.request.userPrincipal.name}">
 	            <button type="button" class="btn btn-primary position-relative">
 				  Your Mail
@@ -52,7 +60,7 @@
           </ul>
         	</c:if>
         	<c:if test="${empty pageContext.request.userPrincipal.name}">
-           <button class="btn btn-outline-success" ><a href="login">Login</a></button>
+           <button class="btn btn-outline-success" ><a href="/prj1.com/login">Login</a></button>
         	</c:if>
         </div>
   </div>
