@@ -16,32 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users_role`
+-- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `users_role`;
+DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users_role` (
+CREATE TABLE `cart` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user` int DEFAULT NULL,
-  `role` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `_idx` (`user`),
-  KEY `dfdf_idx` (`role`),
-  CONSTRAINT `role` FOREIGN KEY (`role`) REFERENCES `role` (`id`),
-  CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  `username` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `list` varchar(999) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `sum` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users_role`
+-- Dumping data for table `cart`
 --
 
-LOCK TABLES `users_role` WRITE;
-/*!40000 ALTER TABLE `users_role` DISABLE KEYS */;
-INSERT INTO `users_role` VALUES (1,1,1),(2,2,2),(3,3,2),(9,20,2),(18,29,1);
-/*!40000 ALTER TABLE `users_role` ENABLE KEYS */;
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES (1,'hoangtc','','0'),(2,'dolv','','0');
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

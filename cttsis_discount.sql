@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `news`
+-- Table structure for table `discount`
 --
 
-DROP TABLE IF EXISTS `news`;
+DROP TABLE IF EXISTS `discount`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `news` (
+CREATE TABLE `discount` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `content` varchar(999) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `isDeleted` int DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `percent` varchar(45) DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `quan` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `news`
+-- Dumping data for table `discount`
 --
 
-LOCK TABLES `news` WRITE;
-/*!40000 ALTER TABLE `news` DISABLE KEYS */;
-INSERT INTO `news` VALUES (1,'Backend Developer (Java,Spring Boot, MySQL, Cloud) - Upto 30M','Nhóm Project 1 Backend java Spring MVC th&#7847;y Tr&#7847;n Vi&#7879;t Trung',0),(2,'Mobile Developer (Flutter, Android, iOS) - Upto 40M','Tr&#7847;n Công Hoàng, Lê V&#259;n Do, Nguy&#7877;n V&#259;n D&#361;ng',0),(4,'T&#7871;t Nguyên &#272;án','2 tháng n&#7919;a',0),(5,'&#272;&#7841;i h&#7897;i võ lâm','Ch&#432;a di&#7877;n ra',0),(7,'Hot',':v',0),(8,'Tran cong hoang','alo',0);
-/*!40000 ALTER TABLE `news` ENABLE KEYS */;
+LOCK TABLES `discount` WRITE;
+/*!40000 ALTER TABLE `discount` DISABLE KEYS */;
+/*!40000 ALTER TABLE `discount` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-05  9:48:38
+-- Dump completed on 2021-12-09 21:42:34

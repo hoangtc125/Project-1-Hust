@@ -32,9 +32,10 @@ CREATE TABLE `users` (
   `clazz` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   `isDeleted` int DEFAULT NULL,
   `dateDeleted` date DEFAULT NULL,
+  `coin` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +44,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'hoangtc','$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG',1,'Tr&#7847;n Công Hoàng','20194060','IT1 01 K64',0,NULL),(2,'dolv','$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG',1,'Lê V&#259;n Do','20196669','IT1 01 K64',0,NULL),(3,'dungnv','$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG',1,'Nguy&#7877;n V&#259;n D&#361;ng','20190002','IT1 01 K64',0,NULL),(20,'thnthoangdaica','123456',1,'Công Hoàng Tr&#7847;n','20198889','IT1 01 K64',0,NULL);
+INSERT INTO `users` VALUES (1,'hoangtc','$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG',1,'Tr&#7847;n Công Hoàng','20194060','IT1 01 K64',0,NULL,'440000'),(2,'dolv','$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG',1,'Lê V&#259;n Do','20196669','IT1 01 K64',0,NULL,'0'),(3,'dungnv','$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG',1,'Nguy&#7877;n V&#259;n D&#361;ng','20190002','IT1 01 K64',0,NULL,'100000'),(4,'hethong',NULL,NULL,'Hệ Thống',NULL,NULL,NULL,NULL,NULL),(20,'thnthoangdaica','123456',1,'Công Hoàng Tr&#7847;n','20198889','IT1 01 K64',0,NULL,'0'),(29,'trangnl','123456',1,'Nguy&#7877;n Linh Trang','20193030','IT1 01 K64',0,NULL,'0');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-05  9:48:38
+-- Dump completed on 2021-12-09 21:42:34

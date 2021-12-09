@@ -32,7 +32,7 @@ CREATE TABLE `mail` (
   `sender` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `receiver` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `mail` (
 
 LOCK TABLES `mail` WRITE;
 /*!40000 ALTER TABLE `mail` DISABLE KEYS */;
-INSERT INTO `mail` VALUES (7,3,2,'oke cchwa','Yes','chao lai ne','dungnv','dolv'),(8,3,1,'2 tháng n&#7919;a','Yes','T&#7871;t Nguyên &#272;án','dungnv','hoangtc'),(9,3,1,'Ch&#432;a di&#7877;n ra','Yes','&#272;&#7841;i h&#7897;i võ lâm','dungnv','hoangtc'),(26,2,1,'1','No','1','dolv','hoangtc'),(27,1,2,'100k','No','Thông báo thu ti&#7873;n ','hoangtc','dolv'),(28,1,3,'100k','No','Thông báo thu ti&#7873;n ','hoangtc','dungnv'),(29,1,20,'100k','No','Thông báo thu ti&#7873;n ','hoangtc','thnthoangdaica');
+INSERT INTO `mail` VALUES (45,2,1,'news','No','xoa ho e ','dolv','hoangtc'),(46,3,2,'10 diem','No','bai hay qua','dungnv','dolv'),(47,1,2,'nhe','No','hay dang bai tin tuc','hoangtc','dolv'),(48,1,3,'nhe','No','hay dang bai tin tuc','hoangtc','dungnv'),(49,1,20,'nhe','No','hay dang bai tin tuc','hoangtc','thnthoangdaica'),(50,1,2,'2021','No','chao 8/12','hoangtc','dolv'),(51,1,3,'2021','No','chao 8/12','hoangtc','dungnv'),(52,1,20,'2021','No','chao 8/12','hoangtc','thnthoangdaica'),(53,1,29,'2021','No','chao 8/12','hoangtc','trangnl');
 /*!40000 ALTER TABLE `mail` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-05  9:48:39
+-- Dump completed on 2021-12-09 21:42:34

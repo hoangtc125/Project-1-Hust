@@ -16,32 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users_role`
+-- Table structure for table `bill`
 --
 
-DROP TABLE IF EXISTS `users_role`;
+DROP TABLE IF EXISTS `bill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users_role` (
+CREATE TABLE `bill` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user` int DEFAULT NULL,
-  `role` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `_idx` (`user`),
-  KEY `dfdf_idx` (`role`),
-  CONSTRAINT `role` FOREIGN KEY (`role`) REFERENCES `role` (`id`),
-  CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  `username` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nameBill` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `list` varchar(999) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `sum` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `otp` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users_role`
+-- Dumping data for table `bill`
 --
 
-LOCK TABLES `users_role` WRITE;
-/*!40000 ALTER TABLE `users_role` DISABLE KEYS */;
-INSERT INTO `users_role` VALUES (1,1,1),(2,2,2),(3,3,2),(9,20,2),(18,29,1);
-/*!40000 ALTER TABLE `users_role` ENABLE KEYS */;
+LOCK TABLES `bill` WRITE;
+/*!40000 ALTER TABLE `bill` DISABLE KEYS */;
+INSERT INTO `bill` VALUES (1,'hoangtc','hoangtcnull','1 22 2 11','330000',''),(2,'hoangtc','hoangtcnull','1 1 2 12','130000',''),(3,'hoangtc','hoangtcnull','4 1','100000',''),(4,'dolv','dolvnull','2 1','10000','');
+/*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-09 21:42:34
+-- Dump completed on 2021-12-09 21:42:35
