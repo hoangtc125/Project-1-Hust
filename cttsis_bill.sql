@@ -29,8 +29,9 @@ CREATE TABLE `bill` (
   `list` varchar(999) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `sum` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otp` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `date` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +40,7 @@ CREATE TABLE `bill` (
 
 LOCK TABLES `bill` WRITE;
 /*!40000 ALTER TABLE `bill` DISABLE KEYS */;
-INSERT INTO `bill` VALUES (1,'hoangtc','hoangtcnull','1 22 2 11','330000',''),(2,'hoangtc','hoangtcnull','1 1 2 12','130000',''),(3,'hoangtc','hoangtcnull','4 1','100000',''),(4,'dolv','dolvnull','2 1','10000','');
+INSERT INTO `bill` VALUES (1,'hoangtc','hoangtcnull','1 22 2 11','330000','',NULL),(2,'hoangtc','hoangtcnull','1 1 2 12','130000','',NULL),(3,'hoangtc','hoangtcnull','4 1','100000','',NULL),(4,'dolv','dolvnull','2 1','10000','',NULL),(5,'hoangtc','hoangtcnull','1 22','220000','',NULL),(6,'hoangtc','hoangtcnull','2 12','120000','','Fri Dec 10 19:43:19 HOVT 2021'),(7,'hoangtc','hoangtcnull','2 20','200000','','Fri Dec 10 19:52:06 HOVT 2021'),(8,'hoangtc','hoangtcnull','1 10','100000','','Fri Dec 10 20:04:45 HOVT 2021'),(9,'hoangtc','hoangtcnull','2 11','110000','','Fri Dec 10 20:07:36 HOVT 2021'),(10,'hoangtc','hoangtcnull','1 11 2 10','210000','','Fri Dec 10 20:12:49 HOVT 2021'),(11,'hoangtc','hoangtcnull','1 22 4 1 2 22','540000','','Fri Dec 10 20:17:33 HOVT 2021');
 /*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-09 21:42:35
+-- Dump completed on 2021-12-10 20:19:21

@@ -28,8 +28,9 @@ CREATE TABLE `comment` (
   `content` varchar(999) COLLATE utf8_unicode_ci DEFAULT NULL,
   `idNews` int DEFAULT NULL,
   `idProduct` int DEFAULT NULL,
+  `date` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +39,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,'hoangtc','hay qua di',1,NULL),(2,'hoangtc','hay qua diiiiii',1,NULL),(3,'hoangtc','c&#361;ng &#273;&#432;&#7907;c',1,NULL),(4,'hoangtc','alo có ai comment ch&#432;a',5,NULL),(7,'hoangtc','hot choox naof',7,NULL),(8,'dolv','ukm\r\n',7,NULL),(10,'dolv','hoang dz',1,NULL),(11,'hoangtc','oce dolv',1,NULL),(12,'dungnv','qua dung luon 100 diem',1,NULL),(13,'hoangtc','ok k',1,NULL),(15,'hoangtc','chwa',5,NULL),(16,'dolv','ll\r\n',7,NULL),(17,'hoangtc','hay qua',19,NULL),(23,'hoangtc','a',20,NULL),(24,'hoangtc','alo al\r\n',15,NULL),(26,'hoangtc','y nghia qua',18,NULL),(28,'hoangtc','alo alo',NULL,1),(29,'hoangtc','dep trai',NULL,1),(30,'hoangtc','chat luong qua\r\n',NULL,4),(31,'hoangtc','mua di',24,NULL);
+INSERT INTO `comment` VALUES (1,'hoangtc','hay qua di',1,NULL,NULL),(2,'hoangtc','hay qua diiiiii',1,NULL,NULL),(3,'hoangtc','c&#361;ng &#273;&#432;&#7907;c',1,NULL,NULL),(4,'hoangtc','alo có ai comment ch&#432;a',5,NULL,NULL),(7,'hoangtc','hot choox naof',7,NULL,NULL),(8,'dolv','ukm\r\n',7,NULL,NULL),(10,'dolv','hoang dz',1,NULL,NULL),(11,'hoangtc','oce dolv',1,NULL,NULL),(12,'dungnv','qua dung luon 100 diem',1,NULL,NULL),(13,'hoangtc','ok k',1,NULL,NULL),(15,'hoangtc','chwa',5,NULL,NULL),(16,'dolv','ll\r\n',7,NULL,NULL),(17,'hoangtc','hay qua',19,NULL,NULL),(24,'hoangtc','alo al\r\n',15,NULL,NULL),(26,'hoangtc','y nghia qua',18,NULL,NULL),(28,'hoangtc','alo alo',NULL,1,NULL),(30,'hoangtc','chat luong qua\r\n',NULL,4,NULL),(31,'hoangtc','mua di',24,NULL,NULL),(32,'hoangtc','hay qua',25,NULL,NULL),(33,'hoangtc','alo',25,NULL,'Fri Dec 10 19:50:52 HOVT 2021'),(34,'hoangtc','alo',NULL,1,'Fri Dec 10 20:11:41 HOVT 2021');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-09 21:42:34
+-- Dump completed on 2021-12-10 20:19:22

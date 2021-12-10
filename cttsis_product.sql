@@ -39,7 +39,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'binh nuoc ','10000','','101',0),(2,'moc khoa','10000','','100',0),(4,'ao phong','100000','','100',0);
+INSERT INTO `product` VALUES (1,'binh nuoc ','10000','43','58',0),(2,'moc khoa','10000','43','57',0),(4,'ao phong','100000','1','99',0);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-09 21:42:34
+-- Dump completed on 2021-12-10 20:19:21
