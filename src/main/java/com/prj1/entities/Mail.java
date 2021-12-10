@@ -41,6 +41,9 @@ public class Mail implements java.io.Serializable {
 
 	@Column(name = "receiver", length = 45)
 	private String receiver = "";
+
+	@Column(name = "date", length = 45)
+	private String date = "";
 	
 	public Mail() {
 	}
@@ -52,6 +55,14 @@ public class Mail implements java.io.Serializable {
 		this.isRead = isRead;
 		this.content = content;
 		this.title = title;
+	}
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public Integer getId() {

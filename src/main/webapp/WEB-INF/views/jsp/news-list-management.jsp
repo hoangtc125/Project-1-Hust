@@ -29,7 +29,7 @@
 </svg></a>
     </th>
     <th>Author</th>
-    
+    <th>Date</th>
     <th>View</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -40,6 +40,7 @@
 <td>${count = count + 1}</td>
 <td>${news.title}</td>
 <td>${news.author}</td>
+<td>${news.date}</td>
 <td> <a href="${urlView}/${news.id}">View</a></td>
 <td> <a href="${urlUpdate}/${news.id}/${pageContext.request.userPrincipal.name}">Edit</a></td>
 <td> <a href="${urlSoftDelete}/${news.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>

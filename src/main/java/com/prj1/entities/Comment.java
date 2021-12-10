@@ -33,6 +33,9 @@ public class Comment implements java.io.Serializable {
 	@Column(name = "sender", length = 45)
 	private String sender = "";
 
+	@Column(name = "date", length = 45)
+	private String date = "";
+
 	public Comment() {
 	}
 
@@ -42,6 +45,14 @@ public class Comment implements java.io.Serializable {
 		this.idProduct = idProduct;
 		this.content = content;
 		this.sender = sender;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public Integer getId() {

@@ -3,6 +3,7 @@
   <a href="<c:url value="/mail-list/${pageContext.request.userPrincipal.name}" />" >List Mail</a><br />
   <h1>View Mail:</h1>  
   Title: ${mail.title} <br/>
+  Date: ${mail.date} <br/>
   Sender: 
 	<div class="nav-item dropdown d-flex" style="margin: 0 10px">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

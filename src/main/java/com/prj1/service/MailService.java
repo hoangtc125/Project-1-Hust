@@ -1,6 +1,7 @@
 package com.prj1.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,8 @@ public class MailService {
 			 return;
 		 }
 		 mail.setIdUser_(user.getId());
+		 Date date = new Date();
+		 mail.setDate(date.toString());
 	    mailDAO.save(mail);
 	  }
 	  

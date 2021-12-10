@@ -10,6 +10,7 @@
 <div>
 <div>
 <h1>Owner: ${bill.username}</h1>
+<h1>Date: ${bill.date}</h1>
 </div>
 <br />
 <br />

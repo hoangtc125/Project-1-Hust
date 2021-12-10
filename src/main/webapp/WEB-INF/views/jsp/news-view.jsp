@@ -3,6 +3,7 @@
 <div style="display:align-items-center">
   <a href="<c:url value="/news-list?sort=" />" >List News</a><br />
   <h1>${news.title} </h1>  
+  <h1>${news.date} </h1>  
   <h1>Author: 
   <div class="nav-item dropdown d-flex" style="margin: 0 10px">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,6 +36,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              ${comment.sender}
           </a>
+          <p>${comment.date}</p>
           <c:choose>
 			  <c:when test="${roleAdmin == true}">
 			    <a href="/prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete Comment</a>

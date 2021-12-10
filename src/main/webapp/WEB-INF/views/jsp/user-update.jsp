@@ -16,5 +16,8 @@
       <c:if test="${roleAdmin == true}">
 	    Coin: <form:input path="coin" /> <br/> <br/>
 	  </c:if>
+	  <c:if test="${roleAdmin == false}">
+	    Coin: <form:input path="coin" readonly="true"/> <br/> <br/>
+	  </c:if>
     <button type="submit">Submit</button>
   </form:form>

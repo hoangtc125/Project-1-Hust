@@ -7,6 +7,8 @@
   <c:url value="/updateNews" var="updateNews" />
   <form:form action="${updateNews}" method="POST" modelAttribute="news">
       Id: <form:input path="id" readonly="true" /> <br/> <br/>
+      Author: <form:input path="author" readonly="true" /> <br/> <br/>
+      Date: <form:input path="date" readonly="true" /> <br/> <br/>
       Title: <form:input path="Title" /> <br/> <br/>
       Content: <form:input path="Content" /> <br/> <br/>
     <button type="submit">Submit</button>

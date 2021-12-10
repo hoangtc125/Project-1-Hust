@@ -35,6 +35,9 @@ public class Bill implements java.io.Serializable {
 
 	@Column(name = "otp", length = 45)
 	private String otp = "";
+
+	@Column(name = "date", length = 45)
+	private String date = "";
 	
 	public Bill() {
 	}
@@ -47,6 +50,14 @@ public class Bill implements java.io.Serializable {
 		this.listProduct = listProduct;
 		this.sumProduct = sumProduct;
 		this.otp = otp;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public Integer getId() {

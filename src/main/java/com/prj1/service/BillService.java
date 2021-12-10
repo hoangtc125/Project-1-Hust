@@ -1,6 +1,7 @@
 package com.prj1.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.query.criteria.internal.expression.function.LengthFunction;
@@ -61,6 +62,8 @@ public class BillService {
 	  
 	  public void save(Bill bill){
 	    // validate business
+		  Date date = new Date();
+		  bill.setDate(date.toString());
 	    billDAO.save(bill);
 	  }
 	  
@@ -126,6 +129,18 @@ public class BillService {
 	public void pay(Cart cart, User user) {
 		// TODO Auto-generated method stub
 		if(Integer.parseInt(user.getCoin()) >= Integer.parseInt(cart.getSumProduct())) {
+			List<Item> items = cartService.loadProduct(cart);
+			for (Item item : items) {
+				if(Integer.parseInt(item.getProduct().getUnSold()) < item.getQuan()) {
+					return;
+				}
+			}
+			for (Item item : items) {
+				item.getProduct().setSold("" + (Integer.parseInt(item.getProduct().getSold()) + item.getQuan()));
+				item.getProduct().setUnSold("" + (Integer.parseInt(item.getProduct().getUnSold()) - item.getQuan()));
+				productService.update(item.getProduct());
+			}
+			
 			Bill bill = new Bill();
 			bill.setUsername(user.getUsername());
 			bill.setListProduct(cart.getListProduct());

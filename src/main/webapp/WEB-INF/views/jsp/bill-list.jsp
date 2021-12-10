@@ -16,7 +16,7 @@
     <th>Id</th>
     <th>Name</th>
     <th>Sum</th>
-    
+    <th>Date</th>
     <th>View</th>
   </tr>
   <c:if test="${not empty listBill}">
@@ -25,6 +25,7 @@
 <td>${count = count + 1}</td>
 <td>${bill.nameBill}</td>
 <td>${bill.sumProduct}</td>
+<td>${bill.date}</td>
 <td> <a href="${urlView}/${bill.id}">View</a></td>
 </tr>
 </c:forEach>

@@ -1,6 +1,7 @@
 package com.prj1.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class CommentService {
 	  
 	  public void save(Comment comment){
 	    // validate business
+		  Date date = new Date();
+		  comment.setDate(date.toString());
 	    commentDAO.save(comment);
 	  }
 	  

@@ -8,6 +8,7 @@
   <form:form action="${updateProduct}" method="POST" modelAttribute="product">
       Id: <form:input path="id" readonly="true" /> <br/> <br/>
       Name: <form:input path="name" /> <br/> <br/>
+      Sold: <form:input path="sold" readonly="true" /> <br/> <br/>
       Price: <form:input path="price" /> <br/> <br/>
       Available: <form:input path="unSold" /> <br/> <br/>
     <button type="submit">Submit</button>

@@ -15,11 +15,29 @@
     <div class="card h-100">
       <img src="https://media.thaythichtructhaiminh.com/files/thanh_mai/2021/06/17/2-2214.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">${product.name}</h5>
+        
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+      	<h5 class="card-title">${product.name}</h5>
         <h5 class="card-title">${product.price}</h5>
-        
+      	<h5 class="card-title">Sold: ${product.sold}</h5>
+        <h5 class="card-title">Available: ${product.unSold}</h5>
+       
         <p class="card-text"><a href="${urlView}/${product.id}">View Detail</a></p>
-        
+      	</th>
+      <th scope="col">
+		 <c:url value="/updateCart" var="updateCart" />
+			 <form action="${updateCart}" method="get" >
+			     ID: <input name="id" readonly="true" value="${product.id}"/> <br/> <br/>
+			     Quantity: <input name="quan" type="text" /> <br/> <br/>
+			   <button type="submit">Buy now</button>
+			  </form>
+		</th>
+    </tr>
+  </thead>
+</table>
       </div>
     </div>
   </div>

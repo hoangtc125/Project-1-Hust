@@ -1,6 +1,7 @@
 package com.prj1.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ public class NewsService {
 	  
 	  public void save(News news){
 	    // validate business
+		  Date date = new Date();
+		  news.setDate(date.toString());
 	    newsDAO.save(news);
 	  }
 	  

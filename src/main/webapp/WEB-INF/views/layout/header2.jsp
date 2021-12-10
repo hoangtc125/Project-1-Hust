@@ -9,10 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          <a class="nav-link" href="/prj1.com/product-list">Shop</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="https://github.com/hoangtc125/Project-1-Hust">Link GitHub</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled">Project 1</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-success" ><a href="/prj1.com/news-save">Add Your News</a></button>
         </li>
       </ul>
     </div>

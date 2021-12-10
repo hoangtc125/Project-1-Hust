@@ -28,6 +28,7 @@
       <img src="https://thaythichtructhaiminh.com/templates/themes/images/XMLID.svg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${news.title}</h5>
+        <h5 class="card-title">${news.date}</h5>
        
         <h5 class="card-title">Author: 
 			<div class="nav-item dropdown d-flex" style="margin: 0 10px">

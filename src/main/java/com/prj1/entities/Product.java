@@ -25,10 +25,10 @@ public class Product implements java.io.Serializable {
 	private String name = "";
 
 	@Column(name = "sold", length = 999)
-	private String sold = "";
+	private String sold = "0";
 	
 	@Column(name = "unSold", length = 999)
-	private String unSold = "";
+	private String unSold = "0";
 	
 	@Column(name = "price", length = 45)
 	private String price = "";

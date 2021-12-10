@@ -20,6 +20,7 @@
   <tr>
     <th>Id</th>
     <th>Title</th>
+    <th>Date</th>
     <th>Seen</th>
     <th>Sender</th>
     <th>Receiver</th>
@@ -31,6 +32,7 @@
 <tr style="border: 1px black solid">
 <td>${count = count + 1}</td>
 <td>${mail.title}</td>
+<td>${mail.date}</td>
 <td>${mail.isRead}</td>
 <td>
 <div class="nav-item dropdown d-flex" style="margin: 0 10px">

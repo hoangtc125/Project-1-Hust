@@ -2,19 +2,29 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div style="display:align-items-center">
   <a href="<c:url value="/product-list?sort=" />" >List Product</a><br />
-  <h1>${product.name} </h1>  
-  
-  <h1>Sold: ${product.sold} </h1>  
-  
-  <h1>Available: ${product.unSold} </h1>  
-  
-			<c:url value="/updateCart" var="updateCart" />
+
+		<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+      	<h5 class="card-title">${product.name}</h5>
+        <h5 class="card-title">${product.price}</h5>
+      	<h5 class="card-title">Sold: ${product.sold}</h5>
+        <h5 class="card-title">Available: ${product.unSold}</h5>
+       
+        <p class="card-text"><a href="${urlView}/${product.id}">View Detail</a></p>
+      	</th>
+      <th scope="col">
+		 <c:url value="/updateCart" var="updateCart" />
 			 <form action="${updateCart}" method="get" >
 			     ID: <input name="id" readonly="true" value="${product.id}"/> <br/> <br/>
 			     Quantity: <input name="quan" type="text" /> <br/> <br/>
-			   <button type="submit">Submit</button>
+			   <button type="submit">Buy now</button>
 			  </form>
-			
+		</th>
+    </tr>
+  </thead>
+</table>	
   <img src="https://media.thaythichtructhaiminh.com/files/thu_hong/2021/10/15/chu-tang-chua-ba-vang-ngay-dem-phong-ho-tam-minh-khong-thoi-chi-1500.jpg" class="card-img-top" alt="...">
     
 </div>
@@ -35,6 +45,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              ${comment.sender}
           </a>
+          <p>${comment.date}</p>
           <c:choose>
 			  <c:when test="${roleAdmin == true}">
 			    <a href="/prj1.com/commentDeleteComment/${comment.id}/${product.id}">Delete Comment</a>

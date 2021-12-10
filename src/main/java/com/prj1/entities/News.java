@@ -32,6 +32,9 @@ public class News implements java.io.Serializable {
 
 	@Column(name = "isDeleted")
 	private Integer isDeleted = 0;
+
+	@Column(name = "date", length = 45)
+	private String date = "";
 	
 	public News() {
 	}
@@ -42,6 +45,14 @@ public class News implements java.io.Serializable {
 		this.author = author;
 		this.content = content;
 		this.isDeleted = isDeleted;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getTitle() {
