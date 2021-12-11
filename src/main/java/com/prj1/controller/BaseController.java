@@ -44,6 +44,7 @@ public class BaseController {
 	@RequestMapping("/logout")
 	public String logout(final Model model) {
 		model.addAttribute("message", "Logged out!");
+		MyUserDetailsService.username = "";
 		// login again
 		return "login";
 	}
