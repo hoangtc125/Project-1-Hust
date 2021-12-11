@@ -101,9 +101,9 @@ public class CartService {
 			  cartDAO.update(cart);
 	  }
 	  
-	  public void delete(int id){
+	  public void delete(Cart cart){
 	    // validate business
-		  cartDAO.delete(cartDAO.findById(id));
+		  cartDAO.delete(cart);
 	  }
 
 	public List<Item> loadProduct(Cart cart) {

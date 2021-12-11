@@ -7,7 +7,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <c:if test="${empty listNews}">
 <span>No News Today</span>
-<img src="https://media.thaythichtructhaiminh.com/files/thanh_mai/2021/06/17/4-2220.jpg" class="card-img-top" alt="..."/>
+<img src="https://media.thaythichtructhaiminh.com/files/linh_trang/2021/05/05/chu-tang-chua-ba-vang-tu-tap-trong-rung-5-1927.jpg" class="card-img-top" alt="..."/>
 </c:if>
 <c:if test="${not empty listNews}">
 <c:forEach var="news" items="${listNews}">

@@ -134,11 +134,4 @@ public class CartController {
 	    return "redirect:/cart-list-management";
 	  }
 	  
-	  @RequestMapping("/cartDelete/{id}")
-	  public String doDeletecart(@PathVariable int id, Model model) {
-	    cartService.delete(id);
-	    model.addAttribute("listCart", cartService.findAllDeleted());
-	    return "redirect:/cart-list-deleted";
-	  }
-	  
 }

@@ -32,7 +32,7 @@
             ${pageContext.request.userPrincipal.name}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/prj1.com/myAcc">Your account</a></li>
+            <li><a class="dropdown-item" href="/prj1.com/user-view/-1/${pageContext.request.userPrincipal.name}">Your account</a></li>
             <li><a class="dropdown-item" href="/prj1.com/user-update/-1/${pageContext.request.userPrincipal.name}">Setting</a></li>
             <li><a class="dropdown-item" href="/prj1.com/user-list">User Management</a></li>
             <li><a class="dropdown-item" href="/prj1.com/news-list-management">News Management</a></li>

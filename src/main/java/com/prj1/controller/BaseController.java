@@ -1,14 +1,19 @@
 package com.prj1.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj1.service.MyUserDetailsService;
+import com.prj1.service.UserService;
 
 @Controller
 public class BaseController {
+
+	 @Autowired
+	  private UserService userService;
 	
 	@RequestMapping("/")
 	public String index() {

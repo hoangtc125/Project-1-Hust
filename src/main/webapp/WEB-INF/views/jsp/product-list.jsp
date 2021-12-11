@@ -7,13 +7,13 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <c:if test="${empty listProduct}">
 <span>No Product Today</span>
-<img src="https://media.thaythichtructhaiminh.com/files/thanh_mai/2021/06/17/4-2220.jpg" class="card-img-top" alt="..."/>
+<img src="https://media.thaythichtructhaiminh.com/files/nghien87/2021/05/05/hoa-cuc-trong-le-hoi-hoa-cuc-1416.jpg" class="card-img-top" alt="..."/>
 </c:if>
 <c:if test="${not empty listProduct}">
 <c:forEach var="product" items="${listProduct}">
   <div class="col">
     <div class="card h-100">
-      <img src="https://media.thaythichtructhaiminh.com/files/thanh_mai/2021/06/17/2-2214.jpg" class="card-img-top" alt="...">
+      <img src="https://media.thaythichtructhaiminh.com/files/nghien87/2021/05/05/am-thuc-le-hoi-hoa-cuc-1416.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         
         <table class="table">

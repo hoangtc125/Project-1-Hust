@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.prj1.dao.UserDAO;
+import com.prj1.entities.Cart;
 import com.prj1.entities.User;
 
 @Service
@@ -17,6 +18,9 @@ public class UserService {
 	
 	@Autowired
 	  private UserDAO userDAO;
+
+	 @Autowired
+	  private CartService cartService;
 	  
 	  public List<User> findAll() {
 	    return userDAO.findAll();
@@ -52,10 +56,20 @@ public class UserService {
 	  
 	  public void saveUser(User user){
 		    // validate business
+		  Cart cart = new Cart();
+		  cart.setListProduct("");
+		  cart.setSumProduct("0");
+		  cart.setUsername(user.getUsername());
+		  cartService.save(cart);
 		    userDAO.saveUser(user);
 		  }
 	  public void saveAdmin(User user){
 		    // validate business
+		  Cart cart = new Cart();
+		  cart.setListProduct("");
+		  cart.setSumProduct("0");
+		  cart.setUsername(user.getUsername());
+		  cartService.save(cart);
 		    userDAO.saveAdmin(user);
 		  }
 	  
@@ -75,7 +89,10 @@ public class UserService {
 	  
 	  public void delete(int id){
 	    // validate business
-		  userDAO.delete(userDAO.findById(id));
+		  User user = userDAO.findById(id);
+		  Cart cart = cartService.loadCartByUsername(user.getUsername());
+		  cartService.delete(cart);
+		  userDAO.delete(user);
 	  }
 	  
 	public List<User> sortByName(List<User> list) {

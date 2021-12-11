@@ -11,8 +11,6 @@
         <h5 class="card-title">${product.price}</h5>
       	<h5 class="card-title">Sold: ${product.sold}</h5>
         <h5 class="card-title">Available: ${product.unSold}</h5>
-       
-        <p class="card-text"><a href="${urlView}/${product.id}">View Detail</a></p>
       	</th>
       <th scope="col">
 		 <c:url value="/updateCart" var="updateCart" />
@@ -25,7 +23,7 @@
     </tr>
   </thead>
 </table>	
-  <img src="https://media.thaythichtructhaiminh.com/files/thu_hong/2021/10/15/chu-tang-chua-ba-vang-ngay-dem-phong-ho-tam-minh-khong-thoi-chi-1500.jpg" class="card-img-top" alt="...">
+  <img src="https://media.thaythichtructhaiminh.com/files/nghien87/2021/05/05/tra-hoa-cuc-1416.jpg" class="card-img-top" alt="...">
     
 </div>
 <c:url value="/saveCommentProduct" var="saveComment"/>
