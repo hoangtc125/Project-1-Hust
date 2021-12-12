@@ -53,19 +53,15 @@ public class NewsController {
 	  }
 	 
 	 @RequestMapping(value="/news-list-deleted", method = RequestMethod.GET)
-	  public String listnewsdeleted(@RequestParam(required=false, name = "sort", defaultValue="") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
-		if(title != null) {
-			model.addAttribute("listNews", newsService.searchByTitle(newsService.findAllDeleted(), title));
+	  public String listnewsdeleted(@RequestParam(required=false, name = "me", defaultValue="0") int me, @RequestParam(required=false,name="title") String title, Model model) {
+		if(mailService.checkRoleAdmin(MyUserDetailsService.username) && me != 1) {			
+			model.addAttribute("listNews", newsService.findAllDeleted());
+			return "news-list-deleted";
+		} else {
+			model.addAttribute("listNews", newsService.findAllDeletedByAuthor(MyUserDetailsService.username));
 			return "news-list-deleted";
 		}
-		  
-		if(typeSort.compareTo("title") == 0) {
-		    model.addAttribute("listNews", newsService.sortByName(newsService.findAllDeleted()));
-		} else{	
-			model.addAttribute("listNews", newsService.findAllDeleted());
-		}
 		
-	    return "news-list-deleted";
 	  }
 	 
 	 @RequestMapping("/news-list-management")
@@ -144,7 +140,7 @@ public class NewsController {
 	  public String dorestoreNews(@PathVariable int id, Model model) {
 	    newsService.restoreById(id);
 	    model.addAttribute("listNews", newsService.findAllDeleted());
-	    return "redirect:/news-list-deleted";
+	    return "redirect:/news-list-deleted?me=1";
 	  }
 	  
 	  @RequestMapping("/newsSoftDelete/{id}/{username}")
@@ -159,6 +155,6 @@ public class NewsController {
 	  public String doDeletenews(@PathVariable int id, Model model) {
 	    newsService.delete(id);
 	    model.addAttribute("listNews", newsService.findAllDeleted());
-	    return "redirect:/news-list-deleted";
+	    return "redirect:/news-list-deleted?me=1";
 	  }
 }

@@ -54,4 +54,9 @@ public class NewsDAO {
 	    Session session = this.sessionFactory.getCurrentSession();
 	    return session.createQuery("from News where isDeleted = 1", News.class).getResultList();
 	  }
+
+	  public List<News> findAllDeletedByAuthor(final String author) {
+	    Session session = this.sessionFactory.getCurrentSession();
+	    return session.createQuery("from News where isDeleted = 1 and author = ?", News.class).setParameter(0, author).getResultList();
+	  }
 }

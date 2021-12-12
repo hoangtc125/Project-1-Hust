@@ -26,6 +26,10 @@ public class NewsService {
 		    return newsDAO.findAllDeleted();
 		  }
 	  
+	  public List<News> findAllDeletedByAuthor(String author) {
+		    return newsDAO.findAllDeletedByAuthor(author);
+		  }
+	  
 	  public News findById(int id) {
 	    return newsDAO.findById(id);
 	  }

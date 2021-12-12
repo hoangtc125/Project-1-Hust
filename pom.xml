@@ -1,6 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 	<groupId>prj1.com</groupId>
 	<artifactId>prj1.com</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -43,35 +44,35 @@
 		</dependency>
 
 		<!-- Hibernate -->
-	    <dependency>
-	      <groupId>org.hibernate</groupId>
-	      <artifactId>hibernate-core</artifactId>
-	      <version>${hibernate.version}</version>
-	    </dependency>
-	    <dependency>
-	      <groupId>org.hibernate</groupId>
-	      <artifactId>hibernate-entitymanager</artifactId>
-	      <version>${hibernate.version}</version>
-	    </dependency>
-	    <dependency>
-	      <groupId>commons-dbcp</groupId>
-	      <artifactId>commons-dbcp</artifactId>
-	      <version>1.4</version>
-	    </dependency>
-	    
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
 		<!-- MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.27</version>
 		</dependency>
-		
+
 		<!-- Template tiles -->
 		<dependency>
-	      <groupId>org.apache.tiles</groupId>
-	      <artifactId>tiles-extras</artifactId>
-	      <version>3.0.8</version>
-	    </dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>3.0.8</version>
+		</dependency>
 
 		<!-- JSP - Servlet Lib -->
 		<dependency>
@@ -93,19 +94,19 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		
+
 		<!-- API, java.xml.bind module -->
 		<dependency>
-		    <groupId>jakarta.xml.bind</groupId>
-		    <artifactId>jakarta.xml.bind-api</artifactId>
-		    <version>2.3.2</version>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.2</version>
 		</dependency>
-		
+
 		<!-- Runtime, com.sun.xml.bind module -->
 		<dependency>
-		    <groupId>org.glassfish.jaxb</groupId>
-		    <artifactId>jaxb-runtime</artifactId>
-		    <version>2.3.2</version>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.2</version>
 		</dependency>
 
 	</dependencies>
@@ -126,5 +127,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
