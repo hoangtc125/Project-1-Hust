@@ -45,6 +45,8 @@
 					<li><a class="dropdown-item" href="/prj1.com/user-list">User
 							Management</a></li>
 					<li><a class="dropdown-item"
+						href="/prj1.com/noti-view">Your Notification</a></li>
+					<li><a class="dropdown-item"
 						href="/prj1.com/news-list-management">News Management</a></li>
 					<li><a class="dropdown-item"
 						href="/prj1.com/product-list-management">Product Management</a></li>

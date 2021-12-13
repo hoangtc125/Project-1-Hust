@@ -15,20 +15,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj1.entities.Comment;
 import com.prj1.entities.Item;
+import com.prj1.entities.Noti;
 import com.prj1.entities.Product;
 import com.prj1.entities.Bill;
 import com.prj1.entities.Cart;
 import com.prj1.entities.User;
-import com.prj1.entities.Bill;
-import com.prj1.entities.Bill;
-import com.prj1.entities.Bill;
 import com.prj1.service.CommentService;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
+import com.prj1.service.NotiService;
 import com.prj1.service.UserService;
 import com.prj1.service.BillService;
 import com.prj1.service.CartService;
-import com.prj1.service.BillService;
 
 @Controller
 public class BillController {
@@ -49,11 +47,19 @@ public class BillController {
 	 @Autowired
 	  private CartService cartService;
 	 
+	 @Autowired
+	  private NotiService notiService;
+	 
 	 @RequestMapping("/pay")
 	  public String doPay(Model model) {
 		  Cart cart = cartService.loadCartByUsername(MyUserDetailsService.username);
 		  User user = userService.findByUsername(MyUserDetailsService.username);
-	    billService.pay(cart, user);
+		  Date date = new Date();
+	    if(billService.pay(cart, user)) {
+		    notiService.save(new Noti(MyUserDetailsService.username, "Pay successfully", 0, "/prj1.com/bill-list", date.toString()));
+	    } else {
+	    	notiService.save(new Noti(MyUserDetailsService.username, "Pay Failed", 0, "/prj1.com/bill-list", date.toString()));
+	    }
 	    model.addAttribute("listBill", billService.loadBillByUsername(MyUserDetailsService.username));
 	    return "redirect:/bill-list";
 	  }

@@ -126,13 +126,13 @@ public class BillService {
 		return items;
 	}
 
-	public void pay(Cart cart, User user) {
+	public boolean pay(Cart cart, User user) {
 		// TODO Auto-generated method stub
 		if(Integer.parseInt(user.getCoin()) >= Integer.parseInt(cart.getSumProduct())) {
 			List<Item> items = cartService.loadProduct(cart);
 			for (Item item : items) {
 				if(Integer.parseInt(item.getProduct().getUnSold()) < item.getQuan()) {
-					return;
+					return false;
 				}
 			}
 			for (Item item : items) {
@@ -150,6 +150,8 @@ public class BillService {
 			user.setCoin("" + (Integer.parseInt(user.getCoin()) - Integer.parseInt(cart.getSumProduct())));
 			userService.update(user);
 			cartService.reset(cart);
+			return true;
 		}
+		return false;
 	}
 }

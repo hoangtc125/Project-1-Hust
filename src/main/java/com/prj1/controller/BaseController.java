@@ -1,5 +1,7 @@
 package com.prj1.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj1.service.MyUserDetailsService;
+import com.prj1.service.NotiService;
 import com.prj1.service.UserService;
 
 @Controller
@@ -14,6 +17,10 @@ public class BaseController {
 
 	 @Autowired
 	  private UserService userService;
+	 
+
+	 @Autowired
+	  private NotiService notiService;
 	
 	@RequestMapping("/")
 	public String index() {
@@ -52,6 +59,13 @@ public class BaseController {
 		MyUserDetailsService.username = "";
 		// login again
 		return "login";
+	}
+	
+
+	@RequestMapping("/noti-view")
+	public String noti(Model model) {
+		model.addAttribute("listNoti", notiService.loadNotiByUsername(MyUserDetailsService.username));
+		return "noti-view";
 	}
 
 }

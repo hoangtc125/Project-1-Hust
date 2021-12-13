@@ -187,8 +187,13 @@
 			value="/WEB-INF/views/jsp/bill-list-management.jsp" />
 	</definition>
 	<definition name="bill-list" extends="index">
-		<put-attribute name="title" value="News Project 1" />
+		<put-attribute name="title" value="Your Bill List" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/bill-list.jsp" />
+	</definition>
+	<definition name="noti-view" extends="index">
+		<put-attribute name="title" value="Your Notification" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/noti-view.jsp" />
 	</definition>
 </tiles-definitions>

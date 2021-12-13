@@ -41,6 +41,8 @@
 						href="/prj1.com/user-view/-1/${pageContext.request.userPrincipal.name}">Your
 							account</a></li>
 					<li><a class="dropdown-item"
+						href="/prj1.com/noti-view">Your Notification</a></li>
+					<li><a class="dropdown-item"
 						href="/prj1.com/user-update/-1/${pageContext.request.userPrincipal.name}">Setting</a></li>
 					<li><a class="dropdown-item" href="/prj1.com/user-list">User
 							Management</a></li>
