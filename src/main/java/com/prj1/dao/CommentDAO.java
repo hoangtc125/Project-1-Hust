@@ -1,5 +1,6 @@
 package com.prj1.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;

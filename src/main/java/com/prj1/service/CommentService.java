@@ -45,7 +45,25 @@ public class CommentService {
 		  return commentDAO.loadCommentByIdNews(idNews);
 	  }
 	  
+	  public List<String> loadUserCommentByIdNews(int idNews) {
+		  List<Comment> comments = commentDAO.loadCommentByIdNews(idNews);
+		  List<String> list = new ArrayList<String>();
+		  for (Comment comment : comments) {
+			list.add(comment.getSender());
+		}
+		  return list;
+	  }
+	  
 	  public List<Comment> loadCommentsProduct(int idNews) {
 		  return commentDAO.loadCommentByIdProduct(idNews);
+	  }
+	  
+	  public List<String> loadUserCommentByIdProduct(int idNews) {
+		  List<Comment> comments = commentDAO.loadCommentByIdProduct(idNews);
+		  List<String> list = new ArrayList<String>();
+		  for (Comment comment : comments) {
+				list.add(comment.getSender());
+			}
+		  return list;
 	  }
 }

@@ -16,16 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.prj1.entities.Cart;
 import com.prj1.entities.Comment;
 import com.prj1.entities.Item;
+import com.prj1.entities.Noti;
 import com.prj1.entities.Product;
 import com.prj1.entities.User;
-import com.prj1.entities.Product;
-import com.prj1.entities.Product;
-import com.prj1.entities.Product;
 import com.prj1.service.CartService;
 import com.prj1.service.CommentService;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
-import com.prj1.service.ProductService;
+import com.prj1.service.NotiService;
 import com.prj1.service.ProductService;
 
 @Controller
@@ -43,6 +41,9 @@ public class ProductController {
 	 
 	 @Autowired
 	  private CartService cartService;
+
+	 @Autowired
+	  private NotiService notiService;
 	 
 	 @RequestMapping(value="/product-list", method = RequestMethod.GET)
 	  public String listProduct(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
@@ -109,6 +110,15 @@ public class ProductController {
 	    Product product = productService.findById(idProduct);
 	    model.addAttribute("product", product);
 	    model.addAttribute("listComment", commentService.loadCommentsProduct(idProduct));
+
+	    List<String> comments = commentService.loadUserCommentByIdNews(idProduct);
+	    Date date = new Date();
+	    for (String comment2 : comments) {
+			if(comment2.compareTo(MyUserDetailsService.username) != 0) {
+				notiService.save(new Noti(comment2, "Have a new comment in which product you commented", 0, "/prj1.com/product-view/" + idProduct, date.toString()));
+			}
+		}
+	    
 	    return "redirect:/product-view/" + idProduct;
 	  }
 	  

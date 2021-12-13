@@ -124,6 +124,13 @@ public class NewsController {
 	    model.addAttribute("news", news);
 	    model.addAttribute("listComment", commentService.loadComments(idNews));
 	    
+	    List<String> comments = commentService.loadUserCommentByIdNews(idNews);
+	    Date date = new Date();
+	    for (String comment2 : comments) {
+			if(comment2.compareTo(MyUserDetailsService.username) != 0) {
+				notiService.save(new Noti(comment2, "Have a new comment in which news you commented", 0, "/prj1.com/news-view/" + idNews, date.toString()));
+			}
+		}
 	    
 	    return "redirect:/news-view/" + idNews;
 	  }
