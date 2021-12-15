@@ -25,6 +25,7 @@ import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NotiService;
 import com.prj1.service.ProductService;
+import com.prj1.service.UserService;
 
 @Controller
 public class ProductController {
@@ -44,6 +45,9 @@ public class ProductController {
 
 	 @Autowired
 	  private NotiService notiService;
+
+	 @Autowired
+	  private UserService userService;
 	 
 	 @RequestMapping(value="/product-list", method = RequestMethod.GET)
 	  public String listProduct(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
@@ -98,6 +102,11 @@ public class ProductController {
 	  public String doSaveproduct(@ModelAttribute("product") Product product, Model model) {
 	    productService.save(product);   	
     	model.addAttribute("listProduct", productService.findAll());
+    	Date date = new Date();
+    	List<User> users = userService.findAllUser();
+    	for (User user : users) {
+			notiService.save(new Noti(user.getUsername(), "New product had been released", 0, "/prj1.com/product-list", date.toString()));
+		}
     	return "redirect:/product-list-management";
 	  }
 	  
@@ -132,6 +141,11 @@ public class ProductController {
 	  public String doUpdateproduct(@ModelAttribute("product") Product product, Model model) {
 	    productService.update(product);
 	    model.addAttribute("listProduct", productService.findAll());
+    	Date date = new Date();
+    	List<User> users = userService.findAllUser();
+    	for (User user : users) {
+			notiService.save(new Noti(user.getUsername(), "A product had been updated", 0, "/prj1.com/product-list", date.toString()));
+		}
 	    return "redirect:/product-list-management";
 	  }
 	  

@@ -26,9 +26,31 @@ public class UserService {
 	    return userDAO.findAll();
 	  }
 	  
+	  public List<User> findAllUser() {
+		  List<User> users = userDAO.findAll();
+		  List<User> list = new ArrayList<User>();
+		  for (User user : users) {
+			if(user.getRole().compareTo("ROLE_USER") == 0) {
+				list.add(user);
+			}
+		}
+		  return list;
+	  }
+	  
+	  public List<User> findAllAdmin() {
+		  List<User> users = userDAO.findAll();
+		  List<User> list = new ArrayList<User>();
+		  for (User user : users) {
+			if(user.getRole().compareTo("ROLE_ADMIN") == 0) {
+				list.add(user);
+			}
+		}
+		  return list;
+	  }
+  
 	  public List<User> findAllDeleted() {
-		    return userDAO.findAllDeleted();
-		  }
+	    return userDAO.findAllDeleted();
+	  }
 	  
 	  public User findById(int id) {
 	    return userDAO.findById(id);

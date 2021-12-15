@@ -13,13 +13,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj1.entities.Comment;
+import com.prj1.entities.Follow;
 import com.prj1.entities.News;
 import com.prj1.entities.Noti;
+import com.prj1.entities.User;
 import com.prj1.service.CommentService;
+import com.prj1.service.FollowService;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NewsService;
 import com.prj1.service.NotiService;
+import com.prj1.service.UserService;
 
 @Controller
 public class NewsController {
@@ -32,10 +36,16 @@ public class NewsController {
 	  private CommentService commentService;
 
 	 @Autowired
+	  private UserService userService;
+
+	 @Autowired
 	  private MailService mailService;
 
 	 @Autowired
 	  private NotiService notiService;
+
+	 @Autowired
+	  private FollowService followService;
 	 
 	 @RequestMapping(value="/news-list", method = RequestMethod.GET)
 	  public String listNews(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
@@ -105,6 +115,11 @@ public class NewsController {
 		  news.setAuthor(MyUserDetailsService.username);
 	    newsService.save(news);
 	    Date date = new Date();
+	    List<Follow> follows = followService.loadFollowByUsername(MyUserDetailsService.username);
+	    for (Follow follow : follows) {
+	    	User user = userService.findByUsername(follow.getUsername());
+	    	notiService.save(new Noti(follow.getFollower(), follow.getUsername() + " had uploaded a news", 0, "/prj1.com/user-view/" + user.getId() + "/" + user.getUsername(), date.toString()));
+		}
 	    notiService.save(new Noti(MyUserDetailsService.username, "Your news had been uploaded successfully", 0, "/prj1.com/news-view/" + news.getId(), date.toString()));
 	    if(mailService.checkRoleAdmin(MyUserDetailsService.username)) {	    	
 	    	model.addAttribute("listNews", newsService.findAll());

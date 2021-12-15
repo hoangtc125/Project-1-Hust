@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//src/main/java/com/prj1/entities/Bill.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Cart.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Comment.java=UTF-8
+encoding//src/main/java/com/prj1/entities/Follow.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Mail.java=UTF-8
 encoding//src/main/java/com/prj1/entities/News.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Noti.java=UTF-8

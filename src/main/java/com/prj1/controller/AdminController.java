@@ -1,24 +1,26 @@
 package com.prj1.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.prj1.entities.Follow;
 import com.prj1.entities.News;
+import com.prj1.entities.Noti;
 import com.prj1.entities.User;
+import com.prj1.service.FollowService;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NewsService;
+import com.prj1.service.NotiService;
 import com.prj1.service.UserService;
 
 @Controller
@@ -31,6 +33,10 @@ public class AdminController {
 	  private NewsService newsService;
 	 @Autowired
 	  private MailService mailService;
+	 @Autowired
+	  private FollowService followService;
+	 @Autowired
+	  private NotiService notiService;
 	 
 	  @RequestMapping(value="/user-list", method = RequestMethod.GET)
 	  public String listuser(@RequestParam(required=false, name = "sort", defaultValue="name") String typeSort, @RequestParam(required=false,name="mssv") String mssv, @ModelAttribute("user") User user, Model model) {
@@ -73,6 +79,26 @@ public class AdminController {
 		
 	    return "user-list-deleted";
 	  }
+
+	  
+	  @RequestMapping("/follow/{id}")
+	  public String follow(@PathVariable(required=true, name = "id") int id, Model model) {
+		  User user = userService.findById(id);
+		  	followService.save(new Follow(user.getUsername(), MyUserDetailsService.username));
+		  	Date date = new Date();
+		  	notiService.save(new Noti(user.getUsername(), MyUserDetailsService.username + " followed you", 0, "/prj1.com/", date.toString()));
+		  return "redirect:/user-view/" + id + "/" + user.getUsername();
+	  }
+	  
+	  @RequestMapping("/unFollow/{id}")
+	  public String unFollow(@PathVariable(required=false, name = "id") int id, Model model) {
+		  User user = userService.findById(id);
+		  	Follow follow = followService.loadFollow(user.getUsername(), MyUserDetailsService.username);
+		  	followService.delete(follow.getId());
+		  	Date date = new Date();
+		  	notiService.save(new Noti(user.getUsername(), MyUserDetailsService.username + " unfollowed you", 0, "/prj1.com/", date.toString()));
+		  return "redirect:/user-view/" + id + "/" + user.getUsername();
+	  }
 	  
 	  @RequestMapping("/user-save")
 	  public String insertuser(Model model) {
@@ -85,13 +111,35 @@ public class AdminController {
 			  List<News> news = newsService.loadNewsByAuthor(username);
 			  model.addAttribute("listNews", news);
 			  User user = userService.findByUsername(username);
+			  if(user.getUsername().compareTo(MyUserDetailsService.username) != 0) {
+				  List<Follow> follows = followService.loadFollowByFollower(MyUserDetailsService.username);
+				  int canFollow = 1;
+				  for (Follow follow : follows) {
+					if(follow.getUsername().compareTo(user.getUsername()) == 0) {
+						canFollow = 0;
+						break;
+					}
+				}
+				  model.addAttribute("canFollow", canFollow);
+			  }
 			  model.addAttribute("user", user);
 			    return "user-view";
 		  }
 		  User user = userService.findById(id);
+		  if(user.getUsername().compareTo(MyUserDetailsService.username) != 0) {
+			  List<Follow> follows = followService.loadFollowByFollower(MyUserDetailsService.username);
+			  int canFollow = 1;
+			  for (Follow follow : follows) {
+				if(follow.getUsername().compareTo(user.getUsername()) == 0) {
+					canFollow = 0;
+					break;
+				}
+			}
+			  model.addAttribute("canFollow", canFollow);
+		  }
 		  List<News> news = newsService.loadNewsByAuthor(user.getUsername());
 		  model.addAttribute("listNews", news);
-	    model.addAttribute("user", user);
+	    model.addAttribute("user", user); 
 	    return "user-view";
 	  }
 	  

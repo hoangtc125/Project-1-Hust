@@ -196,4 +196,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/noti-view.jsp" />
 	</definition>
+	<definition name="error404" extends="index">
+		<put-attribute name="title" value="404" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/error404.jsp" />
+	</definition>
+	<definition name="error500" extends="index">
+		<put-attribute name="title" value="500" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/error500.jsp" />
+	</definition>
 </tiles-definitions>

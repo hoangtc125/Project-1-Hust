@@ -8,6 +8,24 @@
 	User MSSV: ${user.mssv} <br /> User Name: ${user.name} <br /> User
 	Coin: ${user.coin} <br /> User Class: ${user.clazz} <br />
 </div>
+<c:if test="${canFollow == 1}">
+	<div>
+		<button class="btn btn-outline-success">
+			<a href="/prj1.com/follow/${user.id}">Follow ${user.name}</a>
+		</button>
+	</div>
+	<br>
+	<br>
+</c:if>
+<c:if test="${canFollow == 0}">
+	<div>
+		<button class="btn btn-outline-success">
+			<a href="/prj1.com/unFollow/${user.id}">Unfollow ${user.name}</a>
+		</button>
+	</div>
+	<br>
+	<br>
+</c:if>
 <c:if test="${pageContext.request.userPrincipal.name == user.username}">
 	<div>
 		<h1>Garbage:</h1>
