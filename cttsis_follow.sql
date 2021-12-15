@@ -16,32 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users_role`
+-- Table structure for table `follow`
 --
 
-DROP TABLE IF EXISTS `users_role`;
+DROP TABLE IF EXISTS `follow`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users_role` (
+CREATE TABLE `follow` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user` int DEFAULT NULL,
-  `role` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `_idx` (`user`),
-  KEY `dfdf_idx` (`role`),
-  CONSTRAINT `role` FOREIGN KEY (`role`) REFERENCES `role` (`id`),
-  CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  `username` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `follower` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users_role`
+-- Dumping data for table `follow`
 --
 
-LOCK TABLES `users_role` WRITE;
-/*!40000 ALTER TABLE `users_role` DISABLE KEYS */;
-INSERT INTO `users_role` VALUES (1,1,1),(2,2,2),(3,3,2);
-/*!40000 ALTER TABLE `users_role` ENABLE KEYS */;
+LOCK TABLES `follow` WRITE;
+/*!40000 ALTER TABLE `follow` DISABLE KEYS */;
+INSERT INTO `follow` VALUES (3,'dolv','hoangtc'),(4,'hoangtc','dolv'),(5,'dungnv','hoangtc'),(6,'hoangtc','dungnv');
+/*!40000 ALTER TABLE `follow` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-15  9:16:34
+-- Dump completed on 2021-12-15  9:16:32
