@@ -16,6 +16,9 @@
 				<li class="nav-item"><a class="nav-link"
 					href="https://github.com/hoangtc125/Project-1-Hust">Link GitHub</a>
 				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://drive.google.com/drive/folders/1kAIsVMfNHi0V81b8w80BbJYqUzV3bW_9?usp=sharing">Link Drive</a>
+				</li>
 				<li class="nav-item"><a class="nav-link disabled">Project 1</a>
 				</li>
 				<li class="nav-item">
