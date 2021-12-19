@@ -9,12 +9,15 @@
 <c:url value="/newsDelete" var="urlDelete" />
 <c:url value="/news-list-management" var="urlManage" />
 <c:url value="0" var="count" />
-<div class="d-flex justify-content-center">
-	<div>
-		<h1>List News Management</h1>
-		<a href="${urlManage}">Click here</a>
-	</div>
+<div class="justify-content-center">
+<div style ="text-align: center;">
+	<h1>List News Management</h1>
+	<a href="${urlManage}">Click here</a>
+</div>
 	<br /> <br />
+	<div class = "row">
+	<div class = "col-md-1"></div>
+	<div class = "col-md-10">
 	<table class="table table-striped">
 		<tr>
 			<th>Id</th>
@@ -38,11 +41,14 @@
 				<tr style="border: 1px black solid">
 					<td>${count = count + 1}</td>
 					<td>${news.title}</td>
-					<td><a href="${urlView}/${news.id}">View</a></td>
-					<td><a href="${urlRestore}/${news.id}">Restore</a></td>
-					<td><a href="${urlDelete}/${news.id}">Delete</a></td>
+					<td><a href="${urlView}/${news.id}"><i class="fas fa-eye"></i></a></td>
+					<td><a href="${urlRestore}/${news.id}"><i class="fas fa-trash-restore"></i></a></td>
+					<td><a href="${urlDelete}/${news.id}"><i class="far fa-trash-alt"></i></a></td>
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
+	</div>
+	<div class = "col-md-1"></div>
+	</div>
 </div>

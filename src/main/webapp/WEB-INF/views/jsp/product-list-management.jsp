@@ -8,16 +8,14 @@
 <c:url value="/product-list-deleted" var="urlListSoftDeleted" />
 <c:url value="0" var="count" />
 <div>
-	<div>
-		<h1>Add product:</h1>
-		<a href="${urlSave}">Add product</a>
-	</div>
-	<div>
-		<h1>Garbage:</h1>
-		<a href="${urlListSoftDeleted}">View garbage</a>
+	<div class = "class-button">
+	<a href="${urlSave}" class = "button">Add product</a>
+	<a href="${urlListSoftDeleted}" class = "button">View garbage</a>
 	</div>
 	<br /> <br />
-	<div>
+	<div class = "row">
+	<div class = "col-md-1"></div>
+	<div class = "col-md-10">
 		<table class="table table-striped">
 			<tr>
 				<th>Id</th>
@@ -37,14 +35,16 @@
 						<td>${product.sold}</td>
 						<td>${product.unSold}</td>
 						<td>${product.price}</td>
-						<td><a href="${urlView}/${product.id}">View</a></td>
+						<td><a href="${urlView}/${product.id}"><i class="fas fa-eye"></i></a></td>
 						<td><a
-							href="${urlUpdate}/${product.id}/${pageContext.request.userPrincipal.name}">Edit</a></td>
+							href="${urlUpdate}/${product.id}/${pageContext.request.userPrincipal.name}"><i class="far fa-edit"></i></a></td>
 						<td><a
-							href="${urlSoftDelete}/${product.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>
+							href="${urlSoftDelete}/${product.id}/${pageContext.request.userPrincipal.name}"><i class="far fa-trash-alt"></i></a></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
+	</div>
+	<div class = "col-md-1"></div>
 	</div>
 </div>

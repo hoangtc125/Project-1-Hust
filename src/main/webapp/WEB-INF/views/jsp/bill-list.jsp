@@ -9,7 +9,9 @@
 <c:url value="0" var="count" />
 <div>
 	<br /> <br />
-	<div>
+	<div class = "row">
+	<div class = "col-md-2"></div>
+	<div class = "col-md-8">
 		<table class="table table-striped">
 			<tr>
 				<th>Id</th>
@@ -25,10 +27,12 @@
 						<td>${bill.nameBill}</td>
 						<td>${bill.sumProduct}</td>
 						<td>${bill.date}</td>
-						<td><a href="${urlView}/${bill.id}">View</a></td>
+						<td><a href="${urlView}/${bill.id}"><i class="fas fa-eye"></i></a></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
+		</div>
+		<div class = "col-md-2"></div>
 	</div>
 </div>

@@ -8,12 +8,16 @@
 <c:url value="/user-restore" var="urlRestore" />
 <c:url value="/userDelete" var="urlDelete" />
 <c:url value="0" var="count" />
-<div class="d-flex justify-content-center">
-	<div>
-		<h1>List user:</h1>
-		<a href="${urlList}">List user</a>
+<div class="justify-content-center">
+	<div style = "text-align: center;">
+	<h1>List user</h1>
+	<a href="${urlList}">List user</a>
 	</div>
 	<br /> <br />
+	<div class = "row">
+		<div class = "col-md-1">
+		</div>
+		<div class = "col-md-10 col-sm-12">
 	<table class="table table-striped">
 		<tr>
 			<th>Id</th>
@@ -56,11 +60,14 @@
 					<td>${user.name}</td>
 					<td>${user.mssv}</td>
 					<td>${user.getRole()}</td>
-					<td><a href="${urlView}/${user.id}/${user.username}">View</a></td>
-					<td><a href="${urlRestore}/${user.id}">Restore</a></td>
-					<td><a href="${urlDelete}/${user.id}">Delete</a></td>
+					<td><a href="${urlView}/${user.id}/${user.username}"><i class="fas fa-eye"></i></a></td>
+					<td><a href="${urlRestore}/${user.id}"><i class="fas fa-trash-restore"></i></a></td>
+					<td><a href="${urlDelete}/${user.id}"><i class="far fa-trash-alt"></i></a></td>
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
+	</div>
+	<div class = "col-md-1">
+	</div>
 </div>

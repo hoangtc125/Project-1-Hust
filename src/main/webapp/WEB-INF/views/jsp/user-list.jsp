@@ -7,17 +7,14 @@
 <c:url value="/userSoftDelete" var="urlSoftDelete" />
 <c:url value="/user-list-deleted" var="urlListSoftDeleted" />
 <c:url value="0" var="count" />
-<div>
-	<div>
-		<h1>Add user:</h1>
-		<a href="${urlSave}">Add user</a>
-	</div>
-	<div>
-		<h1>Garbage:</h1>
-		<a href="${urlListSoftDeleted}">View garbage</a>
-	</div>
+<div class = "class-button">
+<a href="${urlSave}" class = "button">Add user</a>
+<a href="${urlListSoftDeleted}" class = "button">View garbage</a>
+</div>
 	<br /> <br />
-	<div>
+<div class = "row"> 
+	<div class = "col-md-1"> </div>
+	<div class = "col-md-10 col-sm-12">
 		<table class="table table-striped">
 			<tr>
 				<th>Id</th>
@@ -75,14 +72,15 @@
 						<td>${user.mssv}</td>
 						<td>${user.getRole()}</td>
 						<td>${user.coin}</td>
-						<td><a href="${urlView}/${user.id}/${user.username}">View</a></td>
+						<td><a href="${urlView}/${user.id}/${user.username}"><i class="fas fa-eye"></i></a></td>
 						<td><a
-							href="${urlUpdate}/${user.id}/${pageContext.request.userPrincipal.name}">Edit</a></td>
+							href="${urlUpdate}/${user.id}/${pageContext.request.userPrincipal.name}"><i class="far fa-edit"></i></a></td>
 						<td><a
-							href="${urlSoftDelete}/${user.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>
+							href="${urlSoftDelete}/${user.id}/${pageContext.request.userPrincipal.name}"><i class="far fa-trash-alt"></i></a></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
 	</div>
+	<div class = "col-md-1"> </div>
 </div>
