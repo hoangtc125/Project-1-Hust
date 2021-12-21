@@ -74,6 +74,7 @@ public class CartController {
 			 List<Item> items = cartService.loadProduct(cart);
 			 model.addAttribute("listItem", items);
 			 model.addAttribute("cart", cart);
+			 model.addAttribute("user", userService.findByUsername(MyUserDetailsService.username));
 			    return "cart-view";
 		 }
 	    Cart cart = cartService.findById(id);
@@ -81,6 +82,7 @@ public class CartController {
 		 model.addAttribute("listItem", items);
 	    model.addAttribute("cart", cart);
 	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
+	    model.addAttribute("user", userService.findByUsername(MyUserDetailsService.username));
 	    return "cart-view";
 	  }
 

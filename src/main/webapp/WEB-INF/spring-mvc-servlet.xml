@@ -39,7 +39,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/cttsis" />
 		<property name="username" value="root" />
-		<property name="password" value="123456789" />
+		<property name="password" value="" />
 	</bean>
 
 	<tx:annotation-driven
@@ -55,5 +55,5 @@
 		<property name="hibernateProperties"
 			value="classpath:hibernate.properties" />
 	</bean>
-
 </beans>
+
