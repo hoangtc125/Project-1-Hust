@@ -55,5 +55,5 @@
 		<property name="hibernateProperties"
 			value="classpath:hibernate.properties" />
 	</bean>
-
 </beans>
+
