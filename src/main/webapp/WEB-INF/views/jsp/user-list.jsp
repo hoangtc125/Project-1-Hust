@@ -7,15 +7,21 @@
 <c:url value="/userSoftDelete" var="urlSoftDelete" />
 <c:url value="/user-list-deleted" var="urlListSoftDeleted" />
 <c:url value="0" var="count" />
+<style>
+	body{
+	margin-top: 150px;}
+</style>
 <div>
-	<div>
-		<h1>Add user:</h1>
+<h1 class="product-title mb-4">List user</h1>
+<br>
+<div class = "add-garbage_user">
+	<div class = "add_user">
 		<a href="${urlSave}">Add user</a>
 	</div>
-	<div>
-		<h1>Garbage:</h1>
+	<div class = "garbage_user">
 		<a href="${urlListSoftDeleted}">View garbage</a>
 	</div>
+</div>
 	<br /> <br />
 	<div>
 		<table class="table table-striped">
@@ -75,11 +81,11 @@
 						<td>${user.mssv}</td>
 						<td>${user.getRole()}</td>
 						<td>${user.coin}</td>
-						<td><a href="${urlView}/${user.id}/${user.username}">View</a></td>
+						<td><a href="${urlView}/${user.id}/${user.username}"><i class="fas fa-eye"></i></a></td>
 						<td><a
-							href="${urlUpdate}/${user.id}/${pageContext.request.userPrincipal.name}">Edit</a></td>
+							href="${urlUpdate}/${user.id}/${pageContext.request.userPrincipal.name}"><i class="fas fa-user-edit"></i></a></td>
 						<td><a
-							href="${urlSoftDelete}/${user.id}/${pageContext.request.userPrincipal.name}">Delete</a></td>
+							href="${urlSoftDelete}/${user.id}/${pageContext.request.userPrincipal.name}"><i class="far fa-trash-alt"></i></a></td>
 					</tr>
 				</c:forEach>
 			</c:if>

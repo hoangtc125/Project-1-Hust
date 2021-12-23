@@ -7,6 +7,8 @@
 <c:url value="/updateCart" var="updateCart" />
 <c:url value="/pay" var="urlPay" />
 <c:url value="0" var="count" />
+<div id = "news-post">
+<div style = "margin-left: 65px;" class = "col-11">
 <section class="pt-5 pb-5">
       <br>
       <br>
@@ -36,7 +38,7 @@
                             <td data-th="Product">
                                 <div class="row">
                                     <div class="col-md-3 text-left">
-                                        <img src="..\assets\images\product.jpg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                        <img src="" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                     </div>
                                     <div class="col-md-9 text-left mt-sm-2">
                                         <h4>Product Name: ${item.getProduct().getName()}</h4>
@@ -77,3 +79,5 @@
         
     </div>
     </section>
+</div>
+</div>

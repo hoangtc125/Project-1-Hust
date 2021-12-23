@@ -17,6 +17,44 @@
 .btn-login a:hover{
 	color: black;
 }
+.see-listuser{
+	text-align: right;
+	margin-bottom: 30px;
+}
+.see-listuser a:link{
+	text-decoration: none;
+	}
+/*------------adduser------------*/
+.add-garbage_user{
+	display: flex;
+	text-align: right;
+}
+.add_user{
+	padding: 7px 10px;
+	font-size: 17px;
+	background: green;
+	border-radius: 5px;
+}
+.garbage_user{
+	margin-left: 10px;
+	padding: 7px 10px;
+	font-size: 17px;
+	background: green;
+	border-radius: 5px;
+}
+.garbage_user a:visited{
+	color: white;
+}
+.garbage_user a:link{
+	text-decoration: none;
+}
+.add_user a:visited{
+	color: white;
+}
+.add_user a:link{
+	text-decoration: none;
+}
+
 /* -------------Login Form------------------*/
 .login-container {
     width: 45%;
@@ -290,4 +328,385 @@ section{
     transition: all .5s;
 }
 
+/*------------homepage-------------*/
+
+
+.home-img a:hover img{
+	transform: scale(1.2);
+}
+  .carousel {
+    
+    margin-bottom: 4rem;
+  }
+
+  .carousel-caption {
+   
+    z-index: 10;
+  }
+
+  .carousel-item {
+    height: 32rem;
+  }
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
+
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing .News{
+    display: flex;
+    justify-content: center;
+    font-family: 'Reem Kufi' ;
+    font-style: normal ;
+    font-weight: bold;
+    font-size: 60px ;
+    line-height: 120px ;
+    color:#000;
+
+  }
+  /* rtl:begin:ignore */
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+
+  .featurette-divider {
+    margin: 5rem 0; 
+  }
+  
+
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    /* rtl:remove */
+    letter-spacing: -.05rem;
+  }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  .News{
+     display: flex;
+    justify-content: center;
+    font-family: 'Reem Kufi' ;
+    font-style: normal ;
+    font-weight: bold;
+    font-size: 70px ;
+    line-height: 75px ;
+    color:#000;
+
+}
+.btn-view a:hover{
+	color: white;
+}
+.btn-view a:link{
+	text-decoration: none;
+}
+.new-img{
+	overflow: hidden;
+}
+.new-img a img{
+	max-width: 100%;
+	transition: all .5s ease;
+}
+.new-img a:hover img{
+	transform: scale(1.1);
+}
+/*---------news-save------*/
+.add-News{
+	 display: flex;
+    justify-content: center;
+    font-family: 'Reem Kufi' ;
+    font-style: normal ;
+    font-weight: bold;
+    font-size: 50px ;
+    line-height: 50px ;
+    color:#000;
+}
+.btn-new_list a:link{
+	text-decoration: none;
+}
+.btn-new_list a:visited{
+	color: white;
+}
+
+.name{
+	text-align: right;
+}
+/*---------------productview----------*/
+.small-img-row{
+    padding: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+.btn a:link{
+    color: white;
+}
+.product a:link{
+    text-decoration: none;
+}
+.product a:visited{
+    color: gray;
+}
+.product a:hover{
+    color: red;
+}
+.product a{
+    padding: 0px 10px;
+}
+.icon-next{
+    color: rgb(185, 182, 182);
+    margin-top: 5px;
+}
+.product p{
+    padding: 0px 10px;
+}
+.hnn{
+    padding: 10px 50px;
+    background-color: rgb(245, 241, 241);
+}
+.size{
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: 0 15px 0 10px;
+}
+.size-quantity div{
+    padding: 0 70px 0 10px;
+}
+.sold-avai p{
+    padding: 0px 50px;
+    font-size: 150%;
+    font-family: Helvetica;
+    color: gray;
+}
+.btn-add a{
+    text-decoration: none;
+}
+.btn-add{
+    text-align: center;
+}
+.addToCart{
+    color: #fff !important;
+    background: #f33b2a;
+    padding: 7px 20px 7px 20px;
+    border-radius: 7px;
+    font-family: Helvetica;
+    font-size: 25px;
+    border: 1px solid white;
+}
+.productdetail{
+    margin-top: 60px;
+}
+.productdetail h3{
+    margin-bottom: 25px;
+    background-color: rgb(248, 245, 245);
+}
+.productdetail p{
+    font-family: Helvetica; 
+    color: gray;
+}
+.id-product{
+	margin-left: 100px;
+	margin-bottom: -25px;
+}
+.ID{
+	margin-top: 20px;
+	padding: 0 2px 0 5px;
+}
+.comment a:link{
+	text-decoration: none;
+}
+.comment{
+	margin-left: 10px;
+	}
+
+/*----------------product-list----------*/
+.product-name{
+	text-align: center;
+}
+.sold-avai-list p{
+    padding: 0px 50px;
+    font-family: Helvetica;
+    color: gray;
+}
+.sold-avai-list{
+	margin-left: 30px;
+}
+.addToCart-list{
+    color: #fff !important;
+    background: #f33b2a;
+    padding: 8px 20px 8px 20px;
+    border-radius: 7px;
+    font-family: Helvetica;
+    font-size: 17px;
+    border: 1px solid white;
+}
+.hnn-list{
+	padding: 10px 20px;
+    background-color: rgb(245, 241, 241);
+}
+.id-quanty-list div{
+	padding: 10px 40px;
+}
+.id-product-list h5{
+	margin-right: 5px;
+}
+.quanty-list h5{
+	margin-right: 7px;
+}
+.product-title{
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+}
+/*--------------comment----------*/
+
+.content-item {
+    padding:30px 0;
+	background-color:#FFFFFF;
+}
+
+.content-item.grey {
+	background-color:#F0F0F0;
+	padding:50px 0;
+	height:100%;
+}
+
+.content-item h2 {
+	font-weight:700;
+	font-size:35px;
+	line-height:45px;
+	text-transform:uppercase;
+	margin:20px 0;
+}
+
+.content-item h3 {
+	font-weight:400;
+	font-size:20px;
+	color:#555555;
+	margin:10px 0 15px;
+	padding:0;
+}
+
+.content-headline {
+	height:1px;
+	text-align:center;
+	margin:20px 0 70px;
+}
+
+.content-headline h2 {
+	background-color:#FFFFFF;
+	display:inline-block;
+	margin:-20px auto 0;
+	padding:0 20px;
+}
+
+.grey .content-headline h2 {
+	background-color:#F0F0F0;
+}
+
+.content-headline h3 {
+	font-size:14px;
+	color:#AAAAAA;
+	display:block;
+}
+
+
+#comments {
+    box-shadow: 0 -1px 6px 1px rgba(0,0,0,0.1);
+	background-color:#FFFFFF;
+}
+
+#comments form {
+	margin-bottom:30px;
+}
+
+#comments .btn {
+	margin-top:7px;
+}
+
+#comments form fieldset {
+	clear:both;
+}
+
+#comments form textarea {
+	height:100px;
+}
+
+#comments .media {
+	border-top:1px dashed #DDDDDD;
+	padding:20px 0;
+	margin:0;
+}
+
+#comments .media > .pull-left {
+    margin-right:20px;
+}
+
+#comments .media img {
+	max-width:100px;
+}
+
+#comments .media h4 {
+	margin:0 0 10px;
+}
+
+#comments .media h4 span {
+	font-size:14px;
+	float:right;
+	color:#999999;
+}
+
+#comments .media p {
+	margin-bottom:15px;
+	text-align:justify;
+}
+
+#comments .media-detail {
+	margin:0;
+}
+
+#comments .media-detail li {
+	color:#AAAAAA;
+	font-size:12px;
+	padding-right: 10px;
+	font-weight:600;
+}
+
+#comments .media-detail a:hover {
+	text-decoration:underline;
+}
+
+#comments .media-detail li:last-child {
+	padding-right:0;
+}
+
+#comments .media-detail li i {
+	color:#666666;
+	font-size:15px;
+	margin-right:10px;
+}
+#news-post{
+    box-shadow: 0 -1px 6px 1px rgba(0,0,0,0.1);
+	background-color:#FFFFFF;
+}
+#news-post .media-detail li {
+	color:#AAAAAA;
+	font-size:12px;
+	padding-right: 10px;
+	font-weight:600;
+}
   

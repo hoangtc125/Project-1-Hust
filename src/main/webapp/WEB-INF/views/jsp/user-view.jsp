@@ -8,6 +8,7 @@
                 <form>
                     <h1 class="login-title mb-4">Information</h1>
                     <form>
+                    <div style="margin-left: 50px;">
                         <div class="form-group row mb-3">
                             <label for="name" class="col-sm-4 col-form-label">Name:</label>
                             <div class="col-sm-8">
@@ -38,7 +39,7 @@
                               ${user.coin}
                             </div>
                         </div>
-
+                        </div>
                     </form>
 
                 </form>

@@ -1,6 +1,7 @@
 package com.prj1.controller;
 
 import java.util.Date;
+import com.prj1.entities.User;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
