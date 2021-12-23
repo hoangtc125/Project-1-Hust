@@ -14,19 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.prj1.entities.Comment;
+import com.prj1.entities.User;
 import com.prj1.entities.Item;
 import com.prj1.entities.Product;
-import com.prj1.entities.Cart;
-import com.prj1.entities.User;
-import com.prj1.entities.Cart;
-import com.prj1.entities.Cart;
 import com.prj1.entities.Cart;
 import com.prj1.service.CommentService;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.UserService;
-import com.prj1.service.CartService;
 import com.prj1.service.CartService;
 
 @Controller
@@ -70,20 +65,28 @@ public class CartController {
 	 
 	 @RequestMapping("/cart-view/{id}")
 	  public String viewcart(@PathVariable int id, Model model) {
+		 User user = userService.findByUsername(MyUserDetailsService.username);
+		 int num = 0;
 		 if(id == -1 || !mailService.checkRoleAdmin(MyUserDetailsService.username)) {
 			 Cart cart = cartService.loadCartByUsername(MyUserDetailsService.username);
+			 String [] tmpStrings = cart.getListProduct().split(" ");
+			 num = tmpStrings.length;
 			 List<Item> items = cartService.loadProduct(cart);
 			 model.addAttribute("listItem", items);
 			 model.addAttribute("cart", cart);
-			 model.addAttribute("user", userService.findByUsername(MyUserDetailsService.username));
+			 model.addAttribute("num", num);
+			 model.addAttribute("user", user);
 			    return "cart-view";
 		 }
 	    Cart cart = cartService.findById(id);
 		 List<Item> items = cartService.loadProduct(cart);
 		 model.addAttribute("listItem", items);
 	    model.addAttribute("cart", cart);
+		 String [] tmpStrings = cart.getListProduct().split(" ");
+		 num = tmpStrings.length;
+		 model.addAttribute("num", num);
 	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
-	    model.addAttribute("user", userService.findByUsername(MyUserDetailsService.username));
+		 model.addAttribute("user", user);
 	    return "cart-view";
 	  }
 
