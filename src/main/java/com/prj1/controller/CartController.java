@@ -5,6 +5,7 @@ import com.prj1.entities.User;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.core.userdetails.ReactiveUserDetailsServiceResourceFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -65,12 +66,12 @@ public class CartController {
 	 
 	 @RequestMapping("/cart-view/{id}")
 	  public String viewcart(@PathVariable int id, Model model) {
-		 User user = userService.findByUsername(MyUserDetailsService.username);
 		 int num = 0;
 		 if(id == -1 || !mailService.checkRoleAdmin(MyUserDetailsService.username)) {
+			 User user = userService.findByUsername(MyUserDetailsService.username);
 			 Cart cart = cartService.loadCartByUsername(MyUserDetailsService.username);
 			 String [] tmpStrings = cart.getListProduct().split(" ");
-			 num = tmpStrings.length;
+			 num = tmpStrings.length / 2;
 			 List<Item> items = cartService.loadProduct(cart);
 			 model.addAttribute("listItem", items);
 			 model.addAttribute("cart", cart);
@@ -83,9 +84,10 @@ public class CartController {
 		 model.addAttribute("listItem", items);
 	    model.addAttribute("cart", cart);
 		 String [] tmpStrings = cart.getListProduct().split(" ");
-		 num = tmpStrings.length;
+		 num = tmpStrings.length / 2;
 		 model.addAttribute("num", num);
-	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
+		 User user = userService.findByUsername(cart.getUsername());
+		model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
 		 model.addAttribute("user", user);
 	    return "cart-view";
 	  }

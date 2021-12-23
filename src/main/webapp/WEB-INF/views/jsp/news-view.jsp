@@ -101,14 +101,14 @@ margin-top: 50px;
                             <li class=""><c:choose>
 								<c:when test="${roleAdmin == true}">
 								<div class = "comment">
-									<a href="/prj1.com/commentDeleteComment/${comment.id}/${product.id}">Delete</a>
+									<a href="/prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete</a>
 								</div>
 								</c:when>
 								<c:when
 									test="${pageContext.request.userPrincipal.name == comment.sender}">
 									<div class = "comment">
 									<a
-										href="/prj1.com/commentDeleteComment/${comment.id}/${product.id}">Delete</a>
+										href="/prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete</a>
 									</div>
 								</c:when>
 							</c:choose></li>

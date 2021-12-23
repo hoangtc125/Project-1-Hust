@@ -131,7 +131,7 @@ public class ProductController {
 	    return "redirect:/product-view/" + idProduct;
 	  }
 	  
-	  @RequestMapping("/commentDeleteComment/{id}/{idProduct}")
+	  @RequestMapping("/commentDeleteProduct/{id}/{idProduct}")
 	  public String doDeletecomment(@PathVariable int id, @PathVariable int idProduct, Model model) {
 	    commentService.delete(id);
 	    return "redirect:/product-view/" + idProduct;

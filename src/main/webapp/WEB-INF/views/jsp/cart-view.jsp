@@ -19,7 +19,7 @@
             <div class="col-lg-12 col-md-12 col-12">
                 <h3 class="yourcart">Your Shopping Cart</h3>
                 <p class="numOfProduct">
-                    <i class="quantityOfProduct">${num - 1}</i> products</p>
+                    <i class="quantityOfProduct">${num}</i> products</p>
                     <h2 class="Owner">Owner: ${cart.username}</h2>
                     <h3 class="Coin">Coin: ${user.coin} VND</h3>
                 <table id="shoppingCart" class="table">
