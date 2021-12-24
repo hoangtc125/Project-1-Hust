@@ -1,6 +1,7 @@
 package com.prj1.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -19,11 +20,15 @@ public class NewsService {
 	  private NewsDAO newsDAO;
 	  
 	  public List<News> findAll() {
-	    return newsDAO.findAll();
+		  List<News> news = newsDAO.findAll();
+		  Collections.reverse(news);
+	    return news;
 	  }
 	  
 	  public List<News> findAllDeleted() {
-		    return newsDAO.findAllDeleted();
+			  List<News> news = newsDAO.findAllDeleted();
+			  Collections.reverse(news);
+		    return news;
 		  }
 	  
 	  public List<News> findAllDeletedByAuthor(String author) {

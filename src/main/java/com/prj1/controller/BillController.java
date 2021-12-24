@@ -1,5 +1,6 @@
 package com.prj1.controller;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import com.prj1.entities.Comment;
 import com.prj1.entities.Item;
 import com.prj1.entities.Noti;
 import com.prj1.entities.Product;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
 import com.prj1.entities.Bill;
 import com.prj1.entities.Cart;
 import com.prj1.entities.User;
@@ -68,7 +70,9 @@ public class BillController {
 	 @RequestMapping(value="/bill-list", method = RequestMethod.GET)
 	  public String listBill(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model, HttpServletRequest request) {
 
-			model.addAttribute("listBill", billService.loadBillByUsername(AppUtils.getLoginedUser(request.getSession())));
+		 	List<Bill> bills = billService.loadBillByUsername(AppUtils.getLoginedUser(request.getSession()));
+			 Collections.reverse(bills);
+			model.addAttribute("listBill", bills);
 		
 	    return "bill-list";
 	  }
@@ -83,7 +87,9 @@ public class BillController {
 	 
 	 @RequestMapping("/bill-list-management")
 	  public String billlistmanagement(Model model) {
-		 model.addAttribute("listBill", billService.findAll());
+		 List<Bill> bills = billService.findAll();
+		 Collections.reverse(bills);
+		 model.addAttribute("listBill", bills);
 		 return "bill-list-management";
 	   
 	  }
