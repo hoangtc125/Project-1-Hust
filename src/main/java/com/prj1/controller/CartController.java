@@ -4,6 +4,8 @@ import java.util.Date;
 import com.prj1.entities.User;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.core.userdetails.ReactiveUserDetailsServiceResourceFactoryBean;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,7 @@ import com.prj1.service.CommentService;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.UserService;
+import com.prj1.utils.AppUtils;
 import com.prj1.service.CartService;
 
 @Controller
@@ -65,11 +68,11 @@ public class CartController {
 	  }
 	 
 	 @RequestMapping("/cart-view/{id}")
-	  public String viewcart(@PathVariable int id, Model model) {
+	  public String viewcart(@PathVariable int id, Model model, HttpServletRequest request) {
 		 int num = 0;
-		 if(id == -1 || !mailService.checkRoleAdmin(MyUserDetailsService.username)) {
-			 User user = userService.findByUsername(MyUserDetailsService.username);
-			 Cart cart = cartService.loadCartByUsername(MyUserDetailsService.username);
+		 if(id == -1 || !mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession()))) {
+			 User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
+			 Cart cart = cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession()));
 			 String [] tmpStrings = cart.getListProduct().split(" ");
 			 num = tmpStrings.length / 2;
 			 List<Item> items = cartService.loadProduct(cart);
@@ -87,7 +90,7 @@ public class CartController {
 		 num = tmpStrings.length / 2;
 		 model.addAttribute("num", num);
 		 User user = userService.findByUsername(cart.getUsername());
-		model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
+		model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
 		 model.addAttribute("user", user);
 	    return "cart-view";
 	  }
@@ -99,8 +102,8 @@ public class CartController {
 	  }
 	  
 	  @RequestMapping("/cart-update/{id}")
-	  public String updatecart(@PathVariable("id") int idProduct, Model model) {
-	  Cart cart = cartService.loadCartByUsername(MyUserDetailsService.username);
+	  public String updatecart(@PathVariable("id") int idProduct, Model model, HttpServletRequest request) {
+	  Cart cart = cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession()));
 		model.addAttribute("id", idProduct);
 		return "cart-update";
 	  }
@@ -113,16 +116,16 @@ public class CartController {
 	  }
 	  
 	  @RequestMapping("/updateCart")
-	  public String doUpdatecart2(@RequestParam(required=true, name = "id") String id, @RequestParam(required=true, name = "quan", defaultValue="1") String quan, Model model) {
+	  public String doUpdatecart2(@RequestParam(required=true, name = "id") String id, @RequestParam(required=true, name = "quan", defaultValue="1") String quan, Model model, HttpServletRequest request) {
 		 
-		  cartService.update(cartService.loadCartByUsername(MyUserDetailsService.username), Integer.parseInt(id), Integer.parseInt(quan));
+		  cartService.update(cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession())), Integer.parseInt(id), Integer.parseInt(quan));
 		  model.addAttribute("listCart", cartService.findAll());
 		  return "redirect:/cart-view/-1";
 	  
 	  }
 //	  @RequestMapping("/updateCart/{id}")
 //	  public String doUpdatecart(@PathVariable("id") int id, @ModelAttribute("item") Item item, Model model) {
-//		  cartService.update(cartService.loadCartByUsername(MyUserDetailsService.username), id, item.getQuan());
+//		  cartService.update(cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession())), id, item.getQuan());
 //		  model.addAttribute("listCart", cartService.findAll());
 //		  return "redirect:/cart-view/-1";
 //	  }
@@ -135,9 +138,9 @@ public class CartController {
 	  }
 	  
 	  @RequestMapping("/cartSoftDelete/{id}/{username}")
-	  public String doSoftDeletecart(@PathVariable int id, @PathVariable String username, Model model) {
+	  public String doSoftDeletecart(@PathVariable int id, @PathVariable String username, Model model, HttpServletRequest request) {
 //	    cartService.softDelete(id, cartname);
-	    cartService.softDelete(id, MyUserDetailsService.username);
+	    cartService.softDelete(id, AppUtils.getLoginedUser(request.getSession()));
 	    model.addAttribute("listCart", cartService.findAll());
 	    return "redirect:/cart-list-management";
 	  }

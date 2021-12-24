@@ -2,6 +2,8 @@ package com.prj1.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import com.prj1.entities.User;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.UserService;
+import com.prj1.utils.AppUtils;
 
 @Controller
 public class MailController {
@@ -30,9 +33,9 @@ public class MailController {
 	  public String listMail(@PathVariable String username, 
 			  @RequestParam(required=false, name = "mode", defaultValue="") String mode,
 			  @RequestParam(required=false,name="title") String title, 
-			  @RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, Model model) {
+			  @RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, Model model, HttpServletRequest request) {
 //		  User user = userService.findByUsername(username);
-		  User user = userService.findByUsername(MyUserDetailsService.username);
+		  User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
 		if(title != null) {
 			model.addAttribute("listMail", mailService.searchByTitle(mailService.findAll(user.getId()), title));
 			return "mail-list";
@@ -49,10 +52,10 @@ public class MailController {
 	  }
 	 
 	 @RequestMapping("/mail-view/{id}/{username}")
-	  public String viewmail(@PathVariable("id") int id, @PathVariable("username") String username, Model model) {
+	  public String viewmail(@PathVariable("id") int id, @PathVariable("username") String username, Model model, HttpServletRequest request) {
 	    Mail mail = mailService.findById(id);
 //	    mail = mailService.checkRead(mail, username);
-	    mail = mailService.checkRead(mail, MyUserDetailsService.username);
+	    mail = mailService.checkRead(mail, AppUtils.getLoginedUser(request.getSession()));
 	    mailService.update(mail);
 	    model.addAttribute("mail", mail);
 	    return "mail-view";
@@ -76,26 +79,26 @@ public class MailController {
 	  }
 
 	  @RequestMapping("/saveMail/{username}")
-	  public String doSavemail(@PathVariable String username, @ModelAttribute("mail") Mail mail, Model model) {
+	  public String doSavemail(@PathVariable String username, @ModelAttribute("mail") Mail mail, Model model, HttpServletRequest request) {
 //		  User user = userService.findByUsername(username);
-		  User user = userService.findByUsername(MyUserDetailsService.username);
+		  User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
 		  mail.setIdUser(user.getId());
-		  mail.setSender(MyUserDetailsService.username);
+		  mail.setSender(AppUtils.getLoginedUser(request.getSession()));
 		  mail.setIsRead("No");		  
-		  if(mail.getReceiver().compareTo("all") == 0 && mailService.checkRoleAdmin(MyUserDetailsService.username)) {
+		  if(mail.getReceiver().compareTo("all") == 0 && mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession()))) {
 			  List<User> users = userService.findAll();
 			  for (User user2 : users) {
-				  if(user2.getUsername().compareTo(MyUserDetailsService.username) == 0) {
+				  if(user2.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) == 0) {
 					  continue;
 				  }
 				mail.setReceiver(user2.getUsername());
 				mailService.save(mail);
 			}
-			  return "redirect:/mail-list/" + MyUserDetailsService.username;
+			  return "redirect:/mail-list/" + AppUtils.getLoginedUser(request.getSession());
 		  }
 	    mailService.save(mail);
 	    model.addAttribute("listMail", mailService.findAll(user.getId()));
-	    return "redirect:/mail-list/" + MyUserDetailsService.username;
+	    return "redirect:/mail-list/" + AppUtils.getLoginedUser(request.getSession());
 	  }
 	 
 	  @RequestMapping("/updateMail")
@@ -106,11 +109,11 @@ public class MailController {
 	  }
 	  
 	  @RequestMapping("/mailDelete/{id}/{username}")
-	  public String doDeletemail(@PathVariable int id, @PathVariable String username, Model model) {
+	  public String doDeletemail(@PathVariable int id, @PathVariable String username, Model model, HttpServletRequest request) {
 //		  User user = userService.findByUsername(username);
-		  User user = userService.findByUsername(MyUserDetailsService.username);
-	    mailService.delete(id, MyUserDetailsService.username);
+		  User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
+	    mailService.delete(id, AppUtils.getLoginedUser(request.getSession()));
 	    model.addAttribute("listMail", mailService.findAll(user.getId()));
-	    return "redirect:/mail-list/" + MyUserDetailsService.username;
+	    return "redirect:/mail-list/" + AppUtils.getLoginedUser(request.getSession());
 	  }
 }

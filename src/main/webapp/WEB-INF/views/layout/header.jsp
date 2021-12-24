@@ -6,7 +6,7 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0" id="main-menu">
-          <li><a href="/prj1.com" class="nav-link px-2 text-white">HOME</a></li>
+          <li><a href="/prj1.com/news-list" class="nav-link px-2 text-white">HOME</a></li>
           <li><a href="/prj1.com/product-list" class="nav-link px-2">SHOP</a></li>
           <li><a href="https://github.com/hoangtc125/Project-1-Hust" class="nav-link px-2">GITHUB</a></li>
           <li><a href="https://drive.google.com/drive/folders/1kAIsVMfNHi0V81b8w80BbJYqUzV3bW_9?usp=sharing" class="nav-link px-2">Link Drive</a></li>

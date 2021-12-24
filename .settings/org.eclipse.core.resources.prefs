@@ -8,6 +8,7 @@ encoding//src/main/java/com/prj1/entities/News.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Noti.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Product.java=UTF-8
 encoding//src/main/java/com/prj1/entities/Role.java=UTF-8
+encoding//src/main/java/com/prj1/utils/AppUtils.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/jsp/news-list.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/jsp/product-view.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/jsp/user-view.jsp=UTF-8
