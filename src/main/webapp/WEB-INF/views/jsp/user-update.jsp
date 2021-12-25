@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<div class="container-fluid bg-form">
+<div class="container-fluid bg-form" style = "margin-top: -40px;">
         <div class="row justify-content-center">
             <div class="col-md-3 col-sm-6 col-xs-12 setting-container">
                     <h1 class="login-title mb-4">Edit user</h1>

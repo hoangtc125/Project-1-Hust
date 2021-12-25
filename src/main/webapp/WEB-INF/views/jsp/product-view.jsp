@@ -8,9 +8,9 @@ margin-top: 50px;
 margin-left: 100px;
 }
 </style>
-<div id = "news-post">
+<div id = "news-post" class = "container">
 <div style = "margin-left: 65px;" class = "col-12">
-<div class = "product-body" style = "margin-top: 100px;">
+<div class = "product-body" style = "margin-top: 100px; margin-bottom: 70px;">
 	<div class="container">
             <div class="row">
                 <div class="d-flex product">

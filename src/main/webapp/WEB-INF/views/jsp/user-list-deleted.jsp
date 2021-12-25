@@ -9,11 +9,9 @@
 <c:url value="/userDelete" var="urlDelete" />
 <c:url value="0" var="count" />
 
-<div>
-	<br>
-	<br>
-	<br>
-	<br>
+<div id = "news-post" class = "container">
+<div style = "margin-left: 65px;" class = "col-11">
+<div style = "margin-top: 150px;">
 	<h1 class="product-title mb-4">Garbage</h1>
 	<br>
 	<br>
@@ -76,4 +74,6 @@
 	<br>
 	<br>
 	<br>
+</div>
+</div>
 </div>

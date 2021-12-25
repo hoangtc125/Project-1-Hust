@@ -9,7 +9,7 @@ body{
 
   }
 </style>
-<div id = "news-post">
+<div id = "news-post" class="container">
 <div class = "col-11" style = "margin-left: 65px;">
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -117,7 +117,7 @@ body{
 								</div>
 								</h5>
 								</div>
-							<p class="btn btn-outline-primary btn-view">
+							<p class="btn btn-primary follow">
 								<a href="${urlView}/${news.id}">View</a>
 							</p>
 						</div>
@@ -127,5 +127,8 @@ body{
 		</c:if>
 	</div>
 </div>
+<br>
+<br>
+<br>
 </div>
 </div>
