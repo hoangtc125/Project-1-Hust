@@ -55,7 +55,7 @@ public class User implements java.io.Serializable {
 	@Column(name = "username", unique = true, length = 45)
 	private String username = "";
 	
-	@Column(name = "password")
+	@Column(name = "password", length = 255)
 	private String password = "";
 	
 	@Column(name = "enabled", nullable = false, columnDefinition = "TINYINT(1)")

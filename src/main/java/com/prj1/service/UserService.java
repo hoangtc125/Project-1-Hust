@@ -53,7 +53,8 @@ public class UserService {
 	  }
 	  
 	  public User findById(int id) {
-	    return userDAO.findById(id);
+		  User user = userDAO.findById(id);
+	    return user;
 	  }
 	  
 	  public void restoreById(int id) {
@@ -73,6 +74,7 @@ public class UserService {
 	  
 	  public void save(User user){
 	    // validate business
+		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
 	    userDAO.save(user);
 	  }
 	  
@@ -83,6 +85,7 @@ public class UserService {
 		  cart.setSumProduct("0");
 		  cart.setUsername(user.getUsername());
 		  cartService.save(cart);
+		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
 		    userDAO.saveUser(user);
 		  }
 	  public void saveAdmin(User user){
@@ -92,11 +95,13 @@ public class UserService {
 		  cart.setSumProduct("0");
 		  cart.setUsername(user.getUsername());
 		  cartService.save(cart);
+		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
 		    userDAO.saveAdmin(user);
 		  }
 	  
 	  public void update(User user){
 	    // validate business
+		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
 	    userDAO.update(user);
 	  }
 	  

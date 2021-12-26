@@ -24,6 +24,7 @@ import com.prj1.entities.Cart;
 import com.prj1.service.CommentService;
 import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
+import com.prj1.service.ProductService;
 import com.prj1.service.UserService;
 import com.prj1.utils.AppUtils;
 import com.prj1.service.CartService;
@@ -40,6 +41,9 @@ public class CartController {
 
 	 @Autowired
 	  private MailService mailService;
+
+	 @Autowired
+	  private ProductService productService;
 
 	 @Autowired
 	  private UserService userService;
@@ -81,18 +85,18 @@ public class CartController {
 			 model.addAttribute("num", num);
 			 model.addAttribute("user", user);
 			    return "cart-view";
+		 } else {
+			 Cart cart = cartService.findById(id);
+			 List<Item> items = cartService.loadProduct(cart);
+			 model.addAttribute("listItem", items);
+			 model.addAttribute("cart", cart);
+			 String [] tmpStrings = cart.getListProduct().split(" ");
+			 num = tmpStrings.length / 2;
+			 model.addAttribute("num", num);
+			 User user = userService.findByUsername(cart.getUsername());
+			 model.addAttribute("user", user);
+			 return "cart-view";
 		 }
-	    Cart cart = cartService.findById(id);
-		 List<Item> items = cartService.loadProduct(cart);
-		 model.addAttribute("listItem", items);
-	    model.addAttribute("cart", cart);
-		 String [] tmpStrings = cart.getListProduct().split(" ");
-		 num = tmpStrings.length / 2;
-		 model.addAttribute("num", num);
-		 User user = userService.findByUsername(cart.getUsername());
-		model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
-		 model.addAttribute("user", user);
-	    return "cart-view";
 	  }
 
 	  @RequestMapping("/cart-save")
@@ -104,7 +108,18 @@ public class CartController {
 	  @RequestMapping("/cart-update/{id}")
 	  public String updatecart(@PathVariable("id") int idProduct, Model model, HttpServletRequest request) {
 	  Cart cart = cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession()));
-		model.addAttribute("id", idProduct);
+		 String [] tmpStrings = cart.getListProduct().split(" ");
+		 Product product = new Product(); 
+		 int quan = 0;
+		 for(int i = 0; i < tmpStrings.length; i += 2) {
+			 if(idProduct == Integer.parseInt(tmpStrings[i])) {
+				 product = productService.findById(idProduct);
+				 quan = Integer.parseInt(tmpStrings[i + 1]);
+				 break;
+			 }
+		 }
+		model.addAttribute("product", product);
+		model.addAttribute("quan", quan);
 		return "cart-update";
 	  }
 

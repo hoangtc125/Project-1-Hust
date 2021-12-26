@@ -43,11 +43,11 @@ margin-left: 100px;
                     </div>
                 </div>
                 <div class="col-5">
-                    <h1 style="color: rgb(78, 77, 77); font-family: Helvetica;"> Women's office long-sleeve shirt</h1>
+                    <h1 style="color: rgb(78, 77, 77); font-family: Helvetica;">${product.name}</h1>
                     <div class="d-flex sold-avai">
                         <p><b class="sold">${product.sold}</b> sold</p>
                         
-                        <p><b class = "availible">${product.unSold}</b> availible</p>
+                        <p><b class = "availible">${product.unSold}</b> available</p>
                     </div>
                     <h4 class = 'price_product hnn'>${product.price} VND</h4>
                     <br>

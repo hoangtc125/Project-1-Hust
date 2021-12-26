@@ -18,9 +18,9 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF-ppLIwnOlJivAGN2CgRKgN763vUg8Dv_vQ&usqp=CAU" width="300px;" id="productImg" height="350px">
                 </div>
                 <div class="col-3" style = "margin-left: 20px;">
-                    <h4 style="color: rgb(78, 77, 77); font-family: Helvetica;"><strong>Women's office long-sleeve shirt</strong></h4>
+                    <h4 style="color: rgb(78, 77, 77); font-family: Helvetica;"><strong>${product.getName()}</strong></h4>
                     <br>
-                    <h5 class = 'price_product hnn'>${item.getProduct().getPrice()} VND</h5>
+                    <h5 class = 'price_product hnn'>${product.getPrice()} VND</h5>
                     <br>
                     
                     
@@ -29,12 +29,12 @@
 						<form action="${updateCart}" method="get">
 						<div class = "d-flex" style = "margin-left: 55px;">
 						<h5 style="font-family: Helvetica; color: gray;">ID </h5> 
-						<input style = "width: 60px;  height: 25px" readonly="true" name="id" value="${id}" class="form-control text-center"/>
+						<input style = "width: 60px;  height: 25px" readonly="true" name="id" value="${product.id}" class="form-control text-center"/>
 						</div>
 						 <br />
 						
 						<div class = "d-flex"><h5 style="font-family: Helvetica; color: gray;">Quantity</h5> 
-						<input name="quan" type="number" class="form-control text-center" value="1"  style="width: 80px; height: 30px"/>
+						<input name="quan" type="number" class="form-control text-center" value="${quan}"  style="width: 80px; height: 30px"/>
 						</div>
 						
 						 <br /> <br />

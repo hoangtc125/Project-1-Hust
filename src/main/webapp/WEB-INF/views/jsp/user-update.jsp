@@ -41,7 +41,7 @@
                         <div class="form-group row mb-3">
                             <label for="name" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <form:input path="password"  type="password" class="form-control"/>
+                                <form:input path="password" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group row mb-3">

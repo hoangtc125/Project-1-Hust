@@ -25,7 +25,7 @@
                 <table id="shoppingCart" class="table">
                     <thead>
                         <tr>
-                            <th style="width:40%"></th>
+                            <th style="width:40%">Product Name</th>
                             <th style="width:10%">Id</th>
                             <th style="width:10%">Quantity</th>
                             <th style="width:10%">View</th>
@@ -42,8 +42,8 @@
                                     <div class="col-md-3 text-left">
                                         <img src="" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                     </div>
-                                    <div class="col-md-9 text-left mt-sm-2">
-                                        <h4>Product Name: ${item.getProduct().getName()}</h4>
+                                    <div class="text-left mt-sm-2">
+                                        <h4>${item.getProduct().getName()}</h4>
                                         <div class="button_remove">
                                             <a href="${updateCart}?id=${item.getProduct().getId()}&quan=0" class="btn_remove">Remove</a>
                                         </div>

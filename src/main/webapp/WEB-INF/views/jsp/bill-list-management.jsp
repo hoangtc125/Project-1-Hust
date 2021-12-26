@@ -22,7 +22,7 @@ margin-top: 20px;}
                         <tr>
                             <th style="width:5%"><b>ID</b></th>
                             <th style="width:30%"><b>USERNAME</b></th>
-                            <th style="width:30%; text-align: left"><b>NAMEE BILL</b></th>
+                            <th style="width:30%; text-align: left"><b>NAME BILL</b></th>
                             <th style="width:10%; text-align: center"><b>VIEW</b></th>
                             <th style="width:20%; text-align: right"><b>TOTAL</b></th>
                         </tr>

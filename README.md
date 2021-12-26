@@ -12,7 +12,7 @@ Mọi đóng góp và thắc mắc xin liên hệ:
 - _Email: hoang.tc194060@sis.hust.edu.vn_
 - _Điện thoại: 0846303882_
 ## Ngôn ngữ
-Phần mềm được lập trình bằng ngôn ngữ ***Java***, xây dựng giao diện với thư viện ***Spring Framework***, ngôn ngữ ***XML*** và ***JSP***. 
+Phần mềm được lập trình bằng ngôn ngữ ***Java***, xây dựng giao diện với thư viện ***Spring Framework***, ngôn ngữ ***XML***, ***CSS***  và ***JSP***. 
 
 Chức năng chính của phần mềm được phát triển bằng ***Eclipse*** và giao diện được xây dựng bằng ***Bootstrap***.
 
