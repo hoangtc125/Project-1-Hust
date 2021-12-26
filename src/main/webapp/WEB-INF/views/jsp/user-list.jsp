@@ -67,7 +67,9 @@ body {
 						<c:forEach var="user" items="${listUser}">
 							<tr style="border: 1px black solid">
 								<td>${count = count + 1}</td>
-								<td><img src="${user.image}" class="card-img-top" alt="..."
+								<td>
+								<div class = "d-flex">
+								<img src="${user.image}" class="card-img-top shadow-1-strong rounded-circle" alt="..."
 									style="width: 55px; height: auto;">
 									<div class="nav-item dropdown d-flex" style="margin: 0 10px">
 										<a class="nav-link dropdown-toggle" href="#"
@@ -80,6 +82,7 @@ body {
 											<li><a class="dropdown-item"
 												href="/prj1.com/mail-save/${user.username}">Send Mail</a></li>
 										</ul>
+									</div>
 									</div></td>
 								<td>${user.mssv}</td>
 								<td>${user.getRole()}</td>

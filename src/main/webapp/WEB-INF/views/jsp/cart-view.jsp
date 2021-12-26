@@ -39,14 +39,16 @@
 								<c:forEach var="item" items="${listItem}">
 									<tr>
 										<td data-th="Product">
-											<div class="row">
-												<div class="col-md-3 text-left">
+											
+												<div class=" d-flex">
 													<img src="${item.getProduct().image}" class="card-img-top" alt="..."
 														style="width: 55px; height: auto;">
+														<h4 style = "margin-left: 10px;">${item.getProduct().getName()}</h4>
 												</div>
-												<div class="text-left mt-sm-2">
+												
 													
-													<h4>${item.getProduct().getName()}</h4>
+													
+													<div class="text-left mt-sm-2">
 													<div class="button_remove">
 														<a
 															href="${updateCart}?id=${item.getProduct().getId()}&quan=0"
@@ -54,7 +56,7 @@
 													</div>
 													<br>
 												</div>
-											</div>
+										
 										</td>
 										<td data-th="Id"><br>${count = count + 1}</td>
 										<td data-th="Quantity"><br> ${item.getQuan()}</td>
