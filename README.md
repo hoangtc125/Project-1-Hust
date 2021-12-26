@@ -11,6 +11,9 @@ Chúng tôi hoan nghênh những đóng góp của người dùng và các nhà 
 Mọi đóng góp và thắc mắc xin liên hệ:
 - _Email: hoang.tc194060@sis.hust.edu.vn_
 - _Điện thoại: 0846303882_
+## Tài liệu
+Báo cáo của sản phẩm **Project 1 Hust** [tại đây](https://docs.google.com/document/d/1LWfhnb6MKYjz3U1dLMWcctq4L60-LgIj/edit?usp=sharing&ouid=116877722708236332187&rtpof=true&sd=true)
+
 ## Ngôn ngữ
 Phần mềm được lập trình bằng ngôn ngữ ***Java***, xây dựng giao diện với thư viện ***Spring Framework***, ngôn ngữ ***XML***, ***CSS***  và ***JSP***. 
 
@@ -20,7 +23,6 @@ Chức năng chính của phần mềm được phát triển bằng ***Eclipse*
 Để cài đặt và sử dụng phần mềm **Project 1 Hust**, bạn hãy thực hiện các bước sau:
 ### Cài đặt IDE Eclipse for Java and Developers
 Bạn có thể tải ***Eclipse*** [tại đây](https://www.eclipse.org/callisto/java.php).
-
 Nếu có khó khăn trong quá trình cài đặt ***Eclipse***, bạn có thể xem và làm theo bài hướng dẫn [tại đây](https://youtu.be/Oas1YOMpSv0).
 ### Cài đặt Spring Tool Suite và thiết lập trong IDE Eclipse
 Bạn có thể xem và làm theo bài hướng dẫn [tại đây](https://www.youtube.com/watch?v=vsryUelT1uk).

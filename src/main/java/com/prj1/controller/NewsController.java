@@ -1,5 +1,6 @@
 package com.prj1.controller;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -60,7 +61,9 @@ public class NewsController {
 		if(typeSort.compareTo("title") == 0) {
 		    model.addAttribute("listNews", newsService.sortByName(newsService.findAll()));
 		} else{	
-			model.addAttribute("listNews", newsService.findAll());
+			List<News> news = newsService.findAll();
+			Collections.reverse(news);
+			model.addAttribute("listNews", news);
 		}
 		
 	    return "news-list";

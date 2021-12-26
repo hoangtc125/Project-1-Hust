@@ -1,5 +1,6 @@
 package com.prj1.controller;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -120,6 +121,7 @@ public class AdminController {
 			@PathVariable(required = false, name = "username") String username, Model model) {
 		if (id == -1) {
 			List<News> news = newsService.loadNewsByAuthor(username);
+			Collections.reverse(news);
 			model.addAttribute("listNews", news);
 			User user = userService.findByUsername(username);
 			if (user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0) {
@@ -136,23 +138,25 @@ public class AdminController {
 			}
 			model.addAttribute("user", user);
 			return "user-view";
-		}
-		User user = userService.findById(id);
-		if (user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0) {
-			List<Follow> follows = followService.loadFollowByFollower(AppUtils.getLoginedUser(request.getSession()));
-			int canFollow = 1;
-			for (Follow follow : follows) {
-				if (follow.getUsername().compareTo(user.getUsername()) == 0) {
-					canFollow = 0;
-					break;
+		} else {
+			User user = userService.findById(id);
+			if (user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0) {
+				List<Follow> follows = followService.loadFollowByFollower(AppUtils.getLoginedUser(request.getSession()));
+				int canFollow = 1;
+				for (Follow follow : follows) {
+					if (follow.getUsername().compareTo(user.getUsername()) == 0) {
+						canFollow = 0;
+						break;
+					}
 				}
+				model.addAttribute("canFollow", canFollow);
 			}
-			model.addAttribute("canFollow", canFollow);
+			List<News> news = newsService.loadNewsByAuthor(user.getUsername());
+			Collections.reverse(news);
+			model.addAttribute("listNews", news);
+			model.addAttribute("user", user);
+			return "user-view";
 		}
-		List<News> news = newsService.loadNewsByAuthor(user.getUsername());
-		model.addAttribute("listNews", news);
-		model.addAttribute("user", user);
-		return "user-view";
 	}
 
 	@RequestMapping("/user-update/{id}/{username}")
