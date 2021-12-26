@@ -1,13 +1,14 @@
 package com.prj1.controller;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +18,7 @@ import com.prj1.entities.Comment;
 import com.prj1.entities.Item;
 import com.prj1.entities.Noti;
 import com.prj1.entities.Product;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
 import com.prj1.entities.Bill;
 import com.prj1.entities.Cart;
 import com.prj1.entities.User;
@@ -25,6 +27,7 @@ import com.prj1.service.MailService;
 import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NotiService;
 import com.prj1.service.UserService;
+import com.prj1.utils.AppUtils;
 import com.prj1.service.BillService;
 import com.prj1.service.CartService;
 
@@ -51,23 +54,25 @@ public class BillController {
 	  private NotiService notiService;
 	 
 	 @RequestMapping("/pay")
-	  public String doPay(Model model) {
-		  Cart cart = cartService.loadCartByUsername(MyUserDetailsService.username);
-		  User user = userService.findByUsername(MyUserDetailsService.username);
+	  public String doPay(Model model, HttpServletRequest request) {
+		  Cart cart = cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession()));
+		  User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
 		  Date date = new Date();
 	    if(billService.pay(cart, user)) {
-		    notiService.save(new Noti(MyUserDetailsService.username, "Pay successfully", 0, "/prj1.com/bill-list", date.toString()));
+		    notiService.save(new Noti(AppUtils.getLoginedUser(request.getSession()), "Pay successfully", 0, "/prj1.com/bill-list", date.toString()));
 	    } else {
-	    	notiService.save(new Noti(MyUserDetailsService.username, "Pay Failed", 0, "/prj1.com/bill-list", date.toString()));
+	    	notiService.save(new Noti(AppUtils.getLoginedUser(request.getSession()), "Pay Failed", 0, "/prj1.com/bill-list", date.toString()));
 	    }
-	    model.addAttribute("listBill", billService.loadBillByUsername(MyUserDetailsService.username));
+	    model.addAttribute("listBill", billService.loadBillByUsername(AppUtils.getLoginedUser(request.getSession())));
 	    return "redirect:/bill-list";
 	  }
 	 
 	 @RequestMapping(value="/bill-list", method = RequestMethod.GET)
-	  public String listBill(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
+	  public String listBill(@RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model, HttpServletRequest request) {
 
-			model.addAttribute("listBill", billService.loadBillByUsername(MyUserDetailsService.username));
+		 	List<Bill> bills = billService.loadBillByUsername(AppUtils.getLoginedUser(request.getSession()));
+			 Collections.reverse(bills);
+			model.addAttribute("listBill", bills);
 		
 	    return "bill-list";
 	  }
@@ -82,18 +87,20 @@ public class BillController {
 	 
 	 @RequestMapping("/bill-list-management")
 	  public String billlistmanagement(Model model) {
-		 model.addAttribute("listBill", billService.findAll());
+		 List<Bill> bills = billService.findAll();
+		 Collections.reverse(bills);
+		 model.addAttribute("listBill", bills);
 		 return "bill-list-management";
 	   
 	  }
 	 
 	 @RequestMapping("/bill-view/{id}")
-	  public String viewbill(@PathVariable int id, Model model) {
+	  public String viewbill(@PathVariable int id, Model model, HttpServletRequest request) {
 	    Bill bill = billService.findById(id);
 		 List<Item> items = billService.loadProduct(bill);
 		 model.addAttribute("listItem", items);
 	    model.addAttribute("bill", bill);
-	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
+	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
 	    return "bill-view";
 	  }
 
@@ -105,7 +112,7 @@ public class BillController {
 	  
 //	  @RequestMapping("/updateBill/{id}")
 //	  public String doUpdatebill(@PathVariable("id") int id, @ModelAttribute("item") Item item, Model model) {
-//		  billService.update(billService.loadBillByUsername(MyUserDetailsService.username), id, item.getQuan());
+//		  billService.update(billService.loadBillByUsername(AppUtils.getLoginedUser(request.getSession())), id, item.getQuan());
 //		  model.addAttribute("listBill", billService.findAll());
 //		  return "redirect:/bill-view/-1";
 //	  }
@@ -118,9 +125,9 @@ public class BillController {
 	  }
 	  
 	  @RequestMapping("/billSoftDelete/{id}/{username}")
-	  public String doSoftDeletebill(@PathVariable int id, @PathVariable String username, Model model) {
+	  public String doSoftDeletebill(@PathVariable int id, @PathVariable String username, Model model, HttpServletRequest request) {
 //	    billService.softDelete(id, billname);
-	    billService.softDelete(id, MyUserDetailsService.username);
+	    billService.softDelete(id, AppUtils.getLoginedUser(request.getSession()));
 	    model.addAttribute("listBill", billService.findAll());
 	    return "redirect:/bill-list-management";
 	  }

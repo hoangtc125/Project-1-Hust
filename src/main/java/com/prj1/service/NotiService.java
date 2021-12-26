@@ -1,5 +1,6 @@
 package com.prj1.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,9 @@ public class NotiService {
 	  private NotiDAO notiDAO;
 
 	public List<Noti> findAll() {
-	    return notiDAO.findAll();
+		List<Noti> notis = notiDAO.findAll();
+		Collections.reverse(notis);
+	    return notis;
 	  }
 	  
 	  public List<Noti> findAllDeleted() {
@@ -39,7 +42,10 @@ public class NotiService {
 	  }
 	  
 	  public List<Noti> loadNotiByUsername(String username) { 
-		  return notiDAO.loadNotiByUsername(username);
+
+			List<Noti> notis = notiDAO.loadNotiByUsername(username);
+			Collections.reverse(notis);
+		  return notis;
 	  }
 	  
 	  public void softDelete(int id, String notiname){

@@ -3,6 +3,8 @@ package com.prj1.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,7 @@ import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NotiService;
 import com.prj1.service.ProductService;
 import com.prj1.service.UserService;
+import com.prj1.utils.AppUtils;
 
 @Controller
 public class ProductController {
@@ -73,12 +76,12 @@ public class ProductController {
 	  }
 	 
 	 @RequestMapping("/product-view/{id}")
-	  public String viewproduct(@PathVariable int id, Model model) {
+	  public String viewproduct(@PathVariable int id, Model model, HttpServletRequest request) {
 	    Product product = productService.findById(id);
 	    model.addAttribute("product", product);
 	    model.addAttribute("listComment", commentService.loadCommentsProduct(id));
 	    model.addAttribute("comment", new Comment());
-	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
+	    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
 				model.addAttribute("item", new Item());
 	    return "product-view";
 	  }
@@ -111,10 +114,10 @@ public class ProductController {
 	  }
 	  
 	  @RequestMapping("/saveCommentProduct/{idProduct}/{username}")
-	  public String doSavecomment(@ModelAttribute("comment") Comment comment, @PathVariable("idProduct") int idProduct, @PathVariable("username") String username, Model model) {
+	  public String doSavecomment(@ModelAttribute("comment") Comment comment, @PathVariable("idProduct") int idProduct, @PathVariable("username") String username, Model model, HttpServletRequest request) {
 	    comment.setIdProduct(idProduct);
 //	    comment.setSender(username);
-	    comment.setSender(MyUserDetailsService.username);
+	    comment.setSender(AppUtils.getLoginedUser(request.getSession()));
 	    commentService.save(comment);
 	    Product product = productService.findById(idProduct);
 	    model.addAttribute("product", product);
@@ -123,7 +126,7 @@ public class ProductController {
 	    List<String> comments = commentService.loadUserCommentByIdNews(idProduct);
 	    Date date = new Date();
 	    for (String comment2 : comments) {
-			if(comment2.compareTo(MyUserDetailsService.username) != 0) {
+			if(comment2.compareTo(AppUtils.getLoginedUser(request.getSession())) != 0) {
 				notiService.save(new Noti(comment2, "Have a new comment in which product you commented", 0, "/prj1.com/product-view/" + idProduct, date.toString()));
 			}
 		}
@@ -157,9 +160,9 @@ public class ProductController {
 	  }
 	  
 	  @RequestMapping("/productSoftDelete/{id}/{username}")
-	  public String doSoftDeleteproduct(@PathVariable int id, @PathVariable String username, Model model) {
+	  public String doSoftDeleteproduct(@PathVariable int id, @PathVariable String username, Model model, HttpServletRequest request) {
 //	    productService.softDelete(id, productname);
-	    productService.softDelete(id, MyUserDetailsService.username);
+	    productService.softDelete(id, AppUtils.getLoginedUser(request.getSession()));
 	    model.addAttribute("listProduct", productService.findAll());
 	    return "redirect:/product-list-management";
 	  }

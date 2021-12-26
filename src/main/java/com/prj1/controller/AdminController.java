@@ -3,6 +3,8 @@ package com.prj1.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ import com.prj1.service.MyUserDetailsService;
 import com.prj1.service.NewsService;
 import com.prj1.service.NotiService;
 import com.prj1.service.UserService;
+import com.prj1.utils.AppUtils;
 
 @Controller
 public class AdminController {
@@ -82,21 +85,21 @@ public class AdminController {
 
 	  
 	  @RequestMapping("/follow/{id}")
-	  public String follow(@PathVariable(required=true, name = "id") int id, Model model) {
+	  public String follow(@PathVariable(required=true, name = "id") int id, Model model, HttpServletRequest request) {
 		  User user = userService.findById(id);
-		  	followService.save(new Follow(user.getUsername(), MyUserDetailsService.username));
+		  	followService.save(new Follow(user.getUsername(), AppUtils.getLoginedUser(request.getSession())));
 		  	Date date = new Date();
-		  	notiService.save(new Noti(user.getUsername(), MyUserDetailsService.username + " followed you", 0, "/prj1.com/", date.toString()));
+		  	notiService.save(new Noti(user.getUsername(), AppUtils.getLoginedUser(request.getSession()) + " followed you", 0, "/prj1.com/", date.toString()));
 		  return "redirect:/user-view/" + id + "/" + user.getUsername();
 	  }
 	  
 	  @RequestMapping("/unFollow/{id}")
-	  public String unFollow(@PathVariable(required=false, name = "id") int id, Model model) {
+	  public String unFollow(@PathVariable(required=false, name = "id") int id, Model model, HttpServletRequest request) {
 		  User user = userService.findById(id);
-		  	Follow follow = followService.loadFollow(user.getUsername(), MyUserDetailsService.username);
+		  	Follow follow = followService.loadFollow(user.getUsername(), AppUtils.getLoginedUser(request.getSession()));
 		  	followService.delete(follow.getId());
 		  	Date date = new Date();
-		  	notiService.save(new Noti(user.getUsername(), MyUserDetailsService.username + " unfollowed you", 0, "/prj1.com/", date.toString()));
+		  	notiService.save(new Noti(user.getUsername(), AppUtils.getLoginedUser(request.getSession()) + " unfollowed you", 0, "/prj1.com/", date.toString()));
 		  return "redirect:/user-view/" + id + "/" + user.getUsername();
 	  }
 	  
@@ -106,13 +109,13 @@ public class AdminController {
 	    return "user-save";
 	  }
 	  @RequestMapping("/user-view/{id}/{username}")
-	  public String viewuser(@PathVariable(required=false, name = "id") int id, @PathVariable(required=false, name = "username") String username, Model model) {
+	  public String viewuser(HttpServletRequest request, @PathVariable(required=false, name = "id") int id, @PathVariable(required=false, name = "username") String username, Model model) {
 		  if(id == -1) {
 			  List<News> news = newsService.loadNewsByAuthor(username);
 			  model.addAttribute("listNews", news);
 			  User user = userService.findByUsername(username);
-			  if(user.getUsername().compareTo(MyUserDetailsService.username) != 0) {
-				  List<Follow> follows = followService.loadFollowByFollower(MyUserDetailsService.username);
+			  if(user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0) {
+				  List<Follow> follows = followService.loadFollowByFollower(AppUtils.getLoginedUser(request.getSession()));
 				  int canFollow = 1;
 				  for (Follow follow : follows) {
 					if(follow.getUsername().compareTo(user.getUsername()) == 0) {
@@ -126,8 +129,8 @@ public class AdminController {
 			    return "user-view";
 		  }
 		  User user = userService.findById(id);
-		  if(user.getUsername().compareTo(MyUserDetailsService.username) != 0) {
-			  List<Follow> follows = followService.loadFollowByFollower(MyUserDetailsService.username);
+		  if(user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0) {
+			  List<Follow> follows = followService.loadFollowByFollower(AppUtils.getLoginedUser(request.getSession()));
 			  int canFollow = 1;
 			  for (Follow follow : follows) {
 				if(follow.getUsername().compareTo(user.getUsername()) == 0) {
@@ -144,14 +147,15 @@ public class AdminController {
 	  }
 	  
 	  @RequestMapping("/user-update/{id}/{username}")
-	  public String updateuser(@PathVariable("id") int id, @PathVariable("username") String username, Model model) {
+	  public String updateuser(@PathVariable("id") int id, @PathVariable("username") String username, Model model, HttpServletRequest request) {
 		if(id != -1) {			
 			User user = userService.findById(id);
-		    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(MyUserDetailsService.username));
+		    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
 			model.addAttribute("user", user);
 		} else if(id == -1) {
 //			User user = userService.findByUsername(username);
-			User user = userService.findByUsername(MyUserDetailsService.username);
+			User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
+		    model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
 			model.addAttribute("user", user);
 		}
 		return "user-update";
@@ -184,9 +188,9 @@ public class AdminController {
 	  }
 	  
 	  @RequestMapping("/userSoftDelete/{id}/{username}")
-	  public String doSoftDeleteuser(@PathVariable int id, @PathVariable String username, Model model) {
+	  public String doSoftDeleteuser(@PathVariable int id, @PathVariable String username, Model model, HttpServletRequest request) {
 //	    userService.softDelete(id, username);
-		  userService.softDelete(id, MyUserDetailsService.username);
+		  userService.softDelete(id, AppUtils.getLoginedUser(request.getSession()));
 	    model.addAttribute("listUser", userService.findAll());
 	    return "redirect:/user-list";
 	  }
