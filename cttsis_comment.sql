@@ -30,7 +30,7 @@ CREATE TABLE `comment` (
   `idProduct` int DEFAULT NULL,
   `date` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,'hoangtc','hay qua di',1,NULL,NULL),(2,'hoangtc','hay qua diiiiii',1,NULL,NULL),(3,'hoangtc','c&#361;ng &#273;&#432;&#7907;c',1,NULL,NULL),(4,'hoangtc','alo có ai comment ch&#432;a',5,NULL,NULL),(7,'hoangtc','hot choox naof',7,NULL,NULL),(8,'dolv','ukm\r\n',7,NULL,NULL),(10,'dolv','hoang dz',1,NULL,NULL),(11,'hoangtc','oce dolv',1,NULL,NULL),(12,'dungnv','qua dung luon 100 diem',1,NULL,NULL),(13,'hoangtc','ok k',1,NULL,NULL),(15,'hoangtc','chwa',5,NULL,NULL),(16,'dolv','ll\r\n',7,NULL,NULL),(17,'hoangtc','hay qua',19,NULL,NULL),(24,'hoangtc','alo al\r\n',15,NULL,NULL),(26,'hoangtc','y nghia qua',18,NULL,NULL),(28,'hoangtc','alo alo',NULL,1,NULL),(31,'hoangtc','mua di',24,NULL,NULL),(32,'hoangtc','hay qua',25,NULL,NULL),(34,'hoangtc','alo',NULL,1,'Fri Dec 10 20:11:41 HOVT 2021'),(39,'hoangtc','uh',20,NULL,'Sat Dec 11 15:25:05 HOVT 2021'),(41,'hoangtc','alooo',20,NULL,'Sat Dec 11 20:03:49 HOVT 2021'),(42,'hoangtc','dat qua',NULL,4,'Sat Dec 11 20:19:04 HOVT 2021'),(43,'dolv','hay that',20,NULL,'Sun Dec 12 22:27:23 HOVT 2021'),(46,'hoangtc','chao cac ban',20,NULL,'Mon Dec 13 20:31:06 HOVT 2021'),(47,'dungnv','hello',20,NULL,'Mon Dec 13 20:38:58 HOVT 2021'),(48,'hoangtc','lo',20,NULL,'Mon Dec 13 20:55:48 HOVT 2021');
+INSERT INTO `comment` VALUES (1,'hoangtc','hay qua di',1,NULL,NULL),(2,'hoangtc','hay qua diiiiii',1,NULL,NULL),(3,'hoangtc','c&#361;ng &#273;&#432;&#7907;c',1,NULL,NULL),(4,'hoangtc','alo có ai comment ch&#432;a',5,NULL,NULL),(7,'hoangtc','hot choox naof',7,NULL,NULL),(8,'dolv','ukm\r\n',7,NULL,NULL),(10,'dolv','hoang dz',1,NULL,NULL),(11,'hoangtc','oce dolv',1,NULL,NULL),(12,'dungnv','qua dung luon 100 diem',1,NULL,NULL),(13,'hoangtc','ok k',1,NULL,NULL),(15,'hoangtc','chwa',5,NULL,NULL),(16,'dolv','ll\r\n',7,NULL,NULL),(17,'hoangtc','hay qua',19,NULL,NULL),(26,'hoangtc','y nghia qua',18,NULL,NULL),(31,'hoangtc','mua di',24,NULL,NULL),(32,'hoangtc','hay qua',25,NULL,NULL),(34,'hoangtc','alo',NULL,1,'Fri Dec 10 20:11:41 HOVT 2021'),(42,'hoangtc','dat qua',NULL,4,'Sat Dec 11 20:19:04 HOVT 2021'),(46,'hoangtc','chao cac ban',20,NULL,'Mon Dec 13 20:31:06 HOVT 2021'),(47,'dungnv','hello',20,NULL,'Mon Dec 13 20:38:58 HOVT 2021'),(49,'hoangtc','xin chao\r\n',NULL,2,'Thu Dec 16 08:46:31 HOVT 2021'),(51,'hoangtc','cac ban mua hang di',NULL,2,'Thu Dec 16 08:46:50 HOVT 2021'),(52,'hoangtc','alooooooooooooooooooooooooo',20,NULL,'Thu Dec 16 08:51:09 HOVT 2021'),(53,'dolv','alo',39,NULL,'Thu Dec 16 14:02:51 HOVT 2021'),(54,'hoangtc','alo al',40,NULL,'Thu Dec 23 22:20:26 HOVT 2021'),(55,'hoangtc','cos ao k',40,NULL,'Thu Dec 23 22:20:33 HOVT 2021'),(56,'hoangtc','allloo\r\n',NULL,1,'Thu Dec 23 22:33:28 HOVT 2021'),(57,'hoangtc','hay',NULL,1,'Thu Dec 23 22:33:37 HOVT 2021'),(60,'hoangtc','alo',NULL,10,'Thu Dec 23 22:41:55 HOVT 2021'),(63,'hoangtc','hay day',20,NULL,'Fri Dec 24 10:52:24 HOVT 2021'),(64,'hoangtc','mua di',NULL,1,'Fri Dec 24 10:53:13 HOVT 2021'),(67,'hoangtc','ok k',15,NULL,'Fri Dec 24 18:31:55 HOVT 2021'),(68,'hoangtc','các b&#7841;n &#417;i',15,NULL,'Sun Dec 26 08:15:42 HOVT 2021'),(69,'hoangtc','&#273;úng th&#7853;t r&#7845;t hay',19,NULL,'Sun Dec 26 08:22:33 HOVT 2021'),(70,'hoangtc','Các b&#7841;n bình lu&#7853;n &#273;i nào',21,NULL,'Sun Dec 26 08:22:59 HOVT 2021');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-15  9:16:33
+-- Dump completed on 2021-12-26 10:06:39

@@ -31,7 +31,7 @@ CREATE TABLE `users_role` (
   KEY `dfdf_idx` (`role`),
   CONSTRAINT `role` FOREIGN KEY (`role`) REFERENCES `role` (`id`),
   CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `users_role` (
 
 LOCK TABLES `users_role` WRITE;
 /*!40000 ALTER TABLE `users_role` DISABLE KEYS */;
-INSERT INTO `users_role` VALUES (1,1,1),(2,2,2),(3,3,2);
+INSERT INTO `users_role` VALUES (1,1,1),(2,2,2),(3,3,2),(30,41,2);
 /*!40000 ALTER TABLE `users_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-15  9:16:34
+-- Dump completed on 2021-12-26 10:06:39

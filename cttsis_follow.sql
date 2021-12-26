@@ -27,7 +27,7 @@ CREATE TABLE `follow` (
   `username` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `follower` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `follow` (
 
 LOCK TABLES `follow` WRITE;
 /*!40000 ALTER TABLE `follow` DISABLE KEYS */;
-INSERT INTO `follow` VALUES (3,'dolv','hoangtc'),(4,'hoangtc','dolv'),(5,'dungnv','hoangtc'),(6,'hoangtc','dungnv');
+INSERT INTO `follow` VALUES (6,'hoangtc','dungnv'),(18,'dungnv','dolv'),(21,'dolv','hoangtc'),(22,'hoangtc','dolv'),(23,'dungnv','hoangtc');
 /*!40000 ALTER TABLE `follow` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-15  9:16:32
+-- Dump completed on 2021-12-26 10:06:39

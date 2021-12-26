@@ -30,7 +30,7 @@ CREATE TABLE `product` (
   `unSold` varchar(999) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isDeleted` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'binh nuoc ','10000','124','53',0),(2,'moc khoa','10000','138','23',0),(4,'ao phong','60000','55','45',0),(6,'but','4000','999','23',0),(7,'dollar','23000','4579','999995421',0),(9,'giay da','1000000','22','78',0);
+INSERT INTO `product` VALUES (1,'Bình n&#432;&#7899;c b&#7841;c','10000','158','190',0),(2,'Móc khóa vàng','10000','159','182',0),(4,'Áo phông Hust','60000','63','37',0),(6,'Bút chì xám','40000','1102','91',0),(7,'Dollar $USD','23000','4684','999995316',0),(9,'Giày da &#273;en','1000000','57','43',0);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-15  9:16:33
+-- Dump completed on 2021-12-26 10:06:39
