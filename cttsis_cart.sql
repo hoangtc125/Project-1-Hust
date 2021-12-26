@@ -28,7 +28,7 @@ CREATE TABLE `cart` (
   `list` varchar(999) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `sum` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (1,'hoangtc','2 1','10000'),(2,'dolv','7 1 6 1','63000'),(3,'dungnv','','0'),(14,'trangnl','','0');
+INSERT INTO `cart` VALUES (1,'hoangtc','','0'),(2,'dolv','7 1 6 1','63000'),(3,'dungnv','','0'),(15,'trangnl','','0');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-26 10:06:38
+-- Dump completed on 2021-12-26 16:06:31
