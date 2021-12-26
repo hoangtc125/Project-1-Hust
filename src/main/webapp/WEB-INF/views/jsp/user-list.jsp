@@ -9,9 +9,11 @@
 <c:url value="0" var="count" />
 <style>
 	body{
-	margin-top: 150px;}
+	margin-top: 50px;}
 </style>
-<div>
+<div id = "news-post" class = "container">
+<div class = "col-11" style = "margin-left: 65px;">
+<div style = "margin-top: 100px;">
 <h1 class="product-title mb-4">List user</h1>
 <br>
 <div class = "add-garbage_user">
@@ -90,5 +92,9 @@
 				</c:forEach>
 			</c:if>
 		</table>
+		<br>
+		<br>
 	</div>
+</div>
+</div>
 </div>

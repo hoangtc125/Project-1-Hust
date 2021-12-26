@@ -9,7 +9,8 @@
           <li><a href="/prj1.com/news-list" class="nav-link px-2 text-white">HOME</a></li>
           <li><a href="/prj1.com/product-list" class="nav-link px-2">SHOP</a></li>
           <li><a href="https://github.com/hoangtc125/Project-1-Hust" class="nav-link px-2">GITHUB</a></li>
-          <li><a href="https://drive.google.com/drive/folders/1kAIsVMfNHi0V81b8w80BbJYqUzV3bW_9?usp=sharing" class="nav-link px-2">Link Drive</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1kAIsVMfNHi0V81b8w80BbJYqUzV3bW_9?usp=sharing" class="nav-link px-2">DRIVE</a></li>
+        	<li><a href="/prj1.com/news-save" class="nav-link px-2">Add Your News</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" action="<c:url value="/user-list" />" method="get">

@@ -6,11 +6,11 @@ margin-top: 50px;
 }
 </style>
 
-<div class = "col-11" id="news-post">
+<div class = "col-11 container" id="news-post">
 <br>
 <br>
 <br>
-<div class = "col-10" style="margin-left: 80px;">
+<div class = "col-10" style="margin-left: 80px; margin-bottom: 80px;">
 	<div>
 		<div class="content-item container">
 		    <div class="container">   

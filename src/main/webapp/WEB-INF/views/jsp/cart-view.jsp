@@ -7,7 +7,7 @@
 <c:url value="/updateCart" var="updateCart" />
 <c:url value="/pay" var="urlPay" />
 <c:url value="0" var="count" />
-<div id = "news-post">
+<div id = "news-post" class="container">
 <div style = "margin-left: 65px;" class = "col-11">
 <section class="pt-5 pb-5">
       <br>
@@ -25,9 +25,11 @@
                 <table id="shoppingCart" class="table">
                     <thead>
                         <tr>
-                            <th style="width:50%"></th>
+                            <th style="width:40%"></th>
                             <th style="width:10%">Id</th>
                             <th style="width:10%">Quantity</th>
+                            <th style="width:10%">View</th>
+                            <th style="width:10%">Edit</th>
                             <th style="width:20%">Price</th>
                         </tr>
                     </thead>
@@ -52,8 +54,10 @@
                             <td data-th="Id"><br>${count = count + 1}</td>
                             <td data-th="Quantity">
                             <br>
-                                <input type="number" class="form-control form-control-lg text-center" value="${item.getQuan()}">
-                            </td>   
+                                ${item.getQuan()}
+                            </td>
+                            <td data-th="View"><br><a href="${urlView}/${item.getProduct().getId()}"><i class="fas fa-eye"></i></a></td>
+                            <td data-th="Edit"><br><a href="${urlUpdate}/${item.getProduct().getId()}"><i class="fas fa-edit"></i></a>
                             <td data-th="Price" class = 'price_product'><br>${item.getProduct().getPrice()} VND</td>
                      </tr>
                     <br>

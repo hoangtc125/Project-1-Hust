@@ -1,14 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<style>
-	body{
-	margin-top: 150px;
-	}
-</style>
-<div style="display: inline">
-	<h1 class = "add-News">Create news</h1>
-	<br>
-	<br>
+
+<div class = "container invoice">
+	<h1 class="product-title mb-4" style = "margin-top: 120px">Create news</h1>
 	<br>
 	<br>
 	<div class = "row">
@@ -22,14 +16,14 @@
 				<br>
 			<c:url value="/saveNews" var="saveNews" />
 			<form:form action="${saveNews}" method="POST" modelAttribute="news" id="formsave">
-		      Title <form:input path="title" class="form-control" />
+		      <b>Title</b> <form:input path="title" class="form-control" />
 				<br />
 				<br />
 				
-		      Content <form:input path="content" class="form-control" rows="5"/>
+		      <b>Content</b> <form:input path="content" class="form-control" rows="5"/>
 				<br />
 				<br />
-				<button class="btn btn-primary">Submit</button>
+				<button class="btn btn-primary">Done</button>
 			</form:form>
 		</div>
 		<div class = "col-md-1"></div>

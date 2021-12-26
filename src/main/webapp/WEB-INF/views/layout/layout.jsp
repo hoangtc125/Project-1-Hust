@@ -16,6 +16,10 @@
     <link href='https://fonts.googleapis.com/css?family=Reem Kufi' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	
 	
 	<style><%@include file="/WEB-INF/views/Frontend/CSS/style.css"%></style>
@@ -24,7 +28,7 @@
 <body>
 	<tiles:insertAttribute name="header" />
 	<br />
-	<div class="container d-flex flex-column bd-highlight mb-3">
+	<div class="d-flex flex-column bd-highlight mb-3">
 		<tiles:insertAttribute name="body" />
 	</div>
 	<br />

@@ -7,7 +7,7 @@
 body{
 margin-top: 50px;}
 </style>
-<div id = "news-post">
+<div id = "news-post" class = "container">
 <div style = "margin-left: 65px;" class = "col-11">
 <br>
 <br>
@@ -16,7 +16,7 @@ margin-top: 50px;}
 <h1 class="product-title mb-4">List product</h1>
 <br>
 <br>
-<div>
+<div style = "margin-bottom: 70px;">
 	<div class="row row-cols-1 row-cols-md-3 g-4">
 		<c:if test="${empty listProduct}">
 			<span>No Product Today</span>
