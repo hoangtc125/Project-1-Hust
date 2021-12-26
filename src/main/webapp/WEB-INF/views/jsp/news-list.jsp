@@ -91,7 +91,7 @@ body{
 					<div class="card h-100">
 					<div class = "new-img">
 						<a href="${urlView}/${news.id}">
-							<img src="https://media.thaythichtructhaiminh.com/files/thanh_mai/2021/06/17/2-2214.jpg" height="300px" class="card-img-top" alt="...">
+							<img src="${news.image}" height="300px" class="card-img-top" alt="...">
 						</a>
 					</div>
 						<div class="card-body">

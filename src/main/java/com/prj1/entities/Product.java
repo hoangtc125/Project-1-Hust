@@ -35,6 +35,9 @@ public class Product implements java.io.Serializable {
 
 	@Column(name = "isDeleted")
 	private Integer isDeleted = 0;
+
+	@Column(name = "image", length = 999)
+	private String image = "https://nordiccoder.com/app/uploads/2020/01/6ab1641f-fb02-4f84-b09d-b8f001063b66.png";
 	
 	public Product() {
 	}
@@ -95,6 +98,14 @@ public class Product implements java.io.Serializable {
 
 	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	

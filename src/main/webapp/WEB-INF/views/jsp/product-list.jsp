@@ -31,7 +31,7 @@ margin-top: 50px;}
 						<div class = "new-img">
 							<a href="${urlView}/${product.id}">
 							<img
-								src="https://cf.shopee.vn/file/e3d81d87a8f20e5d638f3d653cc1ba21"
+								src="${product.image}"
 								class="card-img-top" alt="..." style="height: 400px; border-radius: 5px;">
 							</a>
 						</div>
@@ -41,7 +41,7 @@ margin-top: 50px;}
 						</div>
 						<div class="d-flex sold-avai-list">
 	                        <p><b class="sold-list">${product.sold}</b> sold</p>
-	                        <p><b class = "availible-list">${product.unSold}</b> availible</p>
+	                        <p><b class = "availible-list">${product.unSold}</b> available</p>
                     	</div>
                     	<div style = "text-align: center";>
                     	<h4 class = 'price_product hnn-list'>${product.price} VND</h4>

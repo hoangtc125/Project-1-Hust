@@ -53,6 +53,12 @@
                             </div>
                         </div>
                         <div class="form-group row mb-3">
+                            <label for="Class" class="col-sm-2 col-form-label">Image Link</label>
+                            <div class="col-sm-10">
+                                <form:input path="image" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
                             <label for="Enable" class="col-sm-2 col-form-label">Enable</label>
                             <div class="col-sm-10">
                                 <form:input path="enabled" class="form-control" />

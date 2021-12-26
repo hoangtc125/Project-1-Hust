@@ -27,6 +27,12 @@
                                 <form:input path="price" class="form-control" />
                             </div>
                         </div>
+                        <div class="form-group row mb-3">
+                            <label for="image" class="col-sm-2 col-form-label">Link Image</label>
+                            <div class="col-sm-10">
+                                <form:input path="image" class="form-control" />
+                            </div>
+                        </div>
                           <div class = "see-listuser">
                         	<a href = "<c:url value="/product-list-management" />">See the list product management</a>
                         </div>

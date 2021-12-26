@@ -35,6 +35,9 @@ public class News implements java.io.Serializable {
 
 	@Column(name = "date", length = 45)
 	private String date = "";
+
+	@Column(name = "image", length = 999)
+	private String image = "https://media.istockphoto.com/vectors/male-hand-holding-megaphone-with-breaking-news-speech-bubble-banner-vector-id1197831888?k=20&m=1197831888&s=612x612&w=0&h=HFWpcI1kIwr_GwwRSqOHlpf9r-BAartlbFtshuCY4Zw=";
 	
 	public News() {
 	}
@@ -94,5 +97,15 @@ public class News implements java.io.Serializable {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	
 
 }

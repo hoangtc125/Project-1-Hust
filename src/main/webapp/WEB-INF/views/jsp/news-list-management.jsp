@@ -46,11 +46,11 @@
 		                    <tr class="fw-normal">
 		                        <th>${count = count + 1}</th>
 		                        <th>
-		                          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" class="shadow-1-strong rounded-circle" alt="avatar 1"
-		                            style="width: 55px; height: auto;">
 		                          <span class="ms-2"><b>${news.author}</b></span>
 		                        </th>
 		                        <td class="align-middle">
+		                          <img src="${news.image}" class="shadow-1-strong rounded-circle" alt="avatar 1"
+		                            style="width: 55px; height: auto;">
 		                          <span >${news.title}</span >
 		                        </td>
 		                        <td class="align-middle">

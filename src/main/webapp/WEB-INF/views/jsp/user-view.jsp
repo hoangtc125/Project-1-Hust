@@ -29,7 +29,7 @@ body {
 				<div class="card">
 					<div class="card-body" style="height: 300px;">
 						<div class="d-flex flex-column align-items-center text-center">
-							<img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+							<img src="${user.image}"
 								alt="Admin" class="rounded-circle" width="150">
 							<div class="mt-3">
 								<h4>${user.name}</h4>
@@ -138,7 +138,7 @@ body {
 							<div class="card h-100">
 								<div class="new-img">
 									<a href="${urlView}/${news.id}"> <img
-										src="https://thaythichtructhaiminh.com/templates/themes/images/XMLID.svg"
+										src="${news.image}"
 										width="100px" class="card-img-top" alt="...">
 									</a>
 								</div>

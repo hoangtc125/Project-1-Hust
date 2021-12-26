@@ -57,6 +57,9 @@ public class User implements java.io.Serializable {
 	
 	@Column(name = "password", length = 255)
 	private String password = "";
+
+	@Column(name = "image", length = 999)
+	private String image = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png";
 	
 	@Column(name = "enabled", nullable = false, columnDefinition = "TINYINT(1)")
 	private Boolean enabled = false;
@@ -190,4 +193,11 @@ public class User implements java.io.Serializable {
 		return this.username + " " + this.password;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 }

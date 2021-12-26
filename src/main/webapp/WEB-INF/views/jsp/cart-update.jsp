@@ -15,7 +15,7 @@
                 </div>
                 <div  class = "col-3"></div>
                 <div class="col-3">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF-ppLIwnOlJivAGN2CgRKgN763vUg8Dv_vQ&usqp=CAU" width="300px;" id="productImg" height="350px">
+                    <img src="${product.image}" width="300px;" id="productImg" height="350px">
                 </div>
                 <div class="col-3" style = "margin-left: 20px;">
                     <h4 style="color: rgb(78, 77, 77); font-family: Helvetica;"><strong>${product.getName()}</strong></h4>

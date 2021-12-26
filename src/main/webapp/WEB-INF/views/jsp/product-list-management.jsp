@@ -41,7 +41,7 @@
 		                    <tr class="fw-normal">
 		                        <th>${count = count + 1}</th>
 		                        <th>
-		                          <img src="https://cf.shopee.vn/file/e3d81d87a8f20e5d638f3d653cc1ba21"
+		                          <img src="${product.image}"
 								class="card-img-top" alt="..."
 		                            style="width: 55px; height: auto;">
 		                          <span class="ms-2"><b>${product.name}</b></span>

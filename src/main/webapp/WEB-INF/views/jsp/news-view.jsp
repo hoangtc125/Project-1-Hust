@@ -52,7 +52,7 @@ margin-top: 50px;
 	<h2 style = "font-family: roboto"><b>${news.title}</b></h2>
 	<br>
 	<img
-		src="https://media.thaythichtructhaiminh.com/files/thu_hong/2021/10/15/chu-tang-chua-ba-vang-ngay-dem-phong-ho-tam-minh-khong-thoi-chi-1500.jpg"
+		src="${news.image}"
 		class="card-img-top" alt="...">
 		<br>
 		<div style = "margin-top: 20px;">
