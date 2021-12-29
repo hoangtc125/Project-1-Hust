@@ -16,11 +16,11 @@ Báo cáo của sản phẩm **Project 1 Hust** [tại đây](https://docs.googl
 
 ## Ngôn ngữ
 Phần mềm được lập trình bằng ngôn ngữ ***Java***, xây dựng giao diện với thư viện ***Spring Framework***, ngôn ngữ ***XML***, ***CSS***  và ***JSP***. 
-
 Chức năng chính của phần mềm được phát triển bằng ***Eclipse*** và giao diện được xây dựng bằng ***Bootstrap***.
 
 ## Cài đặt
 Để cài đặt và sử dụng phần mềm **Project 1 Hust**, bạn hãy thực hiện các bước sau:
+### Cài đặt MySQL server với link tải database [tại đây](https://github.com/hoangtc125/Project-1-Hust/tree/database)
 ### Cài đặt IDE Eclipse for Java and Developers
 Bạn có thể tải ***Eclipse*** [tại đây](https://www.eclipse.org/callisto/java.php).
 Nếu có khó khăn trong quá trình cài đặt ***Eclipse***, bạn có thể xem và làm theo bài hướng dẫn [tại đây](https://youtu.be/Oas1YOMpSv0).
